@@ -104,7 +104,7 @@ p {
 .icon-big {
   font-size: 350%;
   display: block;
-  color: #3498db;
+  color: #7037c7;
   margin-bottom: 10px;
 }
 
@@ -112,13 +112,14 @@ p {
   display: inline-block;
   width: 30px;
   text-align: center;
-  color: #3498db;
+  color: #7037c7;
   font-size: 120%;
   line-height: 120%;
   vertical-align: middle;
   margin-top: -2px;
   margin-right: 10px;
 }
+
 
 /* ------ LINKS ------ */
 
@@ -150,39 +151,34 @@ input[type=submit] {
   border-radius: 200px;
   -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
-}
-
-.btn-full:link,
-.btn-full:visited,
-input[type=submit] {
-  background-color: #3498db;
+  background-color: #7037c7;
   color: #fff;
-  border: 1px solid #3498db;
+  border: none;
   margin-right: 15px;
-}
-
-.btn-ghost:link,
-.btn-ghost:visited {
-  border: 1px solid #3498db;
-  color: #3498db;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: #1f74ac;
+  background-color: #6130ac;
 }
 
-.btn-full:hover,
-.btn-full:active,
-input[type=submit]:hover,
-input[type=submit]:active {
-  background-color: #1f74ac;
+/* ---------------
+      Header
+-----------------*/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,0.98);
+  box-shadow: 0 2px 2px #dddddd;
+  height: 50px;
 }
 
-.btn-ghost:hover,
-.btn-ghost:active {
-  border: 1px solid #1f74ac;
-  color: #fff;
+.header .logo {
+  margin-top: 12px;
+  margin-left: 30px;
 }
 
 #header {
@@ -217,10 +213,10 @@ input[type=submit]:active {
 --------------------*/
 
 .register-progress-bar {
-  margin: 0;
+  position: relative;
+  margin-top: 120px;
   padding: 0;
   margin-bottom: 1em;
-  text-transform: uppercase;
   display: flex;
 }
 
@@ -233,7 +229,7 @@ input[type=submit]:active {
   margin: 0;
   position: relative;
   text-overflow: ellipsis;
-  color: #555;
+  color: #aaa;
   display: block;
 }
 
@@ -241,46 +237,110 @@ input[type=submit]:active {
   border-radius: 1000px;
   width: 12px;
   height: 12px;
-  background-color: #555;
+  background-color: #aaa;
   display: block;
   margin: 0 auto 0.5em auto;
 }
 
-.register-progress-bar li .bubble:before,
-.register-progress-bar li .bubble:after {
+.register-progress-bar li .bubble:before {
   display: block;
   position: absolute;
-  top: 4px;
+  top: 5px;
   width: 100%;
   height: 2px;
   content: '';
-  background-color: #555;
+  background-color: #aaa;
+  margin-left: -50%;
 }
 
 .register-progress-bar li .bubble:before {
   left: 0;
 }
 
-.register-progress-bar li .bubble:after {
-  right: 0;
-}
 
-.register-progress-bar li:first-child .bubble:before,
-.register-progress-bar li:first-child .bubble:after {
+.register-progress-bar li:first-child .bubble:before {
   width: 50%;
   margin-left: 50%;
 }
 
-.register-progress-bar li:last-child .bubble:before,
 .register-progress-bar li:last-child .bubble:after {
   width: 50%;
   margin-right: 50%;
 }
 
-.register-progress-bar li .completed {
-
+.register-progress-bar li.completed {
+  color: #7037c7;
 }
 
-.register-progress-bar > l1 .completed > .bubble {
-  background-color: #7037c7
+.register-progress-bar li.completed .bubble {
+  background-color: #7037c7;
+  color: #7037c7;
+}
+
+.register-progress-bar li.completed .bubble:before {
+  background-color: #7037c7;
+}
+
+.register-form {
+  margin-top: 80px;
+}
+
+.register-form .field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.register-form .field .input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #555;
+  box-sizing: border-box;
+  font-size: 18px;
+  height: 50px;
+  width: 80%;
+}
+
+.register-form .field .input:focus {
+  outline: none;
+}
+
+.register-form .field input::-webkit-input-placeholder {
+  color: #555;
+}
+
+.register-form .field input:focus::-webkit-input-placeholder {
+  color: #7037c7;
+}
+
+.register-form .field .input:focus + .underline {
+  transform: scale(1);
+}
+
+.register-form .field .underline {
+  background-color: #7037c7;
+  display: block;
+  height: 2px;
+  position: absolute;
+  -webkit-transform: scale(0,1);
+  transform: scale(0, 1);
+  transition: all 0.3s ease;
+  width: 33%;
+  margin-top: -2px;
+  margin-left: 3.5%;
+}
+
+.register-form .field .fieldname {
+  margin-top: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10%;
+}
+
+.register-form .submit-button {
+  margin-top: 80px;
 }
