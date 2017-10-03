@@ -212,6 +212,10 @@ input[type=submit] {
        Register
 --------------------*/
 
+.form-title {
+  margin-top: 140px;
+}
+
 .register-progress-bar {
   position: relative;
   margin-top: 120px;
@@ -343,4 +347,17 @@ input[type=submit] {
 
 .register-form .submit-button {
   margin-top: 80px;
+}
+
+/* ------------------
+       Admin Panel
+--------------------*/
+
+.admin-panel {
+  margin-top: 100px;
+}
+
+.admin-panel .title {
+  margin-top: 30px; 
+  text-align: left;
 }

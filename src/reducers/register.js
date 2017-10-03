@@ -1,7 +1,4 @@
-export default (state = {
-  usertype: "volunteer",
-  step: 1
-}, action) => {
+export default (state = {} ,action) => {
   switch(action.type) {
     case 'REGISTER_PROGRESS':
       return {
