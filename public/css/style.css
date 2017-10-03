@@ -1,0 +1,213 @@
+/* color #7037c7 */
+
+/* ------------------------------------------------------- */
+/* BASIC SETUP */
+/* ------------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #ffffff;
+  color: #555;
+  font-family: 'Open Sans', 'Arial',sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.clearfix {
+  zoom: 1
+}
+.clearfix:after {
+  content: '.';
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* ------------------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ------------------------------------------------------- */
+
+.row {
+  max-width: 1140px;
+  width: 80%;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+section {
+  padding: 80px 0px ;
+}
+
+.box {
+  padding: 1%;
+}
+
+/* ------ HEADINGS ------ */
+
+h1,
+h2,
+h3 {
+  color: #7037c7;
+  font-weight: 300;
+}
+
+h1 {
+  margin-top: 0px;
+  color: #fff;
+  font-size: 240%;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 80%;
+  color: #aaa;
+}
+
+/* ------ PARAGRAPHS ------ */
+
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  margin-left: 15%;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/* ------ ICONS ------ */
+
+.icon-big {
+  font-size: 350%;
+  display: block;
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+.icon-small {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  color: #3498db;
+  font-size: 120%;
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-right: 10px;
+}
+
+/* ------ LINKS ------ */
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #3498db;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #3498db;
+  -webkit-transition: border-bottom 0.2s, color 0.2s;
+  transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+  color: #555;
+  border-bottom: 1px solid transparent;
+}
+
+/* ------ BUTTONS ------ */
+
+.btn:link,
+.btn:visited,
+input[type=submit] {
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+  -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+  background-color: #3498db;
+  color: #fff;
+  border: 1px solid #3498db;
+  margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #1f74ac;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+  background-color: #1f74ac;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #1f74ac;
+  color: #fff;
+}
+
+#header {
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../img/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#header #intro {
+  display: inline-block;
+  width: 65%;
+  height: 100%;
+}
+
+#header #login {
+  display: inline-block;
+  float: right;
+  width: 35%;
+  height: 100%;
+  background: white;
+}
+
+#login .row:first-child {
+  margin-top: 25%;
+}
