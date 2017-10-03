@@ -211,3 +211,76 @@ input[type=submit]:active {
 #login .row:first-child {
   margin-top: 25%;
 }
+
+/* ------------------
+       Register
+--------------------*/
+
+.register-progress-bar {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  display: flex;
+}
+
+.register-progress-bar li {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  text-overflow: ellipsis;
+  color: #555;
+  display: block;
+}
+
+.register-progress-bar li .bubble {
+  border-radius: 1000px;
+  width: 12px;
+  height: 12px;
+  background-color: #555;
+  display: block;
+  margin: 0 auto 0.5em auto;
+}
+
+.register-progress-bar li .bubble:before,
+.register-progress-bar li .bubble:after {
+  display: block;
+  position: absolute;
+  top: 4px;
+  width: 100%;
+  height: 2px;
+  content: '';
+  background-color: #555;
+}
+
+.register-progress-bar li .bubble:before {
+  left: 0;
+}
+
+.register-progress-bar li .bubble:after {
+  right: 0;
+}
+
+.register-progress-bar li:first-child .bubble:before,
+.register-progress-bar li:first-child .bubble:after {
+  width: 50%;
+  margin-left: 50%;
+}
+
+.register-progress-bar li:last-child .bubble:before,
+.register-progress-bar li:last-child .bubble:after {
+  width: 50%;
+  margin-right: 50%;
+}
+
+.register-progress-bar li .completed {
+
+}
+
+.register-progress-bar > l1 .completed > .bubble {
+  background-color: #7037c7
+}
