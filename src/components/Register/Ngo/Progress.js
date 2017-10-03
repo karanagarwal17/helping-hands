@@ -4,23 +4,22 @@ class Progress extends React.Component {
   render() {
     return (
       <div className="row">
-        <h3>Enter Personal Details</h3>
         <ul className="register-progress-bar">
           <li className="completed">
             <span className="bubble"></span>
-            Step 1.
+            Enter Details
           </li>
-          <li className="completed">
+          <li className={(this.props.step > 1 ? 'completed' : '')}>
             <span className="bubble"></span>
-            Step 2.
+            Verify
           </li>
-          <li className="completed">
+          <li className={(this.props.step > 2 ? 'completed' : '')}>
             <span className="bubble"></span>
-            Step 3.
+            Something Here
           </li>
-          <li className="completed">
+          <li className={(this.props.step > 3 ? 'completed' : '')}>
             <span className="bubble"></span>
-            Step 4.
+            Here as well
           </li>
         </ul>
       </div>

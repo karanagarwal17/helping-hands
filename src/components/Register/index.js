@@ -1,25 +1,38 @@
 import React from 'react'
 import Volunteer from './Volunteer'
 import Ngo from './Ngo'
+import { connect } from 'react-redux'
+import { REGISTER_PROGRESS } from '../../constants/actionTypes'
 
+const mapStateToProps = state => ({
+  ...state,
+  usertype: state.register.usertype,
+  step: state.register.step
+})
 
+const mapDispatchToProps = dispatch => ({
+  onProgress: (payload) =>
+    dispatch({ type: REGISTER_PROGRESS, payload})
+})
 
 class Register extends React.Component {
   render(){
-    // if(this.register.type === 'volunteer'){
-    //   return (
-    //     <Volunteer />
-    //   )
-    // }
-    // else if (this.register.type === 'ngo'){
-    //   return (
-    //     <Ngo />
-    //   )
-    // }
+    if(this.props.usertype === 'volunteer'){
+      return (
+        <Volunteer />
+      )
+    }
+    else if (this.props.usertype === 'ngo'){
+      return (
+        <Ngo step={this.props.step}/>
+      )
+    }
     return (
-      <Ngo />
+      <div>
+        Error
+      </div>
     )
   }
 }
 
-export default Register
+export default connect(mapStateToProps,() => ({}))(Register)
