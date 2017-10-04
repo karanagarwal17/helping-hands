@@ -9,7 +9,7 @@ class Admin extends React.Component {
   componentWillMount(){
 
   }
-  
+
   render(){
     return (
       <div className="admin-panel">
