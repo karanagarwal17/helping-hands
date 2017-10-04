@@ -7,20 +7,24 @@ var bodyParser = require('body-parser');
 var mongoose=require("mongoose");
 var passport=require("passport");
 var localStrategy=require("passport-local").Strategy;
+require('dotenv').config();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+if(process.env.environment === 'development'){
+	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations');
+}
+else {
+	mongoose.connect(process.env.mongoUrl);
+}
 
-var config=require("./config");
-mongoose.connect(config.mongoUrl,{
-  useMongoClient:true
-});
-
-var db=mongoose.connection;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 db.once("open",function(){
-  console.log("server started successfully");
+  console.log("Server started successfully!!");
 });
+
 var app = express();
 
 
@@ -29,19 +33,17 @@ app.use(passport.initialize());
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+
 
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/api', routes);
+app.use('/api/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

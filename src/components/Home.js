@@ -2,8 +2,10 @@ import React from 'react'
 
 class Home extends React.Component {
 
-  toggle(){
-    document.getElementsByClassName('container').classList.toggle('log-in')
+  toggle() {
+    var element = document.getElementsByClassName('container')
+    console.log(element)
+    element[0].classList.toggle('log-in')
   }
 
   render() {
@@ -11,59 +13,38 @@ class Home extends React.Component {
       <div>
         <div id="home"></div>
         <div className="container">
-          <div className="box"></div>
-          <div className="container-forms">
-            <div className="container-info">
-              <div className="info-item">
-                <div className="table">
-                  <div className="table-cell">
-                    <p>
-                      Have an account?
-                    </p>
-                    <div className="btn">
-                      Log in
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="info-item">
-                <div className="table">
-                  <div className="table-cell">
-                    <p>
-                      Don't have an account?
-                    </p>
-                    <div className="btn">
-                      Sign up
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="info-item">
+            <h1>
+              Have an account?
+            </h1>
+            <p>
+              Log in to see what events are taking place and what your peers are up to.
+            </p>
+            <button className="btn" onClick={this.toggle}>
+              Log in
+            </button>
+          </div>
+          <div className="info-item">
+            <h1>
+              Don't Have an account?
+            </h1>
+            <p>
+              Sign up for the best NGO social network out there and discover your true self.
+            </p>
+            <button className="btn" onClick={this.toggle}>
+              Sign up
+            </button>
+          </div>
+          <div className="container-form">
+            <div className="form-item log-in">
+              <h2>
+                Log in
+              </h2>
             </div>
-            <div className="container-form">
-              <div className="form-item log-in">
-                <div className="table">
-                  <div className="table-cell">
-                    <input name="Username" placeholder="Username" type="text"/>
-                    <input name="Password" placeholder="Password" type="Password"/>
-                    <div className="btn">
-                      Log in
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="form-item sign-up">
-                <div className="table">
-                  <div className="table-cell">
-                    <input name="email" placeholder="Email" type="text"/>
-                    <input name="fullName" placeholder="Full Name" type="text"/>
-                    <input name="Username" placeholder="Username" type="text"/>
-                    <input name="Password" placeholder="Password" type="Password"/>
-                    <div className="btn">
-                      Sign up
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="form-item sign-up">
+              <h2>
+                Sign Up
+              </h2>
             </div>
           </div>
         </div>

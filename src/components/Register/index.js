@@ -1,5 +1,6 @@
 import React from 'react'
 import Volunteer from './Volunteer'
+import Header from '../Header'
 import Ngo from './Ngo'
 import { connect } from 'react-redux'
 import { REGISTER_PROGRESS } from '../../constants/actionTypes'
@@ -19,12 +20,18 @@ class Register extends React.Component {
   render(){
     if(this.props.usertype === 'volunteer'){
       return (
-        <Volunteer />
+        <div>
+          <Header />
+          <Volunteer />
+        </div>
       )
     }
     else if (this.props.usertype === 'ngo'){
       return (
-        <Ngo step={this.props.step}/>
+        <div>
+          <Header />
+          <Ngo step={this.props.step}/>
+        </div>
       )
     }
     return (

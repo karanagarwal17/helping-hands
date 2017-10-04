@@ -15,7 +15,7 @@ body {
   background-color: #ffffff;
   color: #555;
   font-family: 'Open Sans', 'Arial',sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 20px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -43,10 +43,6 @@ body {
   text-align: center;
 }
 
-section {
-  padding: 80px 0px ;
-}
-
 .box {
   padding: 1%;
 }
@@ -56,22 +52,20 @@ section {
 h1,
 h2,
 h3 {
-  color: #7037c7;
+  color: #fff;
   font-weight: 300;
 }
 
 h1 {
   margin-top: 0px;
-  color: #fff;
-  font-size: 240%;
+  font-size: 200%;
   letter-spacing: 1px;
   word-spacing: 4px;
 }
 
 h2 {
-  font-size: 180%;
+  font-size: 150%;
   word-spacing: 2px;
-  text-align: center;
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
@@ -104,6 +98,7 @@ p {
 .btn:link,
 .btn:visited,
 input[type=submit] {
+  cursor: pointer;
   display: inline-block;
   padding: 10px 30px;
   font-weight: 300;
@@ -143,25 +138,13 @@ input[type=submit] {
 }
 
 #home {
-  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../img/background.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(../img/background.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
   overflow: hidden;
-  filter: blur(4px);
-}
-
-.table {
-  display: table;
-  width: 100%;
-  height: 100%;
-}
-
-.table-cell {
-  display: table-cell;
-  vertical-align: middle;
-  transition: all 0.5s ease-in-out;
+  filter: blur(1px);
 }
 
 .container {
@@ -175,73 +158,48 @@ input[type=submit] {
   transition: all 0.5s ease-in-out;
   z-index: 10;
 }
-.container .box {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+
+.container .info-item {
+  text-align: left;
+  font-size: 16px;
+  width: 34%;
+  height: 80%;
+  margin: 5% 8% 5% 8%;
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }
-.container .container-forms {
-  position: relative;
+
+.container .info-item h1 {
+  margin-top: 90px;
 }
+
+.container .info-item p {
+  margin-top: 20px;
+  color: #fff;
+}
+.container .info-item .btn {
+  background-color: transparent;
+  border: 1px solid #fff;
+  margin-top: 30px;
+  width: 100px;
+}
+
 .container .btn {
   cursor: pointer;
   text-align: center;
-  margin: 0 auto;
-  width: 100px;
   color: #fff;
-  background-color: #ff73b3;
-  opacity: 1;
   transition: all 0.5s ease-in-out;
-}
-.container .btn:hover {
-  opacity: 0.7;
-}
-.container .btn, .container input {
+  border-radius: 3px;
   padding: 10px 15px;
 }
-.container input {
-  margin: 0 auto 15px;
-  display: block;
-  width: 220px;
-  transition: all 0.5s ease-in-out;
-}
-.container .container-forms .container-info {
-  text-align: left;
-  font-size: 0;
-}
-.container .container-forms .container-info .info-item {
-  text-align: center;
-  font-size: 16px;
-  width: 450px;
-  height: 480px;
-  display: inline-block;
-  vertical-align: top;
-  color: #fff;
-  opacity: 1;
-  transition: all 0.5s ease-in-out;
-}
-.container .container-forms .container-info .info-item p {
-  font-size: 20px;
-  margin: 20px;
-}
-.container .container-forms .container-info .info-item .btn {
-  background-color: transparent;
-  border: 1px solid #fff;
-}
-.container .container-forms .container-info .info-item .table-cell {
-  padding-right: 35px;
-}
-.container .container-forms .container-info .info-item:nth-child(2) .table-cell {
-  padding-left: 35px;
-  padding-right: 0;
-}
+
 .container .container-form {
   overflow: hidden;
   position: absolute;
-  left: 60px;
+  left: 40px;
   top: -40px;
   width: 450px;
   height: 530px;
@@ -250,27 +208,31 @@ input[type=submit] {
   transition: all 0.5s ease-in-out;
 }
 
-.container .container-form .btn {
-  position: relative;
-  box-shadow: 0 0 10px 1px #ff73b3;
-  margin-top: 30px;
-}
 .container .form-item {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  margin: 15% 10% 10% 10%;
   opacity: 1;
   transition: all 0.5s ease-in-out;
 }
+
+
+.container .form-item h2 {
+  font-weight: 400;
+  color: #7037c7;
+  text-transform: uppercase;
+}
+
 .container .form-item.sign-up {
   position: absolute;
   left: -100%;
   opacity: 0;
 }
 .container.log-in .container-form {
-  left: 390px;
+  left: 410px;
 }
 .container.log-in .container-form .form-item.sign-up {
   left: 0;
