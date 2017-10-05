@@ -6,7 +6,7 @@ var ngo=require("../models/ngo");
 
 router.use(bodyParser.json());
 router.route("/")
-.get(Verify.verifyOrdinaryUser,function(req,res,next){
+.get(Verify.verifyOrdinaryUser,Verify.verifyAdmin,function(req,res,next){
   ngo.find({approved:false},function(err,ngos){
     if(err){
       throw err;
@@ -25,7 +25,7 @@ router.route("/")
 });
 
 router.route("/:id")
-.put(function(req,res,next){
+.put(Verify.verifyOrdinaryUser, function(req,res,next){
   ngo.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true},function(err,dish){
     if(err){
       throw err;

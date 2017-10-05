@@ -1,9 +1,8 @@
 var jwt=require("jsonwebtoken");
 var User=require("../models/User");
-var config=require("../config");
 
 exports.getToken=function(user){
-  return jwt.sign(user,config.secretKey,{
+  return jwt.sign(user, process.env.secretKey,{
     expiresIn:3600
   });
 };
@@ -15,7 +14,7 @@ exports.verifyOrdinaryUser = function (req, res, next) {
     // decode token
     if (token) {
         // verifies secret and checks exp
-        jwt.verify(token, config.secretKey, function (err, decoded) {
+        jwt.verify(token, process.env.secretKey, function (err, decoded) {
             if (err) {
                 var err = new Error('You are not authenticated!');
                 err.status = 401;

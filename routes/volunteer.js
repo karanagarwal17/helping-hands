@@ -29,7 +29,7 @@ router.route("/")
 });
 
 router.route("/:id")
-.put(function(req,res,next){
+.put(Verify.verifyOrdinaryUser, function(req,res,next){
   volunteer.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true},function(err,Volunteer){
     if(err){
       throw err;
