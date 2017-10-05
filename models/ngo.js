@@ -11,7 +11,7 @@ var ngo=new Schema({
         type:String
       },
       gender:String,
-      e-mail:String,
+      email:String,
       phone_number:String,
       category:String,
 
@@ -48,3 +48,6 @@ var ngo=new Schema({
 
 
 });
+
+var ngo=mongoose.model("ngo",ngo);
+module.exports=ngo;

@@ -1,8 +1,9 @@
 var jwt=require("jsonwebtoken");
 var User=require("../models/User");
+var config=require("../config");
 
 exports.getToken=function(user){
-  return jwt.sign(user, process.env.secretKey, {
+  return jwt.sign(user,config.secretKey,{
     expiresIn:3600
   });
 };

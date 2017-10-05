@@ -10,6 +10,8 @@ var localStrategy=require("passport-local").Strategy;
 require('dotenv').config();
 
 var users = require('./routes/users');
+var ngo=require("./routes/ngo");
+var volunteer=require("./routes/volunteer");
 
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations');
@@ -42,6 +44,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/users', users);
+app.use('/api/ngo',ngo);
+app.use('/api/volunteer',volunteer);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
