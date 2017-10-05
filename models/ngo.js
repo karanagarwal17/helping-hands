@@ -21,11 +21,14 @@ var ngo=new Schema({
       },
 
       address:{
-        street_address:String,
+        house_number:String,
+        street_name:String,
+        landmark: String,
         city:String,
         district:String,
         state:String,
-        pincode:String
+        pincode:String,
+        landline:String
       },
 
       bank_details:{

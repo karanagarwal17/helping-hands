@@ -17,6 +17,8 @@ var volunteer=new Schema({
 
       city:String,
 
+      date_of_birth:String,
+
       address:{
         street_adderss: String,
         city:String,
