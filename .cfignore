@@ -3,3 +3,6 @@ config.js
 .env
 npm-debug.log
 test.js
+mongod.conf
+gulpfile.js
+ngrok
