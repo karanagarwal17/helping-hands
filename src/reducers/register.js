@@ -1,9 +1,12 @@
-export default (state = {} ,action) => {
+import {
+  NGO_FORM_UPDATE
+} from '../constants/actionTypes'
+
+export default (state = {step: 1}, action) => {
   switch(action.type) {
-    case 'REGISTER_PROGRESS':
+    case NGO_FORM_UPDATE:
       return {
         ...state,
-        usertype: action.payload.usertype,
         step: action.payload.step
       }
     default:
