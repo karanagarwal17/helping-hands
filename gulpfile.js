@@ -58,7 +58,7 @@ function runCommand(command) {
   });
 }
 
-gulp.task('default',['start','watch']);
+gulp.task('default',['react-build','start','watch']);
 
 process.on('exit', function() {
     if (node) node.kill();
