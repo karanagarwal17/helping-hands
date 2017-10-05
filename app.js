@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose=require("mongoose");
 var passport=require("passport");
+var cors = require("cors");
 var localStrategy=require("passport-local").Strategy;
 require('dotenv').config();
 
@@ -27,7 +28,7 @@ db.once("open",function(){
 });
 
 var app = express();
-
+app.use(cors());
 
 var User=require("./models/User");
 app.use(passport.initialize());

@@ -44,7 +44,6 @@ gulp.task('react-build',function(){
 });
 
 gulp.task('watch',function(){
-  gulp.watch(clientJsSources,['react-build']);
   gulp.watch(serverSources,['start']);
 });
 
@@ -58,7 +57,7 @@ function runCommand(command) {
   });
 }
 
-gulp.task('default',['react-build','start','watch']);
+gulp.task('default',['start','watch']);
 
 process.on('exit', function() {
     if (node) node.kill();

@@ -18,8 +18,7 @@ var volunteer=new Schema({
       city:String,
 
       address:{
-        house_no:String,
-        landmark:String,
+        street_adderss: String,
         city:String,
         district:String,
         state:String,
