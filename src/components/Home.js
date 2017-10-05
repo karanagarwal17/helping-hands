@@ -1,6 +1,43 @@
 import React from 'react'
+import agent from '../agent'
+import { connect } from 'react-redux'
+import {
+  LOGIN,
+  SIGNUP,
+  UPDATE_FIELD_AUTH
+} from '../constants/actionTypes'
+
+const mapStateToProps = state => ({ ...state.auth })
+
+const mapDispatchToProps = dispatch => ({
+  onChangeUsername: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'username', value}),
+  onChangePassword: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
+  onChangeUsertype: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'usertype', value }),
+  onLogin: (username, password) =>
+    dispatch({ type: LOGIN, payload: agent.Auth.login(username, password) }),
+  onSignup: (username, password, usertype) =>
+    dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, usertype) })
+})
 
 class Home extends React.Component {
+
+  constructor() {
+    super()
+    this.changeUsername = ev => this.props.onChangeUsername(ev.target.value)
+    this.changePassword = ev => this.props.onChangePassword(ev.target.value)
+    this.changeUsertype = ev => this.props.onChangeUsertype(ev.target.value)
+    this.login = (username, password) => ev => {
+      ev.preventDefault()
+      this.props.onLogin(username, password)
+    }
+    this.signup = (username, password, usertype) => ev => {
+      ev.preventDefault()
+      this.props.onSignup(username, password, usertype)
+    }
+  }
 
   toggle() {
     var element = document.getElementsByClassName('container')
@@ -9,6 +46,9 @@ class Home extends React.Component {
   }
 
   render() {
+    const username = this.props.username
+    const password = this.props.password
+    const usertype = this.props.usertype
     return (
       <div>
         <div id="home"></div>
@@ -40,11 +80,39 @@ class Home extends React.Component {
               <h2>
                 Log in
               </h2>
+              <div className="field">
+                <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.changeUsername}/>
+                <span className="underline"></span>
+              </div>
+              <div className="field">
+                <input className="input" type="password" placeholder="Password" value={this.password} onChange={this.changePassword}/>
+                <span className="underline"></span>
+              </div>
+              <button className="btn" onClick={this.login(username, password)}>
+                LOG IN
+              </button>
             </div>
             <div className="form-item sign-up">
               <h2>
                 Sign Up
               </h2>
+              <div className="field">
+                <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.ChangeUsername}/>
+                <span className="underline"></span>
+              </div>
+              <div className="field">
+                <input className="input" type="password" placeholder="Password" value={this.password} onChange={this.changePassword}/>
+                <span className="underline"></span>
+              </div>
+              <div className="radio-field">
+                <input id="option1" className="input" name="select" type="radio" value={this.usertype}/>
+                <label for="option1"><span><span></span></span>Volunteer</label>
+                <input id="option2" className="input" name="select" type="radio" value={this.usertype}/>
+                <label for="option2"><span><span></span></span>NGO</label>
+              </div>
+              <button className="btn" onClick={this.signup(username, password, usertype)}>
+                SIGN UP
+              </button>
             </div>
           </div>
         </div>
@@ -53,4 +121,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

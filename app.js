@@ -9,7 +9,6 @@ var passport=require("passport");
 var localStrategy=require("passport-local").Strategy;
 require('dotenv').config();
 
-var routes = require('./routes/index');
 var users = require('./routes/users');
 
 if(process.env.environment === 'development'){
@@ -42,7 +41,6 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/api', routes);
 app.use('/api/users', users);
 
 /// catch 404 and forwarding to error handler

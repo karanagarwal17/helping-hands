@@ -1,1 +1,4 @@
 export const REGISTER_PROGRESS = 'REGISTER_PROGRESS'
+export const LOGIN = 'LOGIN'
+export const SIGNUP = 'SIGNUP'
+export const UPDATE_FIELD_AUTH = 'UPDATE_FIELD_AUTH'
