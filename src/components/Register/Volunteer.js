@@ -57,27 +57,6 @@ class Volunteer extends React.Component {
                 Contact Number
               </div>
             </div>
-            <div className="field">
-              <input className="input" type="text"/>
-              <span className="underline"></span>
-              <div className="fieldname">
-                Username
-              </div>
-            </div>
-            <div className="field">
-              <input className="input" type="password"/>
-              <span className="underline"></span>
-              <div className="fieldname">
-                Password
-              </div>
-            </div>
-            <div className="field">
-              <input className="input" type="password"/>
-              <span className="underline"></span>
-              <div className="fieldname">
-                Re-enter Password
-              </div>
-            </div>
             <div className="submit-button">
               <a className="btn" href="#">Save</a>
             </div>

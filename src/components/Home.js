@@ -41,7 +41,6 @@ class Home extends React.Component {
 
   toggle() {
     var element = document.getElementsByClassName('container')
-    console.log(element)
     element[0].classList.toggle('log-in')
   }
 
@@ -97,7 +96,7 @@ class Home extends React.Component {
                 Sign Up
               </h2>
               <div className="field">
-                <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.ChangeUsername}/>
+                <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.changeUsername}/>
                 <span className="underline"></span>
               </div>
               <div className="field">
@@ -105,10 +104,10 @@ class Home extends React.Component {
                 <span className="underline"></span>
               </div>
               <div className="radio-field">
-                <input id="option1" className="input" name="select" type="radio" value={this.usertype}/>
-                <label for="option1"><span><span></span></span>Volunteer</label>
-                <input id="option2" className="input" name="select" type="radio" value={this.usertype}/>
-                <label for="option2"><span><span></span></span>NGO</label>
+                <input id="option1" className="input" name="select" type="radio" value="volunteer" onChange={this.changeUsertype}/>
+                <label><span><span></span></span>Volunteer</label>
+                <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.changeUsertype}/>
+                <label><span><span></span></span>NGO</label>
               </div>
               <button className="btn" onClick={this.signup(username, password, usertype)}>
                 SIGN UP

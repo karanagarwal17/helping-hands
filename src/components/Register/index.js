@@ -3,22 +3,15 @@ import Volunteer from './Volunteer'
 import Header from '../Header'
 import Ngo from './Ngo'
 import { connect } from 'react-redux'
-import { REGISTER_PROGRESS } from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
   ...state,
-  usertype: state.register.usertype,
-  step: state.register.step
-})
-
-const mapDispatchToProps = dispatch => ({
-  onProgress: (payload) =>
-    dispatch({ type: REGISTER_PROGRESS, payload})
+  currentUser: state.common.currentUser,
 })
 
 class Register extends React.Component {
   render(){
-    if(this.props.usertype === 'volunteer'){
+    if(this.props.currentUser.volunteer){
       return (
         <div>
           <Header />
@@ -26,7 +19,7 @@ class Register extends React.Component {
         </div>
       )
     }
-    else if (this.props.usertype === 'ngo'){
+    else if (this.props.currentUser.ngo){
       return (
         <div>
           <Header />

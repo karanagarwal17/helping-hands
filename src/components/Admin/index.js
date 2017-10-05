@@ -2,10 +2,6 @@ import React from 'react'
 import NgoList from './NgoList'
 import Header from '../Header'
 
-const mapStateToProps = state => ({
-  ...state.ngoList
-})
-
 class Admin extends React.Component {
   componentWillMount(){
 

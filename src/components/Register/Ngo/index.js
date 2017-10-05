@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Progress from './Progress'
 import Form1 from './Form1'
@@ -7,7 +8,7 @@ import Form3 from './Form3'
 import Form4 from './Form4'
 
 const mapStateToProps = state => ({
-  ...state,
+  ...state.register,
   step: state.register.step
 })
 
@@ -52,4 +53,4 @@ class Ngo extends React.Component {
   }
 }
 
-export default Ngo
+export default connect(mapStateToProps, () => ({}))(Ngo)
