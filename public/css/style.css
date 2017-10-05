@@ -359,6 +359,10 @@ input[type=radio]{
   margin-top: 140px;
 }
 
+.form-title h2 {
+  color: #7037c7;
+}
+
 .register-progress-bar {
   position: relative;
   margin-top: 120px;
