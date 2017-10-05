@@ -1,5 +1,6 @@
 import {
-  NGO_FORM_UPDATE
+  NGO_FORM_UPDATE,
+  VOLUNTEER_FORM_UPDATE
 } from '../constants/actionTypes'
 
 export default (state = {step: 1}, action) => {
@@ -8,6 +9,10 @@ export default (state = {step: 1}, action) => {
       return {
         ...state,
         step: action.payload.step
+      }
+    case VOLUNTEER_FORM_UPDATE:
+      return {
+        ...state
       }
     default:
       return state
