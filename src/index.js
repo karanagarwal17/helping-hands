@@ -9,7 +9,7 @@ import Home from './components/Home'
 import Register from './components/Register'
 import Admin from './components/Admin'
 
-store.dispatch({type: 'REGISTER_PROGRESS', payload: {usertype: "volunteer"}})
+store.dispatch({ type: 'LOGIN', payload: {user: {ngo: true, volunteer: false}} })
 
 ReactDOM.render((
   <Provider store={store}>

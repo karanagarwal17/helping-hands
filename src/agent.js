@@ -5,7 +5,6 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const API_ROOT = 'http://localhost:3000/api'
 
-const encode = encodeURIComponent
 const responseBody = res => res.body
 
 let token = null
@@ -30,9 +29,9 @@ const Auth = {
   current: () =>
     requests.get('/users'),
   login: (username, password) =>
-    requests.post('/users/login', { user: { username, password } }),
+    requests.post('/users/login', { username, password }),
   signup: (username, password, usertype) =>
-    requests.post('/users/register', { user: {username, password, usertype} })
+    requests.post('/users/register', { username, password, usertype })
 }
 
 export default {

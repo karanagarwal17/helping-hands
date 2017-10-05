@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import register from './reducers/register'
 import auth from './reducers/auth'
+import common from './reducers/common'
+import register from './reducers/register'
 
 export default combineReducers({
-  register,
-  auth
+  auth,
+  common,
+  register
 })
