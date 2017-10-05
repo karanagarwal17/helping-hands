@@ -7,19 +7,19 @@ class Progress extends React.Component {
         <ul className="register-progress-bar">
           <li className="completed">
             <span className="bubble"></span>
-            Enter Details
+            Personal Details
           </li>
           <li className={(this.props.step > 1 ? 'completed' : '')}>
             <span className="bubble"></span>
-            Verify
+            Address Details
           </li>
           <li className={(this.props.step > 2 ? 'completed' : '')}>
             <span className="bubble"></span>
-            Something Here
+            Bank Details
           </li>
           <li className={(this.props.step > 3 ? 'completed' : '')}>
             <span className="bubble"></span>
-            Here as well
+            Registration Details
           </li>
         </ul>
       </div>

@@ -2,7 +2,9 @@ import {
   LOGIN,
   SIGNUP,
   LOGOUT,
-  REDIRECT
+  REDIRECT,
+  NGO_FORM_UPDATE,
+  VOLUNTEER_FORM_UPDATE
 } from '../constants/actionTypes'
 
 export default(state = {}, action) => {
@@ -21,6 +23,16 @@ export default(state = {}, action) => {
       return {
         ...state,
         redirectTo: null
+      }
+    case VOLUNTEER_FORM_UPDATE:
+      return {
+        ...state,
+        redirectTo: action.error ? null : '/'
+      }
+    case NGO_FORM_UPDATE:
+      return {
+        ...state,
+        redirectTo: action.error ? null : '/'
       }
     default:
       return state
