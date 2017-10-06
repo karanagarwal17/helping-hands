@@ -7,7 +7,7 @@ var ngo=require("../models/ngo");
 router.use(bodyParser.json());
 
 router.route("/ngo")
-  .get(Verify.verifyAdmin,function(req,res,next){
+  .get(Verify.verifyOrdinaryUser, Verify.verifyAdmin,function(req,res,next){
     ngo.find({approved:false},function(err,ngos){
       if(err){
         throw err;
@@ -17,7 +17,7 @@ router.route("/ngo")
   });
 
 router.route("/ngo/accept")
-  .post(Verify.verifyAdmin, function(req, res, next){
+  .post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
     ngo.findOne({_id: req.body._id}, function(err, doc){
       if(err){
         throw err;
@@ -33,12 +33,12 @@ router.route("/ngo/accept")
   })
 
 router.route("/ngo/reject")
-  .post(Verify.verifyAdmin, function(req, res, next){
+  .post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next){
     ngo.findByIdAndRemove(req.body._id, function (err, resp) {
       if (err){
         throw err;
       }
-      res.json(resp);
+      res.json("NGO Deleted");
     });
   })
 
