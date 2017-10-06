@@ -13,6 +13,7 @@ require('dotenv').config();
 var users = require('./routes/users');
 var ngo=require("./routes/ngo");
 var volunteer=require("./routes/volunteer");
+var admin = require('./routes/admin');
 
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations');
@@ -44,8 +45,9 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/api/users', users);
+app.use('/api/admin',admin);
 app.use('/api/ngo',ngo);
+app.use('/api/users', users);
 app.use('/api/volunteer',volunteer);
 
 /// catch 404 and forwarding to error handler
