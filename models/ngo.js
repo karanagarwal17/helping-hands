@@ -21,8 +21,7 @@ var ngo=new Schema({
       },
 
       address:{
-        house_number:String,
-        street_name:String,
+        street_address: String,
         landmark: String,
         city:String,
         district:String,
