@@ -16,10 +16,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class Admin extends React.Component {
-  componentWillMount(){
-
-  }
-
   render(){
     return (
       <div>

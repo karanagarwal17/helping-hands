@@ -19,6 +19,7 @@ export default (state = {}, action) => {
       if(action.subtype === LOGIN || action.subtype === SIGNUP ) {
         return { ...state, inProgress: true}
       }
+      break;
     case UPDATE_FIELD_AUTH:
       return { ...state, [action.key]: action.value }
     case HOME_PAGE_UNLOADED:

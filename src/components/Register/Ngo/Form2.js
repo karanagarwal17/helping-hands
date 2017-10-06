@@ -21,8 +21,7 @@ class Form2 extends React.Component {
     super()
 
     this.state = {
-      house_number: '',
-      street_name: '',
+      street_address: '',
       landmark: '',
       city: '',
       district: '',
@@ -51,17 +50,10 @@ class Form2 extends React.Component {
       <div className="row">
         <form className="register-form">
           <div className="field">
-            <input className="input" type="text" value={this.state.house_number} onChange={this.updateState('house_number')}/>
+            <input className="input" type="text" value={this.state.street_address} onChange={this.updateState('street_address')}/>
             <span className="underline"></span>
             <div className="fieldname">
-              House Number
-            </div>
-          </div>
-          <div className="field">
-            <input className="input" type="text" value={this.state.street_name} onChange={this.updateState('street_name')}/>
-            <span className="underline"></span>
-            <div className="fieldname">
-              Street Name
+              Street Address
             </div>
           </div>
           <div className="field">

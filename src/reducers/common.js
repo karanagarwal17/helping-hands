@@ -19,6 +19,26 @@ export default(state = {}, action) => {
         currentUser: action.payload ? action.payload.user : null
       }
     case LOGIN:
+      if(!action.error){
+        if(action.payload.user.admin){
+          return {
+            ...state,
+            redirectTo: 'admin',
+            token: action.payload.token,
+            currentUser: action.payload.user
+          }
+        }
+        else {
+          return {
+            ...state,
+            redirectTo: 'register',
+            token: action.payload.token,
+            currentUser: action.payload.user
+          }
+        }
+      } else {
+        return state
+      }
     case SIGNUP:
       return {
         ...state,
@@ -27,7 +47,12 @@ export default(state = {}, action) => {
         currentUser: action.error ? null : action.payload.user
       }
     case LOGOUT:
-      return state
+      return {
+        ...state,
+        redirectTo: '/',
+        token: null,
+        currentUser: null
+      }
     case REDIRECT:
       return {
         ...state,

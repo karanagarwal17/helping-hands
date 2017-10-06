@@ -2,7 +2,6 @@ import React from 'react'
 import agent from '../agent'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Header from './Header'
 import {
   APP_LOAD,
   REDIRECT
