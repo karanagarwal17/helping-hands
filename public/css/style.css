@@ -617,6 +617,7 @@ input[type=radio]{
 
 .card-title {
   margin: 0;
+  margin-bottom: 30px;
   padding: 0 0 10px 0;
   color: #000;
   font-size: 20px;
@@ -625,12 +626,9 @@ input[type=radio]{
 }
 
 .card-description {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 56px;
-  margin: 0;
-  padding: 0;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 10px;
   color: #666C74;
   line-height: 27px;
   opacity: 0;

@@ -1,7 +1,9 @@
 import React from 'react'
 
 class NgoList extends React.Component {
+
   render() {
+    const data = this.props.data
     return (
       <article className="ngo-card">
         <header className="card-thumb">
@@ -10,17 +12,19 @@ class NgoList extends React.Component {
 
         <div className="card-body">
           <div className="card-category">
-            <a href="#">Photos</a>
+            <a href="#">{data.head_name}</a>
           </div>
           <h5 className="card-title">
-            <a href="#">We're on a highway to hell!</a>
+            <a href="#">{data.org_name}</a>
           </h5>
-          <p className="card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit cumque non commodi, modi recusandae cupiditate ipsa ab soluta. Illum, dolore.</p>
+          <p className="card-description">Phone: {data.phone_number}</p>
+          <p className="card-description">City: {data.address.city}</p>
+          <p className="card-description">Email: {data.email}</p>
         </div>
 
         <footer className="card-footer">
-          <button className="card-button">Accept</button>
-          <button className="card-button">Reject</button>
+          <button className="card-button" onClick={this.props.accept(data._id)}>Accept</button>
+          <button className="card-button" onClick={this.props.reject(data._id)}>Reject</button>
         </footer>
       </article>
     )

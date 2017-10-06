@@ -10,7 +10,7 @@ const responseBody = res => res.body
 let token = null
 const tokenPlugin = req => {
   if (token) {
-    req.set('authorisation', `Token ${token}`)
+    req.set('x-access-token', token)
   }
 }
 
@@ -36,10 +36,15 @@ const Auth = {
 
 const Admin = {
   getNgo: () =>
-    requests.get('/ngo')
+    requests.get('/ngo'),
+  accept: (id) =>
+    requests.post('/admin/ngo/accept', {_id: id}),
+  reject: (id) =>
+    requests.post('/admin/ngo/reject', {_id: id})
 }
 
 export default {
+  Admin,
   Auth,
   setToken: _token => { token = _token }
 }
