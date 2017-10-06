@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onSave: (details) =>
-    dispatch({ type: NGO_FORM_UPDATE, payload: { step: 4, details: details }})
+    dispatch({ type: NGO_FORM_UPDATE, payload: { step: 'complete', details: details }})
 })
 
 class Form4 extends React.Component {

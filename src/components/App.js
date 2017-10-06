@@ -14,8 +14,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: (currentUser) =>
-    dispatch({ type: APP_LOAD, payload: currentUser }),
+  onLoad: (currentUser, token) =>
+    dispatch({ type: APP_LOAD, payload: currentUser, token: token}),
   onRedirect: () =>
     dispatch({ type: REDIRECT })
 })
@@ -35,7 +35,7 @@ class App extends React.Component {
       agent.setToken(token)
     }
     if(currentUser) {
-      this.props.onLoad(currentUser)
+      this.props.onLoad(currentUser, token)
     }
   }
 

@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import {
   LOGIN,
   SIGNUP,
-  UPDATE_FIELD_AUTH
+  UPDATE_FIELD_AUTH,
+  HOME_PAGE_UNLOADED
 } from '../constants/actionTypes'
 
 const mapStateToProps = state => ({ ...state.auth })
@@ -19,7 +20,9 @@ const mapDispatchToProps = dispatch => ({
   onLogin: (username, password) =>
     dispatch({ type: LOGIN, payload: agent.Auth.login(username, password) }),
   onSignup: (username, password, usertype) =>
-    dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, usertype) })
+    dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, usertype) }),
+  onUnload: () =>
+    dispatch({ type: HOME_PAGE_UNLOADED })
 })
 
 class Home extends React.Component {
@@ -37,6 +40,10 @@ class Home extends React.Component {
       ev.preventDefault()
       this.props.onSignup(username, password, usertype)
     }
+  }
+
+  componentWillUnmount() {
+    this.props.onUnload()
   }
 
   toggle() {
@@ -87,7 +94,7 @@ class Home extends React.Component {
                 <input className="input" type="password" placeholder="Password" value={this.password} onChange={this.changePassword}/>
                 <span className="underline"></span>
               </div>
-              <button className="btn" onClick={this.login(username, password)}>
+              <button className="btn" onClick={this.login(username, password)} disabled={this.props.inProgress}>
                 LOG IN
               </button>
             </div>
@@ -109,7 +116,7 @@ class Home extends React.Component {
                 <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.changeUsertype}/>
                 <label><span><span></span></span>NGO</label>
               </div>
-              <button className="btn" onClick={this.signup(username, password, usertype)}>
+              <button className="btn" onClick={this.signup(username, password, usertype)} disabled={this.props.inProgress}>
                 SIGN UP
               </button>
             </div>

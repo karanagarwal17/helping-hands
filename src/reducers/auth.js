@@ -1,8 +1,9 @@
 import {
   LOGIN,
   SIGNUP,
-  UPDATE_FIELD_AUTH,
-  HOME_PAGE_UNLOADED
+  HOME_PAGE_UNLOADED,
+  ASYNC_START,
+  UPDATE_FIELD_AUTH
 } from '../constants/actionTypes'
 
 export default (state = {}, action) => {
@@ -11,7 +12,12 @@ export default (state = {}, action) => {
     case SIGNUP:
       return {
         ...state,
+        inProgress: false,
         errors: action.error ? action.payload.errors : null
+      }
+    case ASYNC_START:
+      if(action.subtype === LOGIN || action.subtype === SIGNUP ) {
+        return { ...state, inProgress: true}
       }
     case UPDATE_FIELD_AUTH:
       return { ...state, [action.key]: action.value }
