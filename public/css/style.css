@@ -1,4 +1,4 @@
-/* color #7037c7 */
+/* color coral */
 
 /* ------------------------------------------------------- */
 /* BASIC SETUP */
@@ -110,7 +110,7 @@ input[type=submit] {
   border-radius: 200px;
   -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
-  background-color: #7037c7;
+  background-color: coral;
   color: #fff;
   border: none;
   margin-right: 15px;
@@ -118,7 +118,7 @@ input[type=submit] {
 
 .btn:hover,
 .btn:active {
-  background-color: #6130ac;
+  background-color: #ff3b11;
 }
 
 input[type=checkbox],
@@ -244,7 +244,7 @@ input[type=radio]{
 .container .form-item h2 {
   margin-bottom: 50px;
   font-weight: 400;
-  color: #7037c7;
+  color: coral;
   text-transform: uppercase;
 }
 
@@ -277,7 +277,7 @@ input[type=radio]{
 }
 
 .container .form-item .field input:focus::-webkit-input-placeholder {
-  color: #7037c7;
+  color: coral;
 }
 
 .container .form-item .field .input:focus + .underline {
@@ -285,7 +285,7 @@ input[type=radio]{
 }
 
 .container .form-item .field .underline {
-  background-color: #7037c7;
+  background-color: coral;
   display: block;
   height: 2px;
   position: absolute;
@@ -335,13 +335,13 @@ input[type=radio]{
   text-align: center;
   color: #fff;
   transition: all 0.5s ease-in-out;
-  border: 3px solid #7037c7;
+  border: 3px solid coral;
   border-radius: 3px;
   padding: 10px 15px;
   float: right;
   margin-top: 60px;
   width: 150px;
-  background-color: #7037c7;
+  background-color: coral;
 }
 
 .container .form-item.sign-up h2 {
@@ -384,7 +384,7 @@ input[type=radio]{
 }
 
 .form-title h2 {
-  color: #7037c7;
+  color: coral;
 }
 
 .register-progress-bar {
@@ -444,16 +444,16 @@ input[type=radio]{
 }
 
 .register-progress-bar li.completed {
-  color: #7037c7;
+  color: coral;
 }
 
 .register-progress-bar li.completed .bubble {
-  background-color: #7037c7;
-  color: #7037c7;
+  background-color: coral;
+  color: coral;
 }
 
 .register-progress-bar li.completed .bubble:before {
-  background-color: #7037c7;
+  background-color: coral;
 }
 
 .register-form {
@@ -487,7 +487,7 @@ input[type=radio]{
 }
 
 .register-form .field input:focus::-webkit-input-placeholder {
-  color: #7037c7;
+  color: coral;
 }
 
 .register-form .field .input:focus + .underline {
@@ -495,7 +495,7 @@ input[type=radio]{
 }
 
 .register-form .field .underline {
-  background-color: #7037c7;
+  background-color: coral;
   display: block;
   height: 2px;
   position: absolute;
