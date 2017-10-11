@@ -42,9 +42,8 @@ export default(state = {}, action) => {
     case SIGNUP:
       return {
         ...state,
-        redirectTo: action.error ? null : 'register',
         token: action.error ? null : action.payload.token,
-        currentUser: action.error ? null : action.payload.user
+        currentUser: action.error ? null : action.payload.user,
       }
     case LOGOUT:
       return {

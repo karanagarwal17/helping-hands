@@ -15,33 +15,33 @@ const mapDispatchToProps = dispatch => ({
 
 class Form3 extends React.Component {
   constructor() {
-  super()
+    super()
 
-  this.state = {
-    account_holder: '',
-    account_no: '',
-    bank_name: '',
-    branch_name: '',
-    branch_city: '',
-    ifsc_code: ''
+    this.state = {
+      account_holder: '',
+      account_no: '',
+      bank_name: '',
+      branch_name: '',
+      branch_city: '',
+      ifsc_code: ''
+    }
+
+    this.updateState = field => ev => {
+      const state = this.state
+      const newState = Object.assign({}, state, {
+        [field]: ev.target.value
+      })
+      this.setState(newState)
+    }
+
+    this.submitForm = ev => {
+      ev.preventDefault()
+
+      const details = Object.assign({}, this.state)
+      this.props.onSave(details)
+      console.log(details)
+    }
   }
-
-  this.updateState = field => ev => {
-    const state = this.state
-    const newState = Object.assign({}, state, {
-      [field]: ev.target.value
-    })
-    this.setState(newState)
-  }
-
-  this.submitForm = ev => {
-    ev.preventDefault()
-
-    const details = Object.assign({}, this.state)
-    this.props.onSave(details)
-    console.log(details)
-  }
-}
 
   render(){
     return(

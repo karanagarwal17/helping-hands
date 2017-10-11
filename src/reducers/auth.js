@@ -14,18 +14,29 @@ export default (state = {}, action) => {
         ...state,
         username: "",
         password: "",
-        usertype: "",
-        errors: ""
+        errors: "",
+        messages: "",
+        email: ""
       }
     case LOGIN:
+      return {
+        ...state,
+        username: "",
+        password: "",
+        errors: "",
+        messages: "",
+        email: "",
+        inProgress: false,
+        errors: action.error ? action.payload.response.body.err.message : null,
+      }
     case SIGNUP:
       return {
         ...state,
         username: "",
         password: "",
-        usertype: "",
         inProgress: false,
-        errors: action.error ? action.payload.response.body.err.message : null
+        errors: action.error ? action.payload.response.body.err.message : null,
+        messages: action.error ? null : "Your account has been created, visit your email for the verification link"
       }
     case ASYNC_START:
       if(action.subtype === LOGIN || action.subtype === SIGNUP ) {

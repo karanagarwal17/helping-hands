@@ -18,10 +18,12 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
   onChangeUsertype: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'usertype', value }),
+  onChangeEmail: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
   onLogin: (username, password) =>
     dispatch({ type: LOGIN, payload: agent.Auth.login(username, password) }),
-  onSignup: (username, password, usertype) =>
-    dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, usertype) }),
+  onSignup: (username, password, usertype, email) =>
+    dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, usertype, email) }),
   onClear: () =>
     dispatch({ type: CLEAR }),
   onUnload: () =>
@@ -35,17 +37,20 @@ class Home extends React.Component {
     this.username = this.props.username
     this.password = this.props.password
     this.usertype = this.props.usertype
+    this.email = this.props.email
     this.errors = this.props.errors
+    this.messages = this.props.messages
     this.changeUsername = ev => this.props.onChangeUsername(ev.target.value)
     this.changePassword = ev => this.props.onChangePassword(ev.target.value)
     this.changeUsertype = ev => this.props.onChangeUsertype(ev.target.value)
+    this.changeEmail = ev => this.props.onChangeEmail(ev.target.value)
     this.login = (username, password) => ev => {
       ev.preventDefault()
       this.props.onLogin(username, password)
     }
-    this.signup = (username, password, usertype) => ev => {
+    this.signup = (username, password, usertype, email) => ev => {
       ev.preventDefault()
-      this.props.onSignup(username, password, usertype)
+      this.props.onSignup(username, password, usertype, email)
     }
     this.clear = () => {
       this.props.onClear()
@@ -63,10 +68,12 @@ class Home extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
+    this.email = nextProps.email
     this.username = nextProps.username
     this.password = nextProps.password
     this.usertype = nextProps.usertype
     this.errors = nextProps.errors
+    this.messages = nextProps.messages
   }
 
   render() {
@@ -121,6 +128,10 @@ class Home extends React.Component {
                 Sign Up
               </h2>
               <div className="field">
+                <input className="input" type="text" placeholder="Email" value={this.email} onChange={this.changeEmail}/>
+                <span className="underline"></span>
+              </div>
+              <div className="field">
                 <input className="input" type="text" placeholder="Username" value={this.username} onChange={this.changeUsername}/>
                 <span className="underline"></span>
               </div>
@@ -136,6 +147,9 @@ class Home extends React.Component {
               </div>
               <div className="errors">
                 {this.errors}
+              </div>
+              <div className="messages">
+                {this.messages}
               </div>
               <button className="btn" onClick={this.signup(this.username, this.password, this.usertype)} disabled={this.props.inProgress}>
                 SIGN UP
