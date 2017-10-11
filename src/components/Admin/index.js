@@ -4,9 +4,7 @@ import Header from '../Header'
 import { connect } from 'react-redux'
 import agent from '../../agent'
 import {
-  FETCH_UNAPPROVED_NGO,
-  NGO_ACCEPTED,
-  NGO_REJECTED
+  FETCH_UNAPPROVED_NGO
 } from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
@@ -16,16 +14,19 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () =>
-    dispatch({ type: FETCH_UNAPPROVED_NGO, payload: agent.Admin.getNgo() }),
-  onAccept: (id) =>
-    dispatch({ type: NGO_ACCEPTED, payload: agent.Admin.accept(id)}),
-  onReject: (id) =>
-    dispatch({ type: NGO_REJECTED, payload: agent.Admin.reject(id)})
+    dispatch({ type: FETCH_UNAPPROVED_NGO, payload: agent.Admin.getNgo() })
 })
 
 class Admin extends React.Component {
+
   componentWillMount(){
     this.props.onLoad()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.ngo_accepted || nextProps.ngo_rejected){
+      this.props.onLoad()
+    }
   }
 
   render(){
@@ -42,7 +43,7 @@ class Admin extends React.Component {
               {
                 this.props.ngos.map((ngo, index) => {
                   if(index <18 )
-                  return ( <NgoCard data={ngo} key={ngo._id} accept={this.props.onAccept()} reject={this.props.onReject()} /> )
+                  return ( <NgoCard data={ngo} key={ngo._id} /> )
                 })
               }
             </div>

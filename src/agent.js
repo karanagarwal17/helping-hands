@@ -3,7 +3,7 @@ import _superagent from 'superagent'
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'https://socially.au-syd.mybluemix.net/api'
+const API_ROOT = 'http://localhost:3000/api'
 
 const responseBody = res => res.body
 
@@ -36,11 +36,11 @@ const Auth = {
 
 const Admin = {
   getNgo: () =>
-    requests.get('/ngo'),
-  accept: (id) =>
-    requests.post('/admin/ngo/accept', {_id: id}),
-  reject: (id) =>
-    requests.post('/admin/ngo/reject', {_id: id})
+    requests.get('/admin/ngo'),
+  accept: (_id) =>
+    requests.post('/admin/ngo/accept', {_id}),
+  reject: (_id) =>
+    requests.post('/admin/ngo/reject', {_id})
 }
 
 export default {

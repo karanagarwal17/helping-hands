@@ -1,7 +1,39 @@
 import React from 'react'
+import agent from '../../agent'
+import { connect } from 'react-redux'
+import {
+  NGO_ACCEPTED,
+  NGO_REJECTED
+} from '../../constants/actionTypes'
+
+
+const mapStateToProps = state => ({
+  ...state.admin
+})
+
+const mapDispatchToProps = dispatch => ({
+  onAccept: (id) =>
+    dispatch({ type: NGO_ACCEPTED, payload: agent.Admin.accept(id) }),
+  onReject: (id) =>
+    dispatch({ type: NGO_REJECTED, payload: agent.Admin.reject(id) })
+})
 
 class NgoList extends React.Component {
+  constructor(){
 
+    super()
+
+    this.accept = id => ev => {
+      ev.preventDefault()
+      this.props.onAccept(id)
+    }
+
+    this.reject = id => ev => {
+      ev.preventDefault()
+      this.props.onReject(id)
+    }
+
+  }
   render() {
     const data = this.props.data
     return (
@@ -23,12 +55,12 @@ class NgoList extends React.Component {
         </div>
 
         <footer className="card-footer">
-          <button className="card-button" onClick={this.props.accept(data._id)}>Accept</button>
-          <button className="card-button" onClick={this.props.reject(data._id)}>Reject</button>
+          <button className="card-button" onClick={this.accept(data._id)}>Accept</button>
+          <button className="card-button" onClick={this.reject(data._id)}>Reject</button>
         </footer>
       </article>
     )
   }
 }
 
-export default NgoList
+export default connect(mapStateToProps, mapDispatchToProps)(NgoList)
