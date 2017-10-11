@@ -19,32 +19,16 @@ router.post("/register", function(req, res, next) {
   User.register(new User({username: req.body.username}), req.body.password, function(err, User) {
     console.log(User);
     if (err) {
-      return res.status(500).json({err: err});
-    }
-    else {
-      if (req.body.firstname) {
-        User.firstname = req.body.firstname;
-        User.save(function(err, User) {
-          if (err) {
-            throw err;
-          }
-        });
-      }
-      if (req.body.lastname) {
-        User.lastname = req.body.lastname;
-        User.save(function(err, User) {
-          if (err) {
-            throw err;
-          }
-        });
-      }
+      return res.status(401).json({err: err});
+    } else {
       if (req.body.usertype === 'volunteer') {
         User.volunteer = true;
       } else if (req.body.usertype === 'ngo') {
         User.ngo = true;
       }
-      User.save(function(err, user){
-        if(err) {
+      User.save(function(err, user) {
+        if (err) {
+          res.status(401).json({err: err});
           throw err;
         }
         passport.authenticate("local")(req, res, function() {
@@ -56,29 +40,26 @@ router.post("/register", function(req, res, next) {
 });
 
 router.post("/login", function(req, res, next) {
-  console.log(req.body)
   passport.authenticate('local', function(err, user, info) {
     if (err) {
+      res.status(401).json({err : err});
       return next(err);
-    }
-
-    console.log(user);
-
-    if (!user) {
-      console.log("info");
-      return res.status(200).json({err: info});
-    }
-
-    req.logIn(user, function(err) {
-      if (err) {
-        return res.status(500).json({err: "could not log In"});
+    } else {
+      if (!user) {
+        return res.status(401).json({err: info});
+      } else {
+        req.logIn(user, function(err) {
+          if (err) {
+            return res.status(401).json({err: "could not log In"});
+          } else {
+            console.log("user in users: ", user);
+            var token = Verify.getToken(user);
+            res.status(200).json({status: "login successful", success: true, token: token, user: user});
+          }
+        });
       }
-      console.log("user in users: ", user);
-      var token = Verify.getToken(user);
-      res.status(200).json({status: "login successful", success: true, token: token, user: user});
-    });
+    }
   })(req, res, next);
-
 });
 
 router.get("/logout", function(req, res, next) {

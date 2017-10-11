@@ -323,6 +323,12 @@ input[type=radio]{
   display: inline-block;
 }
 
+.container .form-item .errors {
+  margin-top: 20px;
+  font-size: 70%;
+  color: red;
+}
+
 .container .form-item .btn {
   font-size: 18px;
   cursor: pointer;

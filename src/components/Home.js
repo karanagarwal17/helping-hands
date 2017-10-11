@@ -94,6 +94,9 @@ class Home extends React.Component {
                 <input className="input" type="password" placeholder="Password" value={this.password} onChange={this.changePassword}/>
                 <span className="underline"></span>
               </div>
+              <div className="errors">
+                {this.props.errors}
+              </div>
               <button className="btn" onClick={this.login(username, password)} disabled={this.props.inProgress}>
                 LOG IN
               </button>
@@ -115,6 +118,9 @@ class Home extends React.Component {
                 <label><span><span></span></span>Volunteer</label>
                 <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.changeUsertype}/>
                 <label><span><span></span></span>NGO</label>
+              </div>
+              <div className="errors">
+                {this.props.errors}
               </div>
               <button className="btn" onClick={this.signup(username, password, usertype)} disabled={this.props.inProgress}>
                 SIGN UP

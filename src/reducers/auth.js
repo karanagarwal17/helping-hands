@@ -12,8 +12,11 @@ export default (state = {}, action) => {
     case SIGNUP:
       return {
         ...state,
+        username: "",
+        password: "",
+        usertype: "",
         inProgress: false,
-        errors: action.error ? action.payload.errors : null
+        errors: action.error ? action.payload.response.body.err.message : null
       }
     case ASYNC_START:
       if(action.subtype === LOGIN || action.subtype === SIGNUP ) {
