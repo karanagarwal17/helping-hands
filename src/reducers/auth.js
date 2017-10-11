@@ -34,6 +34,7 @@ export default (state = {}, action) => {
         ...state,
         username: "",
         password: "",
+        email: "",
         inProgress: false,
         errors: action.error ? action.payload.response.body.err.message : null,
         messages: action.error ? null : "Your account has been created, visit your email for the verification link"

@@ -151,7 +151,7 @@ class Home extends React.Component {
               <div className="messages">
                 {this.messages}
               </div>
-              <button className="btn" onClick={this.signup(this.username, this.password, this.usertype)} disabled={this.props.inProgress}>
+              <button className="btn" onClick={this.signup(this.username, this.password, this.usertype, this.email)} disabled={this.props.inProgress}>
                 SIGN UP
               </button>
             </div>

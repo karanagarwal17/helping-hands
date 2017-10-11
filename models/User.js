@@ -4,6 +4,7 @@ var passportLocalMongoose=require("passport-local-mongoose");
 var UserSchema=new Schema({
   username:String,
   password:String,
+  email: String,
   firstname:{
     type:String,
     default:""

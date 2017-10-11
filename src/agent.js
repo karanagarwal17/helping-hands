@@ -3,8 +3,8 @@ import _superagent from 'superagent'
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-//const API_ROOT = 'http://localhost:3000/api'
-const API_ROOT = 'https://helping-hands.au-syd.mybluemix.net/api'
+const API_ROOT = 'http://localhost:3000/api'
+//const API_ROOT = 'https://helping-hands.au-syd.mybluemix.net/api'
 
 const responseBody = res => res.body
 

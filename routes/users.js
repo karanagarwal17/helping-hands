@@ -17,9 +17,9 @@ router.route("/").get(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(re
 });
 
 router.post("/register", function(req, res, next) {
+  console.log(req.body);
   User.register(new User({username: req.body.username}), req.body.password,function(err, user) {
     //User.findOne({ username: req.body.username }, function(err, User) {});
-    console.log(user);
     if(req.body.email){
       user.email=req.body.email;
       user.save(function(err,User){
@@ -51,7 +51,7 @@ router.post("/register", function(req, res, next) {
             if(err)
             throw err;
           });
-
+          console.log(user);
           const options = {
             url: 'https://desolate-reef-80675.herokuapp.com/email/confirmation',
             method: 'POST',
@@ -67,7 +67,7 @@ router.post("/register", function(req, res, next) {
 
           request(options, function(err, res, body) {
             // let json = JSON.parse(body);
-            console.log(res);
+            console.log(err);
           });
 
 
