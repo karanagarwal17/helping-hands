@@ -23,7 +23,12 @@ var UserSchema=new Schema({
   ngo:{
     type:Boolean,
     default:false
-  }
+  },
+  active:{
+    type:Boolean,
+    default:false
+  },
+  temporarytoken:String
 });
 
 UserSchema.plugin(passportLocalMongoose);
