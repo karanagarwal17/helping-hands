@@ -2,6 +2,7 @@ import React from 'react'
 import agent from '../agent'
 import { connect } from 'react-redux'
 import {
+  CLEAR,
   LOGIN,
   SIGNUP,
   UPDATE_FIELD_AUTH,
@@ -21,14 +22,20 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: LOGIN, payload: agent.Auth.login(username, password) }),
   onSignup: (username, password, usertype) =>
     dispatch({ type: SIGNUP, payload: agent.Auth.signup(username, password, usertype) }),
+  onClear: () =>
+    dispatch({ type: CLEAR }),
   onUnload: () =>
     dispatch({ type: HOME_PAGE_UNLOADED })
 })
 
 class Home extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    this.username = this.props.username
+    this.password = this.props.password
+    this.usertype = this.props.usertype
+    this.errors = this.props.errors
     this.changeUsername = ev => this.props.onChangeUsername(ev.target.value)
     this.changePassword = ev => this.props.onChangePassword(ev.target.value)
     this.changeUsertype = ev => this.props.onChangeUsertype(ev.target.value)
@@ -40,21 +47,29 @@ class Home extends React.Component {
       ev.preventDefault()
       this.props.onSignup(username, password, usertype)
     }
+    this.clear = () => {
+      this.props.onClear()
+    }
+    this.toggle = () => {
+      var element = document.getElementsByClassName('container')
+      element[0].classList.toggle('log-in')
+      this.clear()
+    }
   }
 
   componentWillUnmount() {
     this.props.onUnload()
   }
 
-  toggle() {
-    var element = document.getElementsByClassName('container')
-    element[0].classList.toggle('log-in')
+
+  componentWillReceiveProps(nextProps) {
+    this.username = nextProps.username
+    this.password = nextProps.password
+    this.usertype = nextProps.usertype
+    this.errors = nextProps.errors
   }
 
   render() {
-    const username = this.props.username
-    const password = this.props.password
-    const usertype = this.props.usertype
     return (
       <div>
         <div id="home"></div>
@@ -95,9 +110,9 @@ class Home extends React.Component {
                 <span className="underline"></span>
               </div>
               <div className="errors">
-                {this.props.errors}
+                {this.errors}
               </div>
-              <button className="btn" onClick={this.login(username, password)} disabled={this.props.inProgress}>
+              <button className="btn" onClick={this.login(this.username, this.password)} disabled={this.props.inProgress}>
                 LOG IN
               </button>
             </div>
@@ -120,9 +135,9 @@ class Home extends React.Component {
                 <label><span><span></span></span>NGO</label>
               </div>
               <div className="errors">
-                {this.props.errors}
+                {this.errors}
               </div>
-              <button className="btn" onClick={this.signup(username, password, usertype)} disabled={this.props.inProgress}>
+              <button className="btn" onClick={this.signup(this.username, this.password, this.usertype)} disabled={this.props.inProgress}>
                 SIGN UP
               </button>
             </div>

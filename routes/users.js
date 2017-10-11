@@ -25,6 +25,8 @@ router.post("/register", function(req, res, next) {
         User.volunteer = true;
       } else if (req.body.usertype === 'ngo') {
         User.ngo = true;
+      } else {
+        res.status(401).json({err: {message: 'Please select a usertype'}});
       }
       User.save(function(err, user) {
         if (err) {

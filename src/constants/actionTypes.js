@@ -1,6 +1,7 @@
 export const APP_LOAD = 'APP_LOAD'
 export const ASYNC_START = 'ASYNC_START'
 export const ASYNC_END = 'ASYNC_END'
+export const CLEAR = 'CLEAR'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const SIGNUP = 'SIGNUP'

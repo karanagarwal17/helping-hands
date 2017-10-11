@@ -1,4 +1,5 @@
 import {
+  CLEAR,
   LOGIN,
   SIGNUP,
   HOME_PAGE_UNLOADED,
@@ -8,6 +9,14 @@ import {
 
 export default (state = {}, action) => {
   switch(action.type) {
+    case CLEAR:
+      return {
+        ...state,
+        username: "",
+        password: "",
+        usertype: "",
+        errors: ""
+      }
     case LOGIN:
     case SIGNUP:
       return {
