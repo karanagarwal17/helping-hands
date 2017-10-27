@@ -12,7 +12,7 @@
 
 html,
 body {
-  background-color: #ffffff;
+  background-color: #eeeff4;
   color: #555;
   font-family: 'Open Sans', 'Arial',sans-serif;
   font-weight: 400;
@@ -136,7 +136,7 @@ input[type=radio]{
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255,255,255,0.98);
+  background-color: #2c3e50;
   box-shadow: 0 2px 2px #dddddd;
   height: 50px;
   z-index: 9999;
@@ -146,6 +146,8 @@ input[type=radio]{
   margin-top: 12px;
   margin-left: 30px;
   display: inline-block;
+  color: #ffffff;
+
 }
 
 .header .logout-button {
@@ -159,6 +161,8 @@ input[type=radio]{
   display: inline-block;
   float: right;
   margin-right: 30px;
+  color: #ffffff;
+
 }
 
 #home {
@@ -691,7 +695,7 @@ input[type=radio]{
 .profile .dashboard {
   margin-top: 100px;
   margin-left: 50px;
-  box-shadow: 0 3px 3px #dddddd;
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
   padding: 10px 0px;
   border-radius: 3px;
 }
@@ -715,15 +719,22 @@ input[type=radio]{
   padding: 20px 0px 20px 30px;
 }
 
-.profile .dashboard .tabs .active {
+.profile .dashboard .tabs li:hover {
   font-weight: bold;
   border-left: 3px solid coral;
 }
 
+.profile .dashboard .tabs li:active {
+  font-weight: bold;
+  border-left: 3px solid coral;
+}
+
+
+
 .profile .hero {
   margin-top: 110px;
   padding: 10px;
-  box-shadow: 0 3px 3px #dddddd;
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
 
 .profile .hero .imageContainer{
@@ -739,5 +750,41 @@ input[type=radio]{
 }
 
 .profile .hero .detailsContainer{
-  text-align: left;
+  padding: 10px 20px;
+}
+
+.profile .hero .detailsContainer .detailTitle{
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: 60%;
+}
+
+.profile .hero .detailsContainer .details ul{
+  list-style: none;
+  padding: 30px 0px;
+  text-transform: none;
+  font-size: 80%;
+  font-weight: 550;
+  font-family: sans-serif;
+}
+
+.profile .hero .detailsContainer .details ul .email{
+  color: rgb(60, 141, 167);
+}
+
+.profile .hero .detailsContainer .details button{
+    background-color: coral; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile .hero .detailsContainer .details button:hover,button:active{
+  background-color: rgb(190, 167, 154);
 }
