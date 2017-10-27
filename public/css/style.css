@@ -687,3 +687,57 @@ input[type=radio]{
 .card-button:first-child {
   padding-left: 20px;
 }
+
+.profile .dashboard {
+  margin-top: 100px;
+  margin-left: 50px;
+  box-shadow: 0 3px 3px #dddddd;
+  padding: 10px 0px;
+  border-radius: 3px;
+}
+
+.profile .dashboard .title {
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.profile .dashboard .tabs {
+  text-align: left;
+}
+
+.profile .dashboard .tabs ul {
+  list-style: none;
+  cursor: pointer;
+}
+
+.profile .dashboard .tabs ul li {
+  padding: 20px 0px 20px 30px;
+}
+
+.profile .dashboard .tabs .active {
+  font-weight: bold;
+  border-left: 3px solid coral;
+}
+
+.profile .hero {
+  margin-top: 110px;
+  padding: 10px;
+  box-shadow: 0 3px 3px #dddddd;
+}
+
+.profile .hero .imageContainer{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+
+}
+.profile .hero .profileImage{
+  height: 200px;
+  width: 200px;
+}
+
+.profile .hero .detailsContainer{
+  text-align: left;
+}

@@ -9,6 +9,7 @@ import App from './components/App'
 import Home from './components/Home'
 import Register from './components/Register'
 import Admin from './components/Admin'
+import Profile from './components/Profile'
 
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("test","test") });
 
@@ -19,6 +20,7 @@ ReactDOM.render((
         <IndexRoute component={Home} />
         <Route path="register" component={Register} />
         <Route path="admin" component={Admin} />
+        <Route path="profile" component={Profile} />
       </Route>
     </Router>
   </Provider>
