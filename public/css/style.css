@@ -731,35 +731,35 @@ input[type=radio]{
 
 
 
-.profile .hero {
+.hero {
   margin-top: 110px;
   padding: 10px;
   box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
 
-.profile .hero .imageContainer{
+.hero .imageContainer{
   border-radius: 50%;
   width: 200px;
   height: 200px;
   overflow: hidden;
 
 }
-.profile .hero .profileImage{
+.hero .profileImage{
   height: 200px;
   width: 200px;
 }
 
-.profile .hero .detailsContainer{
+.hero .detailsContainer{
   padding: 10px 20px;
 }
 
-.profile .hero .detailsContainer .detailTitle{
+.hero .detailsContainer .detailTitle{
   font-weight: 600;
   text-transform: uppercase;
   text-shadow: 60%;
 }
 
-.profile .hero .detailsContainer .details ul{
+.hero .detailsContainer .details ul{
   list-style: none;
   padding: 30px 0px;
   text-transform: none;
@@ -768,11 +768,11 @@ input[type=radio]{
   font-family: sans-serif;
 }
 
-.profile .hero .detailsContainer .details ul .email{
+.hero .detailsContainer .details ul .email{
   color: rgb(60, 141, 167);
 }
 
-.profile .hero .detailsContainer .details button{
+.hero .detailsContainer .details button{
     background-color: coral; /* Green */
     border: none;
     color: white;
@@ -785,6 +785,12 @@ input[type=radio]{
     cursor: pointer;
 }
 
-.profile .hero .detailsContainer .details button:hover,button:active{
+.hero .detailsContainer .details button:hover,button:active{
   background-color: rgb(190, 167, 154);
+}
+
+.profile .homeContainer{
+  margin-top: 110px;
+  padding: 10px;
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
 }

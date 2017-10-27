@@ -10,6 +10,7 @@ import Home from './components/Home'
 import Register from './components/Register'
 import Admin from './components/Admin'
 import Profile from './components/Profile'
+import Following from './components/Following'
 
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("test","test") });
 
@@ -21,6 +22,8 @@ ReactDOM.render((
         <Route path="register" component={Register} />
         <Route path="admin" component={Admin} />
         <Route path="profile" component={Profile} />
+        <Route path="following" component={Following} />
+
       </Route>
     </Router>
   </Provider>
