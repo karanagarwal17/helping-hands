@@ -14,6 +14,11 @@ class Following extends React.Component {
         <ProfileDetails/>
         </div>
 
+        <div className="col span-4-of-4 following-card">
+        <FollowingCard/>
+        </div>
+
+
         /*className="col span-4-of-4 hero">
         NGOdata
         Here we can give the same NGOCard.js file to look at the following NGOs*/
