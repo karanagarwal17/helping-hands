@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from './Header'
 import ProfileDetails from './ProfileDetails'
-import FollowingCard from './FollowingCard'
 
 
 
@@ -14,9 +13,12 @@ class Following extends React.Component {
         <div className="col span-4-of-4 hero">
         <ProfileDetails/>
         </div>
+<<<<<<< HEAD
         <div className="col span-4-of-4 following-card">
         <FollowingCard/>
         </div>
+=======
+>>>>>>> 253010cdb4ba228ac547ebdc84b231b30e0ec758
 
         /*className="col span-4-of-4 hero">
         NGOdata
