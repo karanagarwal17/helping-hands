@@ -31,7 +31,7 @@ export default(state = {}, action) => {
         else {
           return {
             ...state,
-            redirectTo: 'register',
+            redirectTo: 'edit',
             token: action.payload.token,
             currentUser: action.payload.user
           }
