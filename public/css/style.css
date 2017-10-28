@@ -795,3 +795,9 @@ input[type=radio]{
   padding: 10px;
   box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
+
+.following .hero {
+  margin-top: 80px;
+  padding: 10px;
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
+}
