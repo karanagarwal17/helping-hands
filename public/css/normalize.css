@@ -104,6 +104,8 @@ pre {
 
 a {
   background-color: transparent; /* 1 */
+  color: #555;
+  text-decoration: none;
   -webkit-text-decoration-skip: objects; /* 2 */
 }
 

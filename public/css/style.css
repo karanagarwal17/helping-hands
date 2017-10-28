@@ -36,13 +36,6 @@ body {
 /* REUSABLE COMPONENTS */
 /* ------------------------------------------------------- */
 
-.row {
-  max-width: 1140px;
-  width: 80%;
-  margin: 0 auto 0 auto;
-  text-align: center;
-}
-
 .box {
   padding: 1%;
 }
@@ -397,6 +390,7 @@ input[type=radio]{
 
 .form-title {
   margin-top: 140px;
+  text-align: center;
 }
 
 .form-title h2 {
@@ -534,6 +528,7 @@ input[type=radio]{
 
 .register-form .submit-button {
   margin-top: 80px;
+  text-align: center;
 }
 
 /* ------------------
@@ -693,7 +688,7 @@ input[type=radio]{
   padding-left: 20px;
 }
 
-.profile .dashboard {
+.dashboard {
   margin-top: 100px;
   margin-left: 50px;
   box-shadow: 0 3px 3px rgb(177, 174, 186);
@@ -701,36 +696,34 @@ input[type=radio]{
   border-radius: 3px;
 }
 
-.profile .dashboard .title {
+.dashboard .title {
   padding-bottom: 30px;
   text-align: center;
   border-bottom: 1px solid #eeeeee;
 }
 
-.profile .dashboard .tabs {
+.dashboard .tabs {
   text-align: left;
 }
 
-.profile .dashboard .tabs ul {
+.dashboard .tabs ul {
   list-style: none;
   cursor: pointer;
 }
 
-.profile .dashboard .tabs ul li {
+.dashboard .tabs ul li {
   padding: 20px 0px 20px 30px;
 }
 
-.profile .dashboard .tabs li:hover {
+.dashboard .tabs li:hover {
   font-weight: bold;
   border-left: 3px solid coral;
 }
 
-.profile .dashboard .tabs li:active {
+.dashboard .tabs .active {
   font-weight: bold;
   border-left: 3px solid coral;
 }
-
-
 
 .hero {
   margin-top: 110px;
