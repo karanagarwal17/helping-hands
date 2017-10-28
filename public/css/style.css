@@ -686,6 +686,7 @@ input[type=radio]{
   padding: 15px 0px 0px 10px;
   color: coral;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .card-button:first-child {
@@ -791,6 +792,12 @@ input[type=radio]{
 
 .profile .homeContainer{
   margin-top: 110px;
+  padding: 10px;
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
+}
+
+.following .hero {
+  margin-top: 80px;
   padding: 10px;
   box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
