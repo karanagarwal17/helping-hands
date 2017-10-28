@@ -60,7 +60,7 @@ router.post("/register", function(req, res, next) {
               "subject":"complete your registration on helping hands",
               "key":process.env.key,
               "message":"hello "+ user.username + ", please go to the following link to complete your registration "+
-              "http://localhost:3000/api/users/activation/"+user.temporarytoken+""
+              "https://helping-hands.au-syd.mybluemix.net/activation/"+user.temporarytoken+""
             },
             json:true
           };
