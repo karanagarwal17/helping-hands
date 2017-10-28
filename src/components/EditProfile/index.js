@@ -1,4 +1,5 @@
 import React from 'react'
+import Dashboard from '../Dashboard'
 import Volunteer from './Volunteer'
 import Header from '../Header'
 import Ngo from './Ngo'
@@ -17,21 +18,35 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: NOT_LOGGED_IN })
 })
 
-class Register extends React.Component {
+class EditProfile extends React.Component {
   render() {
     if(this.props.currentUser){
       if(this.props.currentUser.volunteer) {
         return (
           <div>
             <Header/>
-            <Volunteer/>
+            <div className="row">
+              <div className="col span-1-of-4">
+                <Dashboard active="edit"/>
+              </div>
+              <div className="col span-3-of-4">
+                <Volunteer/>
+              </div>
+            </div>
           </div>
         )
       } else if (this.props.currentUser.ngo) {
         return (
           <div>
             <Header/>
-            <Ngo step={this.props.step}/>
+            <div className="row">
+              <div className="col span-1-of-4">
+                <Dashboard active="edit"/>
+              </div>
+              <div className="col span-3-of-4">
+                <Ngo step={this.props.step}/>
+              </div>
+            </div>
           </div>
         )
       }
@@ -46,4 +61,4 @@ class Register extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile)

@@ -7,23 +7,20 @@ import agent from './agent'
 
 import App from './components/App'
 import Home from './components/Home'
-import Register from './components/Register'
+import EditProfile from './components/EditProfile'
 import Admin from './components/Admin'
 import Profile from './components/Profile'
-import Following from './components/Following'
 
-//store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("test","test") });
+store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("that","that") });
 
 ReactDOM.render((
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="register" component={Register} />
         <Route path="admin" component={Admin} />
+        <Route path="edit" component={EditProfile} />
         <Route path="profile" component={Profile} />
-        <Route path="following" component={Following} />
-
       </Route>
     </Router>
   </Provider>
