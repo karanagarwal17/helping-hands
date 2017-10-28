@@ -7,20 +7,15 @@ class Following extends React.Component {
     return (
       <div className="following">
         <Header />
-        <div className="col span-4-of-4 hero">
-        </div>
-
         <div className="col span-4-of-4 following-card">
-        <FollowingCard/>
+          <FollowingCard/>
         </div>
-
-
         /*className="col span-4-of-4 hero">
         NGOdata
         Here we can give the same NGOCard.js file to look at the following NGOs*/
-
       </div>
     )
+  }
 }
-}
+
 export default Following
