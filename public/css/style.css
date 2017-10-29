@@ -794,3 +794,12 @@ input[type=radio]{
   padding: 10px;
   box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
+
+.hero .detailsContainer .details ul li.type-ngo{
+  text-transform: uppercase;
+  text-shadow: 60%;
+  text-decoration: underline;
+  font-style: oblique;
+  font-weight: 600;
+  color: coral;
+}

@@ -3,7 +3,7 @@ import React from 'react'
 class Volunteer extends React.Component {
   render() {
     return (
-      <div className="hero">
+      <div>
         <div className="col span-1-of-3 imageContainer">
           <img src="img/background.jpg" alt="Profile icon" className="profileImage"/>
         </div>
