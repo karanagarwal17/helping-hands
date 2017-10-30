@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard'
 import Volunteer from './Volunteer'
 import NgoProfile from './NgoProfile'
 import NgoDashboard from '../NgoDashboard'
+import VolunteerContainer from './VolunteerContainer'
 
 
 const mapStateToProps = state => ({
@@ -30,7 +31,11 @@ class Profile extends React.Component {
               <div className="col span-3-of-4 hero">
                 <Volunteer />
               </div>
+              <div className="col span-3-of-4 tabsContainer">
+                <VolunteerContainer />
+              </div>
             </div>
+
           </div>
         )
       } else if(this.props.currentUser.ngo){

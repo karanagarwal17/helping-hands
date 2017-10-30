@@ -17,7 +17,9 @@ var users = require('./routes/users');
 var volunteer=require("./routes/volunteer");
 
 if(process.env.environment === 'development'){
-	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations');
+	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations',function(){
+		console.log("connected to database");
+	});
 }
 else {
 	mongoose.connect(process.env.mongoUrl);
