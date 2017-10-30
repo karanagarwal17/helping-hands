@@ -1,9 +1,16 @@
 #!/usr/bin/nodejs
 var debug = require('debug')('my-application');
+var socketIO=require("socket.io");
+var http=require("http");
+
+
 var app = require('../app');
+var server=http.createServer(app);
+var io=socketIO(server);
+var pm=require("../pm/privateMessage")(io);
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
+server.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
