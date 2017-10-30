@@ -4,6 +4,8 @@ import Header from '../Header'
 import Dashboard from '../Dashboard'
 import Volunteer from './Volunteer'
 import NgoProfile from './NgoProfile'
+import NgoDashboard from '../NgoDashboard'
+
 
 const mapStateToProps = state => ({
   ...state,
@@ -25,7 +27,7 @@ class Profile extends React.Component {
               <div className="col span-1-of-4">
                 <Dashboard active="profile"/>
               </div>
-              <div className="col span-3-of-4">
+              <div className="col span-3-of-4 hero">
                 <Volunteer />
               </div>
             </div>
@@ -37,9 +39,9 @@ class Profile extends React.Component {
             <Header />
             <div className="row profile">
               <div className="col span-1-of-4">
-                <Dashboard active="profile"/>
+                <NgoDashboard active="profile"/>
               </div>
-              <div className="col span-3-of-4">
+              <div className="col span-3-of-4 hero">
                 <NgoProfile />
               </div>
             </div>
