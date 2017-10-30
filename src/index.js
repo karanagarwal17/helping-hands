@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import store from './store'
 import agent from './agent'
 
+import Activation from './components/Activation'
 import App from './components/App'
 import Home from './components/Home'
 import EditProfile from './components/EditProfile'
@@ -18,6 +19,7 @@ ReactDOM.render((
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
+        <Route path="activation/:id" component={Activation} />
         <Route path="admin" component={Admin} />
         <Route path="edit" component={EditProfile} />
         <Route path="profile" component={Profile} />

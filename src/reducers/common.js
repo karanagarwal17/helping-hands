@@ -3,6 +3,7 @@ import {
   LOGIN,
   SIGNUP,
   LOGOUT,
+  PROFILE_ACTIVATED,
   REDIRECT,
   NGO_FORM_UPDATE,
   VOLUNTEER_FORM_UPDATE,
@@ -72,6 +73,11 @@ export default(state = {}, action) => {
         return state
       }
     case NOT_LOGGED_IN:
+      return {
+        ...state,
+        redirectTo: '/'
+      }
+    case PROFILE_ACTIVATED:
       return {
         ...state,
         redirectTo: '/'
