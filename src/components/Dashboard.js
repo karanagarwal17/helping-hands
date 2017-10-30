@@ -20,6 +20,11 @@ class Dashboard extends React.Component {
                 Profile
               </li>
             </Link>
+            <Link to='message'>
+              <li className={(this.props.active === 'chat' ? 'active' : '')}>
+                Chat
+              </li>
+            </Link>
             <Link to='edit'>
               <li className={(this.props.active === 'edit' ? 'active' : '')}>
                 Edit Profile
