@@ -3,7 +3,7 @@ var bodyParser=require("body-parser");
 var router = express.Router();
 var Verify=require("./verify");
 var ngo=require("../models/ngo");
-
+var request=require("request");
 router.use(bodyParser.json());
 
 router.route("/ngo")
@@ -27,6 +27,25 @@ router.route("/ngo/accept")
         if (err) {
           throw err;
         }
+
+        const options = {
+          url: 'https://desolate-reef-80675.herokuapp.com/email/confirmation',
+          method: 'POST',
+          body:{
+            "to":doc.email,
+            "subject":" ngo verification completed on helping hands",
+            "key":process.env.key,
+            "message":"your"+ doc.org_name+ " details have been verified and now your ngo is an member at"+
+            " helping hands"
+          },
+          json:true
+        };
+
+        request(options, function(err, res, body) {
+            // let json = JSON.parse(body);
+            console.log(res);
+          });
+
         res.json("NGO Approved!")
       })
     })
@@ -38,6 +57,7 @@ router.route("/ngo/reject")
       if (err){
         throw err;
       }
+
       res.json("NGO Deleted");
     });
   })
