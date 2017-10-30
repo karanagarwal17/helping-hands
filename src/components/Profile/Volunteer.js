@@ -21,6 +21,7 @@ class Volunteer extends React.Component {
           </div>
         </div>
       </div>
+
     )
   }
 }
