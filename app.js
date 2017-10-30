@@ -10,10 +10,11 @@ var cors = require("cors");
 var localStrategy=require("passport-local").Strategy;
 require('dotenv').config();
 
-var users = require('./routes/users');
-var ngo=require("./routes/ngo");
-var volunteer=require("./routes/volunteer");
 var admin = require('./routes/admin');
+var file = require('./routes/file');
+var ngo=require("./routes/ngo");
+var users = require('./routes/users');
+var volunteer=require("./routes/volunteer");
 
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations');
@@ -46,6 +47,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/admin',admin);
+app.use('/api/file',file);
 app.use('/api/ngo',ngo);
 app.use('/api/users', users);
 app.use('/api/volunteer',volunteer);
