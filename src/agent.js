@@ -34,7 +34,9 @@ const Auth = {
   signup: (username, password, usertype, email) =>
     requests.post('/users/register', { username, password, usertype, email }),
   addNgoDetails: (details) =>
-    requests.put('/ngo/', details )
+    requests.put('/ngo/', details ),
+  activate: (token) =>
+    requests.get(`/users/activation/${token}`)
 }
 
 const Admin = {
