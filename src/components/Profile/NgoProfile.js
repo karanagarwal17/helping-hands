@@ -1,13 +1,32 @@
 import React from 'react'
 
 class NgoProfile extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        NGO Profile here
-      </div>
-    )
-  }
-}
+      <div className="col span-1-of-3 imageContainer">
+            <img src="img/background.jpg" alt="Profile icon" className="profileImage"/>
+          </div>
+          <div className="col span-2-of-3 detailsContainer ">
+          <div className="detailTitle">
+            Helping hands
+          </div>
+          <div className="details">
+            <ul>
+              <li className="type-ngo">Orphanage</li><br/>
+              <li>VICE PRESIDENT: Meetasha Gaur</li>
+              <li className="email">Meetaasha29@gmail.com</li><br/>
+              <li>E-305 Vaishali nagar</li>
+              <li>Jaipur 9782976966</li>
+            </ul>
+             <button class="button">Follow</button>
 
+          </div>
+</div>
+</div>
+
+
+  )
+}
+}
 export default NgoProfile
