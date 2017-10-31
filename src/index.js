@@ -11,6 +11,7 @@ import Home from './components/Home'
 import EditProfile from './components/EditProfile'
 import Admin from './components/Admin'
 import Profile from './components/Profile'
+import Chat from './components/Chat'
 
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("that","that") });
 
@@ -22,6 +23,7 @@ ReactDOM.render((
         <Route path="activation/:id" component={Activation} />
         <Route path="admin" component={Admin} />
         <Route path="edit" component={EditProfile} />
+        <Route path="chat" component={Chat} />
         <Route path="profile" component={Profile} />
 
       </Route>
