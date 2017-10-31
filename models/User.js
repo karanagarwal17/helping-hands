@@ -29,6 +29,14 @@ var UserSchema=new Schema({
     type:Boolean,
     default:false
   },
+  volunteerId:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"volunteer"
+  },
+  ngoId:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"ngo"
+  },
   temporarytoken:String
 });
 

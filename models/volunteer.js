@@ -3,7 +3,7 @@ var Schema=mongoose.Schema;
 
 var volunteer=new Schema({
 
-      firstname:String,
+      firstname:{type:String,default:""},
 
       lastname:String,
 

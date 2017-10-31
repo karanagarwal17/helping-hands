@@ -48,7 +48,7 @@ html, body {
 /* ------------------------------------------------------- */
 
 .box {
-  padding: 1%;
+  box-shadow: 0 3px 3px #dddddd;
 }
 
 
@@ -151,20 +151,6 @@ input[type=checkbox], input[type=radio] {
   color: #ffffff;
 }
 
-.header .logout-button {
-  cursor: pointer;
-  margin-top: 12px;
-  padding: 5px;
-  text-decoration: none;
-  color: #555;
-  background: transparent;
-  border: none;
-  display: inline-block;
-  float: right;
-  margin-right: 30px;
-  color: #ffffff;
-}
-
 #home {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/background.jpg);
   background-size: cover;
@@ -230,7 +216,6 @@ input[type=checkbox], input[type=radio] {
   width: 450px;
   height: 530px;
   background-color: #fff;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.5s ease-in-out;
 }
 
@@ -708,7 +693,6 @@ input[type=checkbox], input[type=radio] {
 .dashboard {
   margin-top: 100px;
   margin-left: 50px;
-  box-shadow: 0 3px 3px rgb(177, 174, 186);
   padding: 10px 0px;
   border-radius: 3px;
 }
@@ -745,8 +729,6 @@ input[type=checkbox], input[type=radio] {
 .hero {
   margin-top: 110px;
   padding: 10px;
-  box-shadow: 0 3px 3px rgb(177, 174, 186);
-  background-color: rgba(199, 211, 221, 0.22);
 }
 
 .hero .imageContainer {
@@ -805,13 +787,11 @@ input[type=checkbox], input[type=radio] {
 .profile .homeContainer {
   margin-top: 110px;
   padding: 10px;
-  box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
 
 .following .hero {
   margin-top: 80px;
   padding: 10px;
-  box-shadow: 0 3px 3px rgb(177, 174, 186);
 }
 
 .hero .detailsContainer .details ul li.type-ngo {
@@ -825,7 +805,6 @@ input[type=checkbox], input[type=radio] {
 
 .tabsContainer {
   padding: 0px 0px 0px 0px;
-  box-shadow: 0 0px 3px rgb(177, 174, 186);
 }
 
 .tabsContainer .o1 {
@@ -849,7 +828,6 @@ input[type=checkbox], input[type=radio] {
 }
 
 .followingContainer{
-  box-shadow: 0 3px 3px rgb(177, 174, 186);
   padding: 4px 3px;
   border-top: 1px solid rgba(33, 83, 80, 0.19);
 }
@@ -899,102 +877,149 @@ input[type=checkbox], input[type=radio] {
 }
 
 .followingContainer .followingCard  .HorizontalButtonContainer button{
-      background-color: coral; /* Green */
-      border: none;
-      color: white;
-      padding: 10px 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-  }
+  background-color: coral; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  .followingContainer .followingCard  .HorizontalButtonContainer  button:hover,button:active{
-    background-color: rgb(190, 167, 154);
-  }
+.followingContainer .followingCard  .HorizontalButtonContainer button:hover,button:active{
+  background-color: rgb(190, 167, 154);
+}
 
-  .followingContainer .followingCard  .HorizontalDetailsContainer ul .ngotype{
-    text-transform: uppercase;
-    text-shadow: 60%;
-    color: rgb(128,128,128);
+.followingContainer .followingCard  .HorizontalDetailsContainer ul .ngotype{
+  text-transform: uppercase;
+  text-shadow: 60%;
+  color: rgb(128,128,128);
+}
 
-  }
+.EventContainer{
+  padding: 4px 3px;
+  border-top: 1px solid rgba(33, 83, 80, 0.19);
+}
 
-  .EventContainer{
-    box-shadow: 0 3px 3px rgb(177, 174, 186);
-    padding: 4px 3px;
-    border-top: 1px solid rgba(33, 83, 80, 0.19);
-  }
+.EventContainer .EventCard{
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(33, 83, 80, 0.19);
+}
 
-  .EventContainer .EventCard{
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(33, 83, 80, 0.19);
-  }
+.EventContainer .EventCard .HorizontalImageContainer{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
 
-  .EventContainer .EventCard .HorizontalImageContainer{
-    width: 100px;
-    height: 100px;
+.EventContainer .EventCard .HorizontalImageContainer .hImage{
+  height: 100px;
+  width: 100px;
+}
 
-    overflow: hidden;
+.EventContainer .EventCard  .HorizontalDetailsContainer{
+  padding-top: 5px;
+}
 
-  }
-  .EventContainer .EventCard .HorizontalImageContainer .hImage{
-    height: 100px;
-    width: 100px;
-  }
+.EventContainer .EventCard  .HorizontalDetailsContainer .EventTitle{
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: 60%;
+}
 
-  .EventContainer .EventCard  .HorizontalDetailsContainer{
-    padding-top: 5px;
-    }
+.EventContainer .EventCard  .HorizontalDetailsContainer  ul{
+  list-style: none;
+  text-transform: none;
+  font-size: 80%;
+  font-weight: 550;
+  font-family: sans-serif;
+}
 
-    .EventContainer .EventCard  .HorizontalDetailsContainer .EventTitle{
-      font-weight: 600;
-      text-transform: uppercase;
-      text-shadow: 60%;
-    }
+.EventContainer .EventCard  .HorizontalDetailsContainer  ul .email{
+  color: rgb(60, 141, 167);
+}
 
-    .EventContainer .EventCard  .HorizontalDetailsContainer  ul{
-      list-style: none;
-      text-transform: none;
-      font-size: 80%;
-      font-weight: 550;
-      font-family: sans-serif;
-    }
+.EventContainer .EventCard  .HorizontalButtonContainer{
+  margin-left: 100px;
+}
 
-  .EventContainer .EventCard  .HorizontalDetailsContainer  ul .email{
-      color: rgb(60, 141, 167);
-    }
+.EventContainer .EventCard  .HorizontalButtonContainer button{
+  background-color: coral; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  .EventContainer .EventCard  .HorizontalButtonContainer{
-    margin-left: 100px;
-  }
+.EventContainer .EventCard  .HorizontalButtonContainer  button:hover,button:active{
+  background-color: rgb(190, 167, 154);
+}
 
-  .EventContainer .EventCard  .HorizontalButtonContainer button{
-        background-color: coral; /* Green */
-        border: none;
-        color: white;
-        padding: 10px 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+.EventContainer .EventCard  .HorizontalDetailsContainer ul .EventType{
+  text-transform: uppercase;
+  text-shadow: 60%;
+  color: rgb(128,128,128);
+}
 
-    .EventContainer .EventCard  .HorizontalButtonContainer  button:hover,button:active{
-      background-color: rgb(190, 167, 154);
-    }
+ /*USERS*/
 
-    .EventContainer .EventCard  .HorizontalDetailsContainer ul .EventType{
-      text-transform: uppercase;
-      text-shadow: 60%;
-      color: rgb(128,128,128);
+.chat-users {
+  margin-top: 100px;
+  padding: 10px 0;
+  height: 700px;
+}
 
-    }
+.chat-users .title {
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.userlist ul {
+  list-style: none;
+}
+
+.userlist ul li {
+  padding: 10px 30px;
+  height: 80px;
+  display: block;
+}
+
+.userlist ul li:hover {
+  font-weight: bold;
+  border-left: 3px solid coral;
+}
+
+.userlist .user .user-image {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  float: left;
+  border-radius: 50%;
+}
+
+.userlist .user img {
+  width: 60px;
+}
+
+.userlist .user .about {
+  float: left;
+  margin-top: 8px;
+  padding-left: 8px;
+}
+
+.userlist .user .status {
+  color: #92959E;
+}
 
 
  /*CHAT */
@@ -1006,12 +1031,36 @@ input[type=checkbox], input[type=radio] {
   position: fixed;
   padding-top: 10px;
   padding-bottom: 10px;
-  border: 1px solid #ccc;
 }
 
-#chat-messages{
+.chat-container .user-details {
+  padding: 0 40px;
+  height: 54px;
+  width: 100%;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.chat-container .user-details .user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+
+.chat-container .user-details .user-image img {
+  width: 50px;
+}
+
+.chat-container .user-details .about {
+  float: left;
+  margin-top: 8px;
+  padding-left: 8px;
+}
+
+.chat-messages{
 	position:absolute;
-  top: 0;
+  top: 80px;
 	left:0;
   right: 0;
   bottom: 60px;
@@ -1025,11 +1074,11 @@ input[type=checkbox], input[type=radio] {
 	     -o-transition: all 200ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
 	        transition: all 200ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
 }
-#chat-messages.animate{
+.chat-messages.animate{
 	opacity:1;
 	margin-top:0;
 }
-#chat-messages label{
+.chat-messages label{
 	color:#aab8c2;
 	font-weight:600;
 	font-size:12px;
@@ -1037,33 +1086,33 @@ input[type=checkbox], input[type=radio] {
 	margin:15px 0;
 	display:block;
 }
-#chat-messages label.left{
+.chat-messages label.left{
 	text-align:left;
   margin-bottom: 5px;
   margin-left: 20px;
 }
-#chat-messages div.message{
+.chat-messages div.message{
 	padding:0 0 30px 58px;
 	clear:both;
 	margin-bottom: 35px;
 }
-#chat-messages div.message.right{
-	  padding: 0 58px 30px 0;
-	  margin-right: -19px;
-	  margin-left: 19px;
+.chat-messages div.message.right{
+  padding: 0 58px 30px 0;
+  margin-right: -19px;
+  margin-left: 19px;
 }
 
-#chat-messages .message .img{
-    background-color: #999;
-	  float: left;
-	  margin-left: -38px;
-	  border-radius: 50%;
-    height: 30px;
-	  width: 30px;
-	  margin-top: 12px;
+.chat-messages .message .img{
+  background-color: #999;
+  float: left;
+  margin-left: -38px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-top: 12px;
 }
 
-#chat-messages div.message.right .img{
+.chat-messages div.message.right .img{
 	float: right;
   margin-left: 0;
 	margin-right: -38px;
@@ -1078,7 +1127,7 @@ input[type=checkbox], input[type=radio] {
 	position:relative;
 	float:left;
 }
-#chat-messages div.message.right .bubble{
+.chat-messages div.message.right .bubble{
 	float:right;
 	border-radius:5px 5px 0px 5px ;
 }
@@ -1089,7 +1138,7 @@ input[type=checkbox], input[type=radio] {
 	  left: 0;
 	  bottom: -22px;
 }
-#sendmessage{
+.sendmessage{
 	height:60px;
   width: 100%;
 	border-top:1px solid #e7ebee;
@@ -1099,7 +1148,7 @@ input[type=checkbox], input[type=radio] {
 	background:#fff;
 	padding-bottm:30px;
 }
-#sendmessage input{
+.sendmessage input{
 	background:#fff;
 	margin:21px 0 0 21px;
 	border:none;
@@ -1110,10 +1159,10 @@ input[type=checkbox], input[type=radio] {
 	font-weight:400px;
 	color:#aab8c2;
 }
-#sendmessage input:focus{
+.sendmessage input:focus{
 	 outline: 0;
 }
-#sendmessage button{
+.sendmessage button{
 	background:#fff url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/send.png") 0 -41px no-repeat;
 	width:30px;
 	height:30px;
@@ -1122,11 +1171,11 @@ input[type=checkbox], input[type=radio] {
 	top: 23px;
 	border:none;
 }
-#sendmessage button:hover{
+.sendmessage button:hover{
 	cursor:pointer;
 	background-position: 0 0 ;
 }
-#sendmessage button:focus{
+.sendmessage button:focus{
 	 outline: 0;
 }
 
