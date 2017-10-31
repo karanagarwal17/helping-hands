@@ -16,7 +16,6 @@ router.route("/")
 })
 
 .post(Verify.verifyOrdinaryUser,function(req,res,next){
-  console.log(req.body);
   ngo.findOneAndUpdate({"_id":req.decoded._doc.ngoId}, req.body, {upsert:true}, function(err, doc){
     if (err) return res.send(500, { error: err });
     return res.json({status:"succesfully saved",ngo:doc});

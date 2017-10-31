@@ -58,9 +58,15 @@ const Ngo = {
     requests.post('/ngo', body)
 }
 
+const Event = {
+  post: (body) =>
+    requests.post('/event', body)
+}
+
 export default {
   Admin,
   Auth,
+  Event,
   Ngo,
   Volunteer,
   setToken: _token => { token = _token }

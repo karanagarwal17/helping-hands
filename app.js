@@ -15,6 +15,7 @@ var file = require('./routes/file');
 var ngo=require("./routes/ngo");
 var users = require('./routes/users');
 var volunteer=require("./routes/volunteer");
+var event = require('./routes/event');
 
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations',function(){
@@ -53,6 +54,7 @@ app.use('/api/file',file);
 app.use('/api/ngo',ngo);
 app.use('/api/users', users);
 app.use('/api/volunteer',volunteer);
+app.use('/api/event', event)
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

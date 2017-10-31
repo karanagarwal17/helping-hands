@@ -41,7 +41,6 @@ class Volunteer extends React.Component {
 
       const details = Object.assign({}, this.state)
       this.props.onSave(details)
-      console.log(details)
     }
   }
 

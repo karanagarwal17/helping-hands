@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Verify = require("./verify");
-var event = require("../models/event");
+var event = require("../models/Event");
+var ngo = require('./ngo');
 
 router.route("/")
 .get(Verify.verifyOrdinaryUser, function(req, res, next) {
@@ -15,17 +16,30 @@ router.route("/")
   });
 })
 .post(Verify.verifyOrdinaryUser, function(req, res, next) {
-  event.create(req.body, function(err, doc) {
+  console.log('1');
+  ngo.findOne({_id: req.decoded._doc.ngoId}, function(err, ngo_doc){
     if (err) {
       console.log(err);
       res.status(401).json(err);
     } else {
-      res.status(200).json(doc);
+      console.log('1');
+      event.create(req.body, function(err, event_doc) {
+        if (err) {
+          console.log(err);
+          res.status(401).json(err);
+        } else {
+          ngo_doc.events.push(event_doc._id);
+          ngo_doc.save(function(err, doc){
+            res.status(200).json(doc);
+          });
+        }
+      });
     }
   });
 });
 
-router.route("/:id").put(Verify.verifyOrdinaryUser, function(req, res, next) {
+router.route("/:id")
+.put(Verify.verifyOrdinaryUser, function(req, res, next) {
   event.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, {
@@ -39,4 +53,5 @@ router.route("/:id").put(Verify.verifyOrdinaryUser, function(req, res, next) {
     }
   });
 });
+
 module.exports = router;
