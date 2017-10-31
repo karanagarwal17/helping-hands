@@ -12,7 +12,7 @@
 
 html,
 body {
-  background-color: white;
+  background-color:  white;
   color: #555;
   font-family: 'Open Sans', 'Arial',sans-serif;
   font-weight: 400;
@@ -729,6 +729,7 @@ input[type=radio]{
   margin-top: 110px;
   padding: 10px;
   box-shadow: 0 3px 3px rgb(177, 174, 186);
+  background-color: rgba(199, 211, 221, 0.22);
 }
 
 .hero .imageContainer{
@@ -832,15 +833,17 @@ input[type=radio]{
 }
 
 .followingContainer{
-  box-shadow: 0 0px 3px rgb(177, 174, 186);
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
   padding: 4px 3px;
+  border-top: 1px solid rgba(33, 83, 80, 0.19);
 }
 
 .followingContainer .followingCard{
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(33, 83, 80, 0.19);
-
+  border-top: 1px solid rgba(33, 83, 80, 0.19);
+  margin-bottom: 7px;
 }
 
 .followingContainer .followingCard .HorizontalImageContainer{
@@ -904,3 +907,79 @@ input[type=radio]{
     color: rgb(128,128,128);
 
   }
+
+  .EventContainer{
+    box-shadow: 0 3px 3px rgb(177, 174, 186);
+    padding: 4px 3px;
+    border-top: 1px solid rgba(33, 83, 80, 0.19);
+  }
+
+  .EventContainer .EventCard{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(33, 83, 80, 0.19);
+    border-top: 1px solid rgba(33, 83, 80, 0.19);
+    margin-bottom: 7px;
+  }
+
+  .EventContainer .EventCard .HorizontalImageContainer{
+    width: 100px;
+    height: 100px;
+
+    overflow: hidden;
+
+  }
+  .EventContainer .EventCard .HorizontalImageContainer .hImage{
+    height: 100px;
+    width: 100px;
+  }
+
+  .EventContainer .EventCard  .HorizontalDetailsContainer{
+    padding-top: 5px;
+    }
+
+    .EventContainer .EventCard  .HorizontalDetailsContainer .EventTitle{
+      font-weight: 600;
+      text-transform: uppercase;
+      text-shadow: 60%;
+    }
+
+    .EventContainer .EventCard  .HorizontalDetailsContainer  ul{
+      list-style: none;
+      text-transform: none;
+      font-size: 80%;
+      font-weight: 550;
+      font-family: sans-serif;
+    }
+
+  .EventContainer .EventCard  .HorizontalDetailsContainer  ul .email{
+      color: rgb(60, 141, 167);
+    }
+
+  .EventContainer .EventCard  .HorizontalButtonContainer{
+    margin-left: 100px;
+  }
+
+  .EventContainer .EventCard  .HorizontalButtonContainer button{
+        background-color: coral; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .EventContainer .EventCard  .HorizontalButtonContainer  button:hover,button:active{
+      background-color: rgb(190, 167, 154);
+    }
+
+    .EventContainer .EventCard  .HorizontalDetailsContainer ul .EventType{
+      text-transform: uppercase;
+      text-shadow: 60%;
+      color: rgb(128,128,128);
+
+    }

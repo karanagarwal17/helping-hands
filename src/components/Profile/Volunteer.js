@@ -5,7 +5,7 @@ class Volunteer extends React.Component {
     return (
       <div>
         <div className="col span-1-of-3 imageContainer">
-          <img src="img/background.jpg" alt="Profile icon" className="profileImage"/>
+          <img src="img/girl1.jpg" alt="Profile icon" className="profileImage"/>
         </div>
         <div className="col span-2-of-3 detailsContainer ">
           <div className="detailTitle">
@@ -17,7 +17,7 @@ class Volunteer extends React.Component {
               <li className="email">Meetaasha29@gmail.com</li>
               <li>Jaipur 9782976966</li>
             </ul>
-            <button class="button">Following!</button>
+            <button class="button">Following</button>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import EditProfile from './components/EditProfile'
 import Admin from './components/Admin'
 import Profile from './components/Profile'
 
+
 store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("that","that") });
 
 ReactDOM.render((
@@ -23,6 +24,7 @@ ReactDOM.render((
         <Route path="admin" component={Admin} />
         <Route path="edit" component={EditProfile} />
         <Route path="profile" component={Profile} />
+
       </Route>
     </Router>
   </Provider>
