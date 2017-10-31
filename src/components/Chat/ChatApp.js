@@ -2,6 +2,7 @@ import React from 'react'
 import openSocket from 'socket.io-client'
 
 import Message from './Message'
+import User from './User'
 
 class ChatApp extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class ChatApp extends React.Component {
       console.log("inboundMessage");
       var messages = this.state.messages
       messages.push({text: inboundMessage.message, reply: true})
-      this.setState(messages: messages)
+      this.setState(messages : messages)
     })
   }
 
@@ -53,14 +54,20 @@ class ChatApp extends React.Component {
 
   render() {
     return (
-      <div className="chat-container">
+      <div className="chat-container box">
+        <div className="user-details">
+          <div className="user-image">
+            <img src="img/girl1.jpg" alt="avatar"/>
+          </div>
+          <div className="about">
+            <div className="name">Aiden Chavez</div>
+          </div>
+        </div>
         <div className="chat-messages">
-          <label>Chat</label>
-          {
-            this.state.messages.map((message, i) => {
-              return (<Message key={i} reply={message.reply} text={message.text}/>)
-            })
-          }
+          {this.state.messages.map((message, i) => {
+            return (<Message key={i} reply={message.reply} text={message.text}/>)
+          })
+}
         </div>
         <div className="sendmessage">
           <input type="text" placeholder="Send message..." onChange={this.handleOnChange} value={this.state.input}/>

@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
 class Dashboard extends React.Component {
   render() {
     return (
-      <div className="dashboard">
+      <div className="dashboard box">
         <div className="title">
           Hey Volunteer!
         </div>
@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
                 Profile
               </li>
             </Link>
-            <Link to='message'>
+            <Link to='chat'>
               <li className={(this.props.active === 'chat' ? 'active' : '')}>
                 Chat
               </li>
