@@ -1,4 +1,4 @@
-var messages=require("../models/message");
+var Messages=require("../models/message");
 var User=require("../models/User");
 module.exports=function(io){
 
@@ -6,17 +6,20 @@ module.exports=function(io){
     console.log("connected to socket successfully");
 
     socket.on("join",function(room){
+      console.log(room);
       socket.join(room);
     });
 
     socket.on('send message', function(data){
       console.log(data);
-      if(messages.find({$and:[{user1: data.user1Id},{user2: data.user2Id}]})){
-        messages.find({user1:data.user1Id},function(err,Message){
+      if(Messages.find({$and:[{user1: data.user1Id},{user2: data.user2Id}]})){
+        console.log("this");
+        Messages.findOne({user1:data.user1Id},function(err,Message){
           var msg={
             content:data.message
           }
           Message.messages.push(msg);
+          console.log(Message.messages);
         });
       }else if(messages.find({$and:[{user1: data.user2Id},{user2: data.user1Id}]})){
 

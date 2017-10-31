@@ -15,7 +15,7 @@ var file = require('./routes/file');
 var ngo=require("./routes/ngo");
 var users = require('./routes/users');
 var volunteer=require("./routes/volunteer");
-var event = require("./routes/Event");
+var event = require("./routes/event");
 var chat=require("./routes/chat");
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations',function(){

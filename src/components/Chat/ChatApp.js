@@ -1,5 +1,11 @@
 import React from 'react'
 import openSocket from 'socket.io-client'
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => ({
+  ...state.common,
+  currentUser: state.common.currentUser
+})
 
 import Message from './Message'
 import User from './User'
@@ -31,6 +37,11 @@ class ChatApp extends React.Component {
   }
 
   _handleMessageEvent() {
+    this.socket.on('connect', () => {
+      console.log("jhbjhb");
+      this.socket.emit('join', this.props.currentUser._id);
+    })
+
     this.socket.on('receive message', (inboundMessage) => {
       console.log("inboundMessage");
       var messages = this.state.messages
@@ -45,7 +56,7 @@ class ChatApp extends React.Component {
 
   handleOnSubmit(ev) {
     ev.preventDefault()
-    this.socket.emit('send message', {message: this.state.input})
+    this.socket.emit('send message', {message: this.state.input, user1Id: '59f8a9eda39c0220b7284e3d', user2Id: '59f8a6794ee3f60d1778ae59'})
     var messages = this.state.messages
     messages.push({text: this.state.input, reply: false})
     this.setState({messages: messages})
@@ -78,4 +89,4 @@ class ChatApp extends React.Component {
   }
 }
 
-export default ChatApp
+export default connect(mapStateToProps)(ChatApp)

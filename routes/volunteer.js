@@ -7,7 +7,7 @@ router.use(bodyParser.json());
 
 router.route("/")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
-  volunteer.find({},function(err,volunteers){
+  volunteer.findOne({"_id": req.decoded._doc.volunteerId},function(err,volunteers){
     if(err){
       throw err;
     }

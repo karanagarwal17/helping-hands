@@ -7,7 +7,7 @@ var ngo=require("../models/ngo");
 router.use(bodyParser.json());
 router.route("/")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
-  ngo.find({},function(err,ngos){
+  ngo.findOne({"_id":req.decoded._doc.ngoId},function(err,ngos){
     if(err){
       throw err;
     }

@@ -63,9 +63,15 @@ const Event = {
     requests.post('/event', body)
 }
 
+const Chat = {
+  get: () =>
+    requests.get('/chat')
+}
+
 export default {
   Admin,
   Auth,
+  Chat,
   Event,
   Ngo,
   Volunteer,
