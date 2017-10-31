@@ -6,6 +6,7 @@ import Volunteer from './Volunteer'
 import NgoProfile from './NgoProfile'
 import NgoDashboard from '../NgoDashboard'
 import VolunteerContainer from './VolunteerContainer'
+import Following from './Following'
 
 
 const mapStateToProps = state => ({
@@ -33,6 +34,9 @@ class Profile extends React.Component {
               </div>
               <div className="col span-3-of-4 tabsContainer">
                 <VolunteerContainer />
+              </div>
+              <div className="col span-3-of-4 followingContainer">
+              <Following />
               </div>
             </div>
 

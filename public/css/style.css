@@ -848,12 +848,12 @@ input[type=checkbox], input[type=radio] {
   border-bottom: 2px solid coral;
 }
 
-
-.followingContainer {
-  box-shadow: 0 0px 3px rgb(177, 174, 186);
+.followingContainer{
+  box-shadow: 0 3px 3px rgb(177, 174, 186);
   padding: 4px 3px;
   border-top: 1px solid rgba(33, 83, 80, 0.19);
 }
+
 
 .followingContainer .followingCard {
   padding-top: 24px;
@@ -898,7 +898,6 @@ input[type=checkbox], input[type=radio] {
   margin-left: 100px;
 }
 
-<<<<<<< HEAD
 .followingContainer .followingCard  .HorizontalButtonContainer button{
       background-color: coral; /* Green */
       border: none;
@@ -923,7 +922,6 @@ input[type=checkbox], input[type=radio] {
 
   }
 
-
   .EventContainer{
     box-shadow: 0 3px 3px rgb(177, 174, 186);
     padding: 4px 3px;
@@ -931,11 +929,9 @@ input[type=checkbox], input[type=radio] {
   }
 
   .EventContainer .EventCard{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     border-bottom: 1px solid rgba(33, 83, 80, 0.19);
-    border-top: 1px solid rgba(33, 83, 80, 0.19);
-    margin-bottom: 7px;
   }
 
   .EventContainer .EventCard .HorizontalImageContainer{
@@ -999,30 +995,6 @@ input[type=checkbox], input[type=radio] {
       color: rgb(128,128,128);
 
     }
-
-.followingContainer .followingCard .HorizontalButtonContainer button {
-  background-color: coral;
-  /* Green */
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.followingContainer .followingCard .HorizontalButtonContainer button:hover, button:active {
-  background-color: rgb(190, 167, 154);
-}
-
-.followingContainer .followingCard .HorizontalDetailsContainer ul .ngotype {
-  text-transform: uppercase;
-  text-shadow: 60%;
-  color: rgb(128, 128, 128);
-}
 
 
  /*CHAT */
