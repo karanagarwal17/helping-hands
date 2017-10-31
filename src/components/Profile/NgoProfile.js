@@ -3,11 +3,11 @@ import React from 'react'
 class NgoProfile extends React.Component {
   render() {
     return (
-      <div>
-      <div className="col span-1-of-3 imageContainer">
-            <img src="img/background.jpg" alt="Profile icon" className="profileImage"/>
-          </div>
-          <div className="col span-2-of-3 detailsContainer ">
+      <div className="row box">
+        <div className="col span-1-of-3 imageContainer">
+          <img src="img/background.jpg" alt="Profile icon" className="profileImage"/>
+        </div>
+        <div className="col span-2-of-3 detailsContainer ">
           <div className="detailTitle">
             Helping hands
           </div>
@@ -19,14 +19,12 @@ class NgoProfile extends React.Component {
               <li>E-305 Vaishali nagar</li>
               <li>Jaipur 9782976966</li>
             </ul>
-             <button class="button">Follow</button>
-
+            <button className="button">Follow</button>
+            <button className="button">Chat</button>
           </div>
-</div>
-</div>
-
-
-  )
-}
+        </div>
+      </div>
+    )
+  }
 }
 export default NgoProfile
