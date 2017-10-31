@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
         </div>
         <div className="tabs">
           <ul>
-            <Link to='/'>
+            <Link to='search'>
               <li className={(this.props.active === 'search' ? 'active' : '')}>
                 Search
               </li>
@@ -43,11 +43,6 @@ class Dashboard extends React.Component {
             <Link to='edit'>
               <li className={(this.props.active === 'edit' ? 'active' : '')}>
                 Edit Profile
-              </li>
-            </Link>
-            <Link to='/'>
-              <li className={(this.props.active === 'events' ? 'active' : '')}>
-                Events
               </li>
             </Link>
             <li className={(this.props.active === 'logout' ? 'active' : '')} onClick={this.props.onLogout}>
