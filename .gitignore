@@ -10,3 +10,4 @@ data
 npm-debug.log
 mongod.conf
 ngrok
+package-lock.json
