@@ -25,7 +25,7 @@ class NgoDashboard extends React.Component {
         </div>
         <div className="tabs">
           <ul>
-            <Link to='/'>
+            <Link to='search'>
               <li className={(this.props.active === 'search' ? 'active' : '')}>
                 Search
               </li>
