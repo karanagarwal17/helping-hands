@@ -1,24 +1,28 @@
 var mongoose=require("mongoose");
 var schema=mongoose.Schema;
-
-var message=new schema({
-  message:{
+var messageSchema=new schema({
+  content:{
     type:String,
     default:""
   },
-  sender:{
+  reply:{
+    type:Boolean,
+    default:false
+  }
+},
+{
+  timestamps:true
+});
+
+var message=new schema({
+  messages:[messageSchema],
+  user1:{
     type:mongoose.Schema.Types.ObjectId,
     ref:'User'
   },
-  reciever:{
+  user2:{
     type:mongoose.Schema.Types.ObjectId,
     ref:'User'
-  },
-  senderName:{
-    type:String
-  },
-  recieverName:{
-    type:String
   }
 },
 {

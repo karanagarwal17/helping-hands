@@ -37,6 +37,7 @@ var UserSchema=new Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:"ngo"
   },
+  friends:[{type:mongoose.Schema.Types.ObjectId,ref:"User"}],
   temporarytoken:String
 });
 
