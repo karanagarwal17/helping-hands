@@ -25,6 +25,7 @@ ReactDOM.render((
         <Route path="edit" component={EditProfile} />
         <Route path="chat" component={Chat} />
         <Route path="profile" component={Profile} />
+
       </Route>
     </Router>
   </Provider>
