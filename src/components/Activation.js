@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 class Activation extends React.Component {
   componentWillMount(){
-    const token = this.props.params.id
+   const token = this.props.params.id
     this.props.onLoad(token)
   }
 }

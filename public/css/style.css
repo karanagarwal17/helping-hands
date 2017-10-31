@@ -1129,3 +1129,35 @@ input[type=checkbox], input[type=radio] {
 #sendmessage button:focus{
 	 outline: 0;
 }
+
+.searchContainer{
+  margin-top: 150px;
+  margin-left: 200px;
+  width: 800px;
+}
+
+.searchContainer .searchDropBox{
+  
+}
+
+
+
+.searchContainer  button  {
+  background-color: coral;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.searchContainer button:hover, button:active {
+  background-color: rgb(190, 167, 154);
+}
