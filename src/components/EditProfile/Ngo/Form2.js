@@ -1,6 +1,10 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {NGO_FORM_UPDATE} from '../../../constants/actionTypes'
+import { connect } from 'react-redux'
+
+import agent from '../../../agent'
+import {
+  NGO_FORM_UPDATE
+} from '../../../constants/actionTypes'
 
 const mapStateToProps = state => ({
   ...state.register
@@ -11,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     type: NGO_FORM_UPDATE,
     payload: {
       step: 3,
-      details: details
+      details: agent.Ngo.post(details)
     }
   })
 })
@@ -39,7 +43,8 @@ class Form2 extends React.Component {
     this.submitForm = ev => {
       ev.preventDefault()
 
-      const details = Object.assign({}, this.state)
+      const details = {}
+      details.address = Object.assign({}, this.state)
       this.props.onSave(details)
       console.log(details)
     }

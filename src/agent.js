@@ -3,8 +3,8 @@ import _superagent from 'superagent'
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-//const API_ROOT = 'http://localhost:3000/api'
-const API_ROOT = 'https://helping-hands.au-syd.mybluemix.net/api'
+const API_ROOT = 'http://localhost:3000/api'
+//const API_ROOT = 'https://helping-hands.au-syd.mybluemix.net/api'
 
 const responseBody = res => res.body
 
@@ -48,8 +48,20 @@ const Admin = {
     requests.post('/admin/ngo/reject', {_id})
 }
 
+const Volunteer = {
+  post: (body) =>
+    requests.post('/volunteer', body)
+}
+
+const Ngo = {
+  post: (body) =>
+    requests.post('/ngo', body)
+}
+
 export default {
   Admin,
   Auth,
+  Ngo,
+  Volunteer,
   setToken: _token => { token = _token }
 }

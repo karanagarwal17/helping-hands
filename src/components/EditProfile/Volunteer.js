@@ -1,13 +1,18 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {VOLUNTEER_FORM_UPDATE} from '../../constants/actionTypes'
+import { connect } from 'react-redux'
+
+import agent from '../../agent'
+import {
+  VOLUNTEER_FORM_UPDATE
+} from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
   ...state.register
 })
 
 const mapDispatchToProps = dispatch => ({
-  onSave: (details) => dispatch({type: VOLUNTEER_FORM_UPDATE, payload: details})
+  onSave: (details) =>
+    dispatch({ type: VOLUNTEER_FORM_UPDATE, payload: agent.Volunteer.post(details) })
 })
 
 class Volunteer extends React.Component {

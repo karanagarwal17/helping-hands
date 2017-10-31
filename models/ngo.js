@@ -42,12 +42,9 @@ var ngo=new Schema({
       registration_details:{
         registration_number:String,
         identity_proof:String,
-        valid_from:Date,
-        valid_to:Date
+        valid_from:String,
+        valid_to:String
       }
-
-
-
 });
 
 var ngo=mongoose.model("ngo",ngo);

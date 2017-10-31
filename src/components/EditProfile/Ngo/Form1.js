@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
+import agent from '../../../agent'
 import {
   NGO_FORM_UPDATE
 } from '../../../constants/actionTypes'
@@ -10,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onSave: (details) =>
-    dispatch({ type: NGO_FORM_UPDATE, payload: { step: 2, details: details }})
+    dispatch({ type: NGO_FORM_UPDATE, payload: { step: 2, details: agent.Ngo.post(details) }})
 })
 
 class Form1 extends React.Component {
