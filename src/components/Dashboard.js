@@ -1,5 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import {
+  LOGOUT
+} from '../constants/actionTypes'
+
+const mapStateToProps = state => ({
+  ...state.common,
+  currentUser: state.common.currentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+  onLogout: () =>
+    dispatch ({ type: LOGOUT })
+})
+
 
 class Dashboard extends React.Component {
   render() {
@@ -35,11 +50,9 @@ class Dashboard extends React.Component {
                 Events
               </li>
             </Link>
-            <Link to='/'>
-              <li className={(this.props.active === 'logout' ? 'active' : '')}>
-                Logout
-              </li>
-            </Link>
+            <li className={(this.props.active === 'logout' ? 'active' : '')} onClick={this.props.onLogout}>
+              Logout
+            </li>
           </ul>
         </div>
       </div>
@@ -47,4 +60,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
