@@ -1,3 +1,4 @@
+export const ADD_EVENT = 'ADD_EVENT'
 export const APP_LOAD = 'APP_LOAD'
 export const ASYNC_START = 'ASYNC_START'
 export const ASYNC_END = 'ASYNC_END'

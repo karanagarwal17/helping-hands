@@ -29,13 +29,13 @@ class Profile extends React.Component {
               <div className="col span-1-of-4">
                 <Dashboard active="profile"/>
               </div>
-              <div className="col span-3-of-4 hero">
+              <div className="col span-3-of-4 hero box">
                 <Volunteer />
               </div>
-              <div className="col span-3-of-4 tabsContainer">
+              <div className="col span-3-of-4 tabsContainer box">
                 <VolunteerContainer />
               </div>
-              <div className="col span-3-of-4 followingContainer">
+              <div className="col span-3-of-4 followingContainer box">
               <Following />
               </div>
             </div>
