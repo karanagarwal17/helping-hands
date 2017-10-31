@@ -5,6 +5,8 @@ var User = require("../models/User");
 var Verify = require("./verify");
 var jwt=require("jsonwebtoken");
 var request=require("request");
+var Volunteer=require("../models/volunteer");
+var ngo=require("../models/ngo");
 /* GET users listing. */
 router.route("/").get(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res) {
   User.find({}, function(err, users) {
@@ -33,8 +35,14 @@ router.post("/register", function(req, res, next) {
     } else {
       if (req.body.usertype === 'volunteer') {
         user.volunteer = true;
+        var v=new Volunteer()
+        v.save();
+        user.volunteerId=v._id;
       } else if (req.body.usertype === 'ngo') {
         user.ngo = true;
+        var n=new ngo();
+        n.save();
+        user.ngoId=n._id;
       } else {
         res.status(401).json({err: {message: 'Please select a usertype'}});
       }
@@ -70,9 +78,10 @@ router.post("/register", function(req, res, next) {
             console.log(err);
           });
 
-
-          return res.status(200).json({status: "Registration successful", user: user});
         });
+        User.findById(user._id).populate("ngoId").exec(function(err,u){
+          return res.status(200).json({status: "Registration successful", user: u});
+        })
       });
     }
   });
@@ -145,7 +154,15 @@ router.post("/login", function(req, res, next) {
           } else {
             console.log("user in users: ", user);
             var token = Verify.getToken(user);
-            res.status(200).json({status: "login successful", success: true, token: token, user: user});
+            if(user.ngo){
+              User.findOne({_id:user._id}).populate("ngoId").exec(function(err,u){
+                res.status(200).json({status: "login successful", success: true, token: token, user: u});
+              });
+            }else{
+              User.findOne({_id:user._id}).populate("volunteerId").exec(function(err,u){
+                res.status(200).json({status: "login successful", success: true, token: token, user: u});
+              });
+            }
           }
         });
       }

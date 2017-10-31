@@ -16,15 +16,9 @@ router.route("/")
 })
 
 .post(Verify.verifyOrdinaryUser,function(req,res,next){
-  volunteer.create(req.body,function(err,Volunteer){
-    if(err){
-      throw err;
-    }
-    Volunteer.created_by=req.decoded._doc._id;
-    Volunteer.save(function(err,vol){
-      res.json(vol);
-    })
-
+  volunteer.findOneAndUpdate({"_id":req.decoded._doc.volunteerId}, req.body, {upsert:true}, function(err, doc){
+    if (err) return res.send(500, { error: err });
+    return res.json({status:"succesfully saved",volunteer:doc});
   });
 });
 
