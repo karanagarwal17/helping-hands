@@ -19,10 +19,29 @@ module.exports=function(io){
             content:data.message
           }
           Message.messages.push(msg);
+          Message.save(function(err,m){
+            if(err){
+              res.json(err);
+            }else{
+              res.json(m);
+            }
+          })
           console.log(Message.messages);
         });
       }else if(messages.find({$and:[{user1: data.user2Id},{user2: data.user1Id}]})){
-
+        var msg={
+          content:data.message,
+          reply:true
+        }
+        Message.messages.push(msg);
+        Message.save(function(err,m){
+          if(err){
+            res.json(err);
+          }else{
+            res.json(m);
+          }
+        })
+        console.log(Message.messages);
       }else{
         var msg=new messages();
         msg.user1=data.user1Id;
@@ -30,13 +49,27 @@ module.exports=function(io){
         var text={
           content:data.message
         }
-        msg.messages.push(text);
-        msg.save();
-        User.findByIdAndUpdate(data.user1Id,{$set:{}},{new:true},function(err,dish){
+        msg.save(function(err,m){
+          if(err){
+            res.json(err);
+          }else{
+              m.messages.push(text);
+              m.save();
+          }
+        });
+        User.findById(data.user1Id,function(err,user){
           if(err){
             throw err;
           }
-          res.json(dish);
+          user.friends.push(data.user2Id);
+          user.save();
+        });
+        User.findById(data.user2Id,function(err,user){
+          if(err){
+            throw err;
+          }
+          user.friends.push(data.user1Id);
+          user.save();
         });
       }
       io.to(data.user2Id).emit('receive message',data);
