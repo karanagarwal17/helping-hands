@@ -3,14 +3,18 @@ import { connect } from 'react-redux'
 
 import agent from '../../../agent'
 import {
+  NGO_FORM_LOAD,
   NGO_FORM_UPDATE
 } from '../../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state.register
+  ...state.register,
+  currentUser: state.common.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
+  onLoad: () =>
+    dispatch({ type: NGO_FORM_LOAD }),
   onSave: (details) =>
     dispatch({ type: NGO_FORM_UPDATE, payload: { step: 4, details: agent.Ngo.post(details) }})
 })
@@ -38,13 +42,37 @@ class Form3 extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault()
-
       const details = {}
       details.bank_details = Object.assign({}, this.state)
       this.props.onSave(details)
-      console.log(details)
     }
   }
+
+  componentWillMount() {
+  if (this.props.currentUser) {
+    this.setState(Object.assign({}, this.state, {
+      account_holder: this.props.currentUser.ngoId.bank_details.account_holder,
+      account_no: this.props.currentUser.ngoId.bank_details.account_no,
+      bank_name: this.props.currentUser.ngoId.bank_details.bank_name,
+      branch_name: this.props.currentUser.ngoId.bank_details.branch_name,
+      branch_city: this.props.currentUser.ngoId.bank_details.branch_city,
+      ifsc_code: this.props.currentUser.ngoId.bank_details.ifsc_code
+    }))
+  }
+}
+
+componentWillReceiveProps(nextProps) {
+  if (nextProps.currentUser) {
+    this.setState(Object.assign({}, this.state, {
+      account_holder: nextProps.currentUser.ngoId.bank_details.account_holder,
+      account_no: nextProps.currentUser.ngoId.bank_details.account_no,
+      bank_name: nextProps.currentUser.ngoId.bank_details.bank_name,
+      branch_name: nextProps.currentUser.ngoId.bank_details.branch_name,
+      branch_city: nextProps.currentUser.ngoId.bank_details.branch_city,
+      ifsc_code: nextProps.currentUser.ngoId.bank_details.ifsc_code
+    }))
+  }
+}
 
   render(){
     return(

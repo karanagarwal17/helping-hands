@@ -3,14 +3,18 @@ import { connect } from 'react-redux'
 
 import agent from '../../../agent'
 import {
+  NGO_FORM_LOAD,
   NGO_FORM_UPDATE
 } from '../../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state.register
+  ...state.register,
+  currentUser: state.common.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
+  onLoad: () =>
+    dispatch({ type: NGO_FORM_LOAD }),
   onSave: (details) => dispatch({
     type: NGO_FORM_UPDATE,
     payload: {
@@ -42,11 +46,37 @@ class Form2 extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault()
-
       const details = {}
       details.address = Object.assign({}, this.state)
       this.props.onSave(details)
-      console.log(details)
+    }
+  }
+
+  componentWillMount() {
+    if (this.props.currentUser) {
+      this.setState(Object.assign({}, this.state, {
+        street_address: this.props.currentUser.ngoId.address.street_address,
+        landmark: this.props.currentUser.ngoId.address.landmark,
+        city: this.props.currentUser.ngoId.address.city,
+        district: this.props.currentUser.ngoId.address.district,
+        state: this.props.currentUser.ngoId.address.state,
+        pincode: this.props.currentUser.ngoId.address.pincode,
+        landline: this.props.currentUser.ngoId.address.landline
+      }))
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.setState(Object.assign({}, this.state, {
+        street_address: nextProps.currentUser.ngoId.address.street_address,
+        landmark: nextProps.currentUser.ngoId.address.landmark,
+        city: nextProps.currentUser.ngoId.address.city,
+        district: nextProps.currentUser.ngoId.address.district,
+        state: nextProps.currentUser.ngoId.address.state,
+        pincode: nextProps.currentUser.ngoId.address.pincode,
+        landline: nextProps.currentUser.ngoId.address.landline
+      }))
     }
   }
 

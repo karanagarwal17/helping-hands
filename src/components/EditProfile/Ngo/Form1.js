@@ -3,14 +3,18 @@ import { connect } from 'react-redux'
 
 import agent from '../../../agent'
 import {
+  NGO_FORM_LOAD,
   NGO_FORM_UPDATE
 } from '../../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state.register
+  ...state.register,
+  currentUser: state.common.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
+  onLoad: () =>
+    dispatch({ type: NGO_FORM_LOAD }),
   onSave: (details) =>
     dispatch({ type: NGO_FORM_UPDATE, payload: { step: 2, details: agent.Ngo.post(details) }})
 })
@@ -38,10 +42,34 @@ class Form1 extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault()
-
       const details = Object.assign({}, this.state)
       this.props.onSave(details)
-      console.log(details)
+    }
+  }
+
+  componentWillMount() {
+    if (this.props.currentUser) {
+      this.setState(Object.assign({}, this.state, {
+        org_name: this.props.currentUser.ngoId.org_name,
+        head_name: this.props.currentUser.ngoId.head_name,
+        gender: this.props.currentUser.ngoId.gender,
+        phone_number: this.props.currentUser.ngoId.phone_number,
+        email: this.props.currentUser.ngoId.email,
+        category: this.props.currentUser.ngoId.category
+      }))
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.setState(Object.assign({}, this.state, {
+        org_name: this.props.currentUser.ngoId.org_name,
+        head_name: this.props.currentUser.ngoId.head_name,
+        gender: this.props.currentUser.ngoId.gender,
+        phone_number: this.props.currentUser.ngoId.phone_number,
+        email: this.props.currentUser.ngoId.email,
+        category: this.props.currentUser.ngoId.category
+      }))
     }
   }
 

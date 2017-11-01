@@ -1,18 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import agent from '../../agent'
-import {
-  VOLUNTEER_FORM_UPDATE
-} from '../../constants/actionTypes'
+import {VOLUNTEER_FORM_LOAD, VOLUNTEER_FORM_UPDATE} from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state.register
+  ...state.register,
+  currentUser: state.common.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
-  onSave: (details) =>
-    dispatch({ type: VOLUNTEER_FORM_UPDATE, payload: agent.Volunteer.post(details) })
+  onLoad: () => dispatch({type: VOLUNTEER_FORM_LOAD}),
+  onSave: (details) => dispatch({type: VOLUNTEER_FORM_UPDATE, payload: agent.Volunteer.post(details)})
 })
 
 class Volunteer extends React.Component {
@@ -41,6 +40,36 @@ class Volunteer extends React.Component {
 
       const details = Object.assign({}, this.state)
       this.props.onSave(details)
+    }
+  }
+
+  componentWillMount() {
+    if (this.props.currentUser) {
+      this.setState(Object.assign({}, this.state, {
+        firstname: this.props.currentUser.volunteerId.firstname,
+        lastname: this.props.currentUser.volunteerId.lastname,
+        gender: this.props.currentUser.volunteerId.gender,
+        date_of_birth: this.props.currentUser.volunteerId.date_of_birth,
+        email: this.props.currentUser.volunteerId.email,
+        city: this.props.currentUser.volunteerId.city,
+        profession: this.props.currentUser.volunteerId.profession,
+        phone_number: this.props.currentUser.volunteerId.phone_number
+      }))
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.setState(Object.assign({}, this.state, {
+        firstname: nextProps.currentUser.volunteerId.firstname,
+        lastname: nextProps.currentUser.volunteerId.lastname,
+        gender: nextProps.currentUser.volunteerId.gender,
+        date_of_birth: nextProps.currentUser.volunteerId.date_of_birth,
+        email: nextProps.currentUser.volunteerId.email,
+        city: nextProps.currentUser.volunteerId.city,
+        profession: nextProps.currentUser.volunteerId.profession,
+        phone_number: nextProps.currentUser.volunteerId.phone_number
+      }))
     }
   }
 
