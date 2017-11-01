@@ -18,6 +18,7 @@ var volunteer=require("./routes/volunteer");
 var event = require("./routes/event");
 var chat=require("./routes/chat");
 var search=require("./routes/search");
+var follow=require("./routes/follow");
 
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations',function(){
@@ -59,6 +60,7 @@ app.use('/api/volunteer',volunteer);
 app.use('/api/event',event);
 app.use("/api/chat",chat);
 app.use("/api/serach",search);
+app.use("/api/follow",follow);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
