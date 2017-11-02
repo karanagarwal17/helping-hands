@@ -19,7 +19,7 @@ class FollowingCard extends React.Component {
       </ul>
       </div>
       <div className="col span-1-of-7 HorizontalButtonContainer">
-      <button class="button">Unfollow</button>
+      <button class="button">Unfollow</button> 
       </div>
       </div>
       </div>

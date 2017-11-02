@@ -13,7 +13,7 @@ import EditProfile from './components/EditProfile'
 import Admin from './components/Admin'
 import Profile from './components/Profile'
 import Chat from './components/Chat'
-import Search from './components/Search'
+import Search from './components/search/Search'
 
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("karanagarwal17","pass") });
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("amandhembla","pass") });
@@ -30,6 +30,7 @@ ReactDOM.render((
         <Route path="profile" component={Profile} />
         <Route path="addevent" component={AddEvent} />
         <Route path="search" component={Search} />
+
       </Route>
     </Router>
   </Provider>
