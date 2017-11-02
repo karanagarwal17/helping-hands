@@ -49,11 +49,15 @@ const Admin = {
 }
 
 const Volunteer = {
+  get: () =>
+    requests.get('/volunteer'),
   post: (body) =>
     requests.post('/volunteer', body)
 }
 
 const Ngo = {
+  get: () =>
+    requests.get('/ngo'),
   post: (body) =>
     requests.post('/ngo', body)
 }
@@ -68,12 +72,18 @@ const Chat = {
     requests.get('/chat')
 }
 
+const Search = {
+  post: (type, name) =>
+    requests.post('/search', type, name)
+}
+
 export default {
   Admin,
   Auth,
   Chat,
   Event,
   Ngo,
+  Search,
   Volunteer,
   setToken: _token => { token = _token }
 }

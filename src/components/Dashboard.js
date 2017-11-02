@@ -30,7 +30,7 @@ class Dashboard extends React.Component {
                 Search
               </li>
             </Link>
-            <Link to='profile'>
+            <Link to={'profile/' + this.props.currentUser._id}>
               <li className={(this.props.active === 'profile' ? 'active' : '')}>
                 Profile
               </li>

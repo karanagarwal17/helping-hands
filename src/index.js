@@ -27,7 +27,7 @@ ReactDOM.render((
         <Route path="admin" component={Admin} />
         <Route path="edit" component={EditProfile} />
         <Route path="chat" component={Chat} />
-        <Route path="profile" component={Profile} />
+        <Route path="profile/:id" component={Profile} />
         <Route path="addevent" component={AddEvent} />
         <Route path="search" component={Search} />
       </Route>

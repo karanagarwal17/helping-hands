@@ -1,24 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import agent from '../../agent'
+
 import Header from '../Header'
 import Dashboard from '../Dashboard'
 import Volunteer from './Volunteer'
 import NgoProfile from './NgoProfile'
 import NgoDashboard from '../NgoDashboard'
-import VolunteerContainer from './VolunteerContainer'
 import Following from './Following'
-
+import {
+  PROFILE_LOAD
+} from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state,
-  currentUser: state.common.currentUser
+  ...state.profile,
+  currentUser: state.common.currentUser,
+  profile: state.profile.profile
 })
 
 const mapDispatchToProps = dispatch => ({
-
+  onLoad: (id) =>
+    dispatch({ type: PROFILE_LOAD, payload: id })
 })
 
 class Profile extends React.Component {
+  componentWillMount(){
+    this.props.onLoad(this.props.params.id)
+  }
+
   render(){
     if(this.props.currentUser){
       if(this.props.currentUser.volunteer){
@@ -32,11 +41,8 @@ class Profile extends React.Component {
               <div className="col span-3-of-4 hero box">
                 <Volunteer />
               </div>
-              <div className="col span-3-of-4 tabsContainer box">
-                <VolunteerContainer />
-              </div>
               <div className="col span-3-of-4 followingContainer box">
-              <Following />
+                <Following />
               </div>
             </div>
 

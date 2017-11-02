@@ -58,7 +58,7 @@ app.use('/api/users', users);
 app.use('/api/volunteer',volunteer);
 app.use('/api/event',event);
 app.use("/api/chat",chat);
-app.use("/api/serach",search);
+app.use("/api/search",search);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

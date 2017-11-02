@@ -20,8 +20,15 @@ class Volunteer extends React.Component {
             <button class="button">Following</button>
           </div>
         </div>
+        <div className="tabsContainer">
+          <div className="col span-1-of-2 o1">
+              Following NGOs
+          </div>
+          <div className="col span-1-of-2 o1">
+              Events
+          </div>
+        </div>
       </div>
-
     )
   }
 }
