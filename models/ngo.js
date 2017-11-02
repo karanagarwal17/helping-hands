@@ -49,6 +49,11 @@ var ngo = new Schema({
   events: [{
     type:mongoose.Schema.Types.ObjectId,
     ref:"event"
+  }],
+
+  followers:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User"
   }]
 });
 
