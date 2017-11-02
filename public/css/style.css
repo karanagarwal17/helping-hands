@@ -1201,14 +1201,7 @@ input[type=checkbox], input[type=radio] {
   width: 500px;
 }
 
-.searchContainer .searchBox{
 
-}
-
-/* Dropdown Button */
-
-.searchContainer .dropdown{
-}
 .searchContainer .dropdown .dropbtn {
    border: none;
    cursor: pointer;

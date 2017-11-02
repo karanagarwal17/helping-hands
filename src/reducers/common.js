@@ -61,13 +61,13 @@ export default(state = {}, action) => {
     case VOLUNTEER_FORM_UPDATE:
       return {
         ...state,
-        redirectTo: action.error ? null : '/'
+        redirectTo: action.error ? null : 'profile'
       }
     case NGO_FORM_UPDATE:
       if(action.payload.step === 'complete') {
         return {
           ...state,
-          redirectTo: '/'
+          redirectTo: 'profile'
         }
       } else {
         return state
