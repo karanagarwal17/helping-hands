@@ -8,12 +8,20 @@ var request=require("request");
 var Volunteer=require("../models/volunteer");
 var ngo=require("../models/ngo");
 /* GET users listing. */
-router.route("/").get(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res) {
-  User.find({}, function(err, users) {
+router.route("/").get(Verify.verifyOrdinaryUser, function(req, res) {
+  User.findById(req.decoded._doc._id, function(err, user) {
     if (err) {
       throw err;
     } else {
-      res.json(users);
+      if(user.ngo){
+        User.findOne({_id:user._id}).populate("ngoId").exec(function(err,u){
+          res.status(200).json({user: u});
+        });
+      }else{
+        User.findOne({_id:user._id}).populate("volunteerId").exec(function(err,u){
+          res.status(200).json({user: u});
+        });
+      }
     }
   });
 });
