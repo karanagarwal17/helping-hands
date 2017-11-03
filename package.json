@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bin/www",
     "dev": "cross-env PORT=4100 react-scripts start",
-    "dev1":"nodemon bin/www",
+    "dev1": "nodemon bin/www",
     "build": "react-scripts build",
     "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -34,6 +34,7 @@
     "cookie-parser": "~1.0.1",
     "cors": "^2.8.4",
     "debug": "~0.7.4",
+    "del": "^3.0.0",
     "dotenv": "^4.0.0",
     "express": "~4.0.0",
     "history": "^4.3.0",
