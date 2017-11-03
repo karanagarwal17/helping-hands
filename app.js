@@ -11,14 +11,14 @@ var localStrategy=require("passport-local").Strategy;
 require('dotenv').config();
 
 var admin = require('./routes/admin');
+var chat=require("./routes/chat");
+var event = require("./routes/event");
 var file = require('./routes/file');
+var follow=require("./routes/follow");
 var ngo=require("./routes/ngo");
+var search=require("./routes/search");
 var users = require('./routes/users');
 var volunteer=require("./routes/volunteer");
-var event = require("./routes/event");
-var chat=require("./routes/chat");
-var search=require("./routes/search");
-var follow=require("./routes/follow");
 
 if(process.env.environment === 'development'){
 	mongoose.connect('mongodb://localhost:27017/connecting-social-organisations',function(){
@@ -53,18 +53,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/admin',admin);
+app.use("/api/chat",chat);
+app.use('/api/event',event);
 app.use('/api/file',file);
+app.use("/api/follow",follow);
 app.use('/api/ngo',ngo);
+app.use("/api/search",search);
 app.use('/api/users', users);
 app.use('/api/volunteer',volunteer);
-app.use('/api/event',event);
-app.use("/api/chat",chat);
-<<<<<<< HEAD
-app.use("/api/search",search);
-=======
-app.use("/api/serach",search);
-app.use("/api/follow",follow);
->>>>>>> 5e1bf01db46f8b5f671f2f5bec497dd96f846154
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
