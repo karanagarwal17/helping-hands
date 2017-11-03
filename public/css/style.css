@@ -1258,7 +1258,7 @@ input[type=checkbox], input[type=radio] {
   margin-left: 0;
 }
 
-.searchContainer button.search  {
+.searchContainer .searchButton button  {
   height: 54px;
   background-color: coral;
   border: none;
@@ -1270,9 +1270,13 @@ input[type=checkbox], input[type=radio] {
   cursor: pointer;
 }
 
-.searchContainer button:hover,
-.searchContainer button:active {
+.searchContainer .searchButton button:hover,
+.searchContainer .searchButton button:active {
   background-color: #ff9872;
+}
+
+.search .radio-field label {
+  padding: 0px 20px;
 }
 
 .searchResults{

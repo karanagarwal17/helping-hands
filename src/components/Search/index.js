@@ -52,7 +52,7 @@ class Search extends React.Component {
         return (
           <div>
             <Header/>
-            <div className="row Profile">
+            <div className="row search">
               <div className="col span-1-of-4">
                 <Dashboard active="search"/>
               </div>
@@ -66,15 +66,13 @@ class Search extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="col span-3-of-4">
-                <div className="radio-field">
-                  <input id="option1" className="input" name="select" type="radio" value="volunteer" onChange={this.updateType}/>
-                  <label>Volunteer</label>
-                  <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.updateType}/>
-                  <label>NGO</label>
-                  <input id="option3" className="input" name="select" type="radio" value="event" onChange={this.updateType}/>
-                  <label>Event</label>
-                </div>
+              <div className="col span-3-of-4 radio-field">
+                <input id="option1" className="input" name="select" type="radio" value="volunteer" onChange={this.updateType}/>
+                <label>Volunteer</label>
+                <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.updateType}/>
+                <label>NGO</label>
+                <input id="option3" className="input" name="select" type="radio" value="event" onChange={this.updateType}/>
+                <label>Event</label>
               </div>
               <div className="col span-3-of-4 searchResults box">
                 {
@@ -116,15 +114,13 @@ class Search extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="col span-3-of-4">
-                <div className="radio-field">
-                  <input id="option1" className="input" name="select" type="radio" value="volunteer" onChange={this.updateType}/>
-                  <label>Volunteer</label>
-                  <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.updateType}/>
-                  <label>NGO</label>
-                  <input id="option3" className="input" name="select" type="radio" value="event" onChange={this.updateType}/>
-                  <label>Event</label>
-                </div>
+              <div className="col span-3-of-4 radio-field">
+                <input id="option1" className="input" name="select" type="radio" value="volunteer" onChange={this.updateType}/>
+                <label>Volunteer</label>
+                <input id="option2" className="input" name="select" type="radio" value="ngo" onChange={this.updateType}/>
+                <label>NGO</label>
+                <input id="option3" className="input" name="select" type="radio" value="event" onChange={this.updateType}/>
+                <label>Event</label>
               </div>
               <div className="col span-3-of-4 searchResults box">
                 {
