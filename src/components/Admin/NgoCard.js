@@ -39,7 +39,7 @@ class NgoList extends React.Component {
     return (
       <article className="ngo-card">
         <header className="card-thumb">
-          <a href="#"><img src="http://lorempicsum.com/futurama/370/245/3"/></a>
+          <a href="#"><img src="http://lorempicsum.com/futurama/370/245/3" alt="Ngo"/></a>
         </header>
 
         <div className="card-body">

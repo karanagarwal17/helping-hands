@@ -42,8 +42,11 @@ class Admin extends React.Component {
             <div className="row ngo-list">
               {
                 this.props.ngos.map((ngo, index) => {
-                  if(index <18 )
-                  return ( <NgoCard data={ngo} key={ngo._id} /> )
+                  if(index <18 ){
+                    return ( <NgoCard data={ngo} key={ngo._id} /> )
+                  } else {
+                    return null
+                  }
                 })
               }
             </div>

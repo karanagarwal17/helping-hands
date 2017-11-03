@@ -1,8 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-  LOGOUT
-} from '../constants/actionTypes'
 
 const mapStateToProps = state => ({
   ...state.common,

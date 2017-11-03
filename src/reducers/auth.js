@@ -23,7 +23,6 @@ export default (state = {}, action) => {
         ...state,
         username: "",
         password: "",
-        errors: "",
         messages: "",
         email: "",
         inProgress: false,
@@ -42,9 +41,9 @@ export default (state = {}, action) => {
     case ASYNC_START:
       if(action.subtype === LOGIN || action.subtype === SIGNUP ) {
         return { ...state, inProgress: true}
+      } else {
+        return state
       }
-      return state
-      break;
     case UPDATE_FIELD_AUTH:
       return { ...state, [action.key]: action.value }
     case HOME_PAGE_UNLOADED:
