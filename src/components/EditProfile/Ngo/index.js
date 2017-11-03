@@ -8,8 +8,8 @@ import Form3 from './Form3'
 import Form4 from './Form4'
 
 const mapStateToProps = state => ({
-  ...state.register,
-  step: state.register.step
+  ...state.edit,
+  step: state.edit.step
 })
 
 class Ngo extends React.Component {

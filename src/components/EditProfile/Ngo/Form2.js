@@ -8,7 +8,7 @@ import {
 } from '../../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state.register,
+  ...state.edit,
   currentUser: state.common.currentUser
 })
 

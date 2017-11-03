@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 import auth from './reducers/auth'
 import common from './reducers/common'
-import register from './reducers/register'
+import edit from './reducers/edit'
 import admin from './reducers/admin'
 import event from './reducers/event'
 import profile from './reducers/profile'
+import search from './reducers/search'
 
 export default combineReducers({
   admin,
@@ -12,5 +13,6 @@ export default combineReducers({
   common,
   event,
   profile,
-  register
+  edit,
+  search
 })

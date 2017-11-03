@@ -5,7 +5,7 @@ import agent from '../../agent'
 import {VOLUNTEER_FORM_LOAD, VOLUNTEER_FORM_UPDATE} from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
-  ...state.register,
+  ...state.edit,
   currentUser: state.common.currentUser
 })
 
