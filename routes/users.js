@@ -10,7 +10,7 @@ var ngo=require("../models/ngo");
 /* GET users listing. */
 
 router.route("/").get(Verify.verifyOrdinaryUser, function(req, res) {
-  User.findById(req.decoded._doc.id, function(err, user) {
+  User.findById(req.decoded._doc._id, function(err, user) {
     if (err) {
       throw err;
     } else {
