@@ -73,8 +73,15 @@ const Chat = {
 }
 
 const Search = {
-  post: (type, name) =>
-    requests.post('/search', type, name)
+  post: (data) =>
+    requests.post('/search', data)
+}
+
+const User = {
+  get: (id) =>
+    requests.get(`/users/${id}`),
+  getCurrentUser: () =>
+    requests.get('/users')
 }
 
 export default {
@@ -84,6 +91,7 @@ export default {
   Event,
   Ngo,
   Search,
+  User,
   Volunteer,
   setToken: _token => { token = _token }
 }
