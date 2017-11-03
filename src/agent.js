@@ -79,9 +79,7 @@ const Search = {
 
 const User = {
   get: (id) =>
-    requests.get(`/users/${id}`),
-  getCurrentUser: () =>
-    requests.get('/users')
+    requests.get(`/users/${id}`)
 }
 
 export default {

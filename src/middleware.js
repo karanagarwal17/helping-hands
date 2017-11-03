@@ -35,12 +35,10 @@ const localStorageMiddleware = store => next => action => {
   if(action.type === SIGNUP || action.type === LOGIN) {
     if(!action.error) {
       window.localStorage.setItem('jwt', action.payload.token)
-      window.localStorage.setItem('user', action.payload.user)
       agent.setToken(action.payload.token)
     }
   } else if (action.type === LOGOUT) {
       window.localStorage.setItem('jwt', '')
-      window.localStorage.setItem('user', '')
       agent.setToken(null)
   }
 

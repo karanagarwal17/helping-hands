@@ -2,19 +2,21 @@ import React from 'react'
 import agent from '../agent'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
 import {
   APP_LOAD,
   REDIRECT
 } from '../constants/actionTypes'
 
 const mapStateToProps = state => ({
+  ...state.common,
   currentUser: state.common.currentUser,
   redirectTo: state.common.redirectTo
 })
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: (currentUser, token) =>
-    dispatch({ type: APP_LOAD, payload: currentUser, token: token}),
+  onLoad: (payload, token) =>
+    dispatch({ type: APP_LOAD, payload, token}),
   onRedirect: () =>
     dispatch({ type: REDIRECT })
 })
@@ -29,13 +31,10 @@ class App extends React.Component {
 
   componentWillMount() {
     const token = window.localStorage.getItem('jwt')
-    const currentUser = window.localStorage.getItem('user')
     if(token) {
       agent.setToken(token)
     }
-    if(currentUser) {
-      this.props.onLoad(currentUser, token)
-    }
+    this.props.onLoad(token ? agent.Auth.current() : null, token)
   }
 
   render(){
