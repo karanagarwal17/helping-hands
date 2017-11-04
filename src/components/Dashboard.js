@@ -15,6 +15,39 @@ const mapDispatchToProps = dispatch => ({
     dispatch ({ type: LOGOUT })
 })
 
+const Profile = props => {
+  if(props.props.currentUser.volunteer){
+    return(
+      <Link to={'profile/volunteer/' + props.props.currentUser.volunteerId._id}>
+        <li className={(props.props.active === 'profile' ? 'active' : '')}>
+          Profile
+        </li>
+      </Link>
+    )
+  } else if(props.props.currentUser.ngo){
+    return(
+      <Link to={'profile/ngo/' + props.props.currentUser.ngoId._id}>
+        <li className={(props.props.active === 'profile' ? 'active' : '')}>
+          Profile
+        </li>
+      </Link>
+    )
+  }
+  return null
+}
+
+const AddEvent = props => {
+  if(props.props.currentUser.ngo){
+    return(
+      <Link to='addevent'>
+        <li className={(props.props.active === 'addevent' ? 'active' : '')}>
+          Add Events
+        </li>
+      </Link>
+    )
+  }
+  return null
+}
 
 class Dashboard extends React.Component {
   render() {
@@ -30,11 +63,7 @@ class Dashboard extends React.Component {
                 Search
               </li>
             </Link>
-            <Link to={'profile/' + this.props.currentUser._id}>
-              <li className={(this.props.active === 'profile' ? 'active' : '')}>
-                Profile
-              </li>
-            </Link>
+            <Profile props={this.props}/>
             <Link to='chat'>
               <li className={(this.props.active === 'chat' ? 'active' : '')}>
                 Chat
@@ -45,6 +74,7 @@ class Dashboard extends React.Component {
                 Edit Profile
               </li>
             </Link>
+            <AddEvent props={this.props}/>
             <li className={(this.props.active === 'logout' ? 'active' : '')} onClick={this.props.onLogout}>
               Logout
             </li>
