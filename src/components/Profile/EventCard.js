@@ -10,11 +10,11 @@ class EventCard extends React.Component {
         <div className="col span-4-of-7 DetailsContainer">
           <ul>
             <li className="row">
-              <div className="col span-1-of-2 EventTitle">NGO Day</div>
-              <div className="col span-1-of-2 EventType">Donation 29 April 2017</div>
+              <div className="col span-1-of-2 EventTitle">{this.props.data.name}</div>
+              <div className="col span-1-of-2 EventType">{this.props.data.type}</div>
             </li><br/>
-            <li className="email">Meetaasha29@gmail.com</li><br/>
-            <li>E-305 Vaishali nagar Jaipur 9782976966</li>
+            <li className="email">{this.props.data.date}</li><br/>
+            <li>{this.props.data.venue}</li>
           </ul>
         </div>
         <div className="col span-1-of-7 ButtonContainer">
