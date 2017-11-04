@@ -32,7 +32,7 @@ export default(state = {}, action) => {
         else {
           return {
             ...state,
-            redirectTo: 'edit',
+            redirectTo: 'search',
             token: action.payload.token,
             currentUser: action.payload.user
           }

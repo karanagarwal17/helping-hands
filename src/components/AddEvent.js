@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import agent from '../agent'
-import NgoDashboard from './NgoDashboard'
+import Dashboard from './Dashboard'
 import {
   ADD_EVENT
 } from '../constants/actionTypes'
@@ -37,9 +37,15 @@ class AddEvent extends React.Component {
 
     this.submitForm = ev => {
       ev.preventDefault()
-
       const details = Object.assign({}, this.state)
       this.props.onSave(details)
+      this.setState({
+        name: '',
+        type: '',
+        date: '',
+        venue: '',
+        description: ''
+      })
     }
   }
 
@@ -48,7 +54,7 @@ class AddEvent extends React.Component {
       return (
         <div className="row">
           <div className="col span-1-of-4">
-            <NgoDashboard active={'addevent'}/>
+            <Dashboard active={'addevent'}/>
           </div>
           <div className="col span-3-of-4">
             <form className="register-form">

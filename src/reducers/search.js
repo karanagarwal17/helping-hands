@@ -1,5 +1,6 @@
 import {
-  SEARCH
+  SEARCH,
+  SEARCH_UNLOAD
 } from '../constants/actionTypes'
 
 export default(state = {}, action) => {
@@ -8,6 +9,11 @@ export default(state = {}, action) => {
       return{
         ...state,
         searchResults: action.payload
+      }
+    case SEARCH_UNLOAD:
+      return{
+        ...state,
+        searchResults: null
       }
     default:
       return state

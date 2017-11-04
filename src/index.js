@@ -11,12 +11,13 @@ import AddEvent from './components/AddEvent'
 import Home from './components/Home'
 import EditProfile from './components/EditProfile'
 import Admin from './components/Admin'
-import Profile from './components/Profile'
+import NgoProfile from './components/Profile/NgoProfile'
+import VolunteerProfile from './components/Profile/VolunteerProfile'
 import Chat from './components/Chat'
-import Search from './components/search/Search'
+import Search from './components/Search'
 
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("karanagarwal17","pass") });
-//store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("amandhembla","pass") });
+store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("amandhembla","pass") });
 
 ReactDOM.render((
   <Provider store={store}>
@@ -27,10 +28,11 @@ ReactDOM.render((
         <Route path="admin" component={Admin} />
         <Route path="edit" component={EditProfile} />
         <Route path="chat" component={Chat} />
-        <Route path="profile/:id" component={Profile} />
+        <Route path="chat/:id" component={Chat} />
+        <Route path="profile/ngo/:id" component={NgoProfile} />
+        <Route path="profile/volunteer/:id" component={VolunteerProfile} />
         <Route path="addevent" component={AddEvent} />
         <Route path="search" component={Search} />
-
       </Route>
     </Router>
   </Provider>

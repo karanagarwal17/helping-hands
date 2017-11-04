@@ -1,5 +1,6 @@
 import {
-  PROFILE_LOAD
+  PROFILE_LOAD,
+  PROFILE_UNLOAD
 } from '../constants/actionTypes'
 
 export default (state = {}, action) => {
@@ -8,6 +9,11 @@ export default (state = {}, action) => {
       return {
         ...state,
         profile: action.payload
+      }
+    case PROFILE_UNLOAD:
+      return {
+        ...state,
+        profile: null
       }
     default:
       return state

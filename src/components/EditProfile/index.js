@@ -1,6 +1,5 @@
 import React from 'react'
 import Dashboard from '../Dashboard'
-import NgoDashboard from '../NgoDashboard'
 import Volunteer from './Volunteer'
 import Header from '../Header'
 import Ngo from './Ngo'
@@ -42,7 +41,7 @@ class EditProfile extends React.Component {
             <Header/>
             <div className="row">
               <div className="col span-1-of-4">
-                <NgoDashboard active="edit"/>
+                <Dashboard active="edit"/>
               </div>
               <div className="col span-3-of-4">
                 <Ngo step={this.props.step}/>
