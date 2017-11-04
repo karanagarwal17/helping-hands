@@ -23,6 +23,16 @@ router.route("/")
 });
 
 router.route("/:id")
+.get(Verify.verifyOrdinaryUser, function(req,res,next){
+  ngo.findOne({"_id": req.params.id}, function(err, ngos){
+    if(err){
+      console.log(err);
+      res.status(401).json(err);
+    } else {
+      res.json(ngos);
+    }
+  })
+})
 .put(Verify.verifyOrdinaryUser, function(req,res,next){
   ngo.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true},function(err,dish){
     if(err){

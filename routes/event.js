@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Verify = require("./verify");
 var event = require("../models/Event");
-var ngo = require('./ngo');
+var ngo = require('../models/ngo');
 
 router.route("/")
 .get(Verify.verifyOrdinaryUser, function(req, res, next) {

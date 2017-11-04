@@ -23,6 +23,16 @@ router.route("/")
 });
 
 router.route("/:id")
+.get(Verify.verifyOrdinaryUser, function(req,res,next){
+  volunteer.findOne({"_id": req.params.id}, function(err, volunteers){
+    if(err){
+      console.log(err);
+      res.status(401).json(err);
+    } else {
+      res.json(volunteers);
+    }
+  })
+})
 .put(Verify.verifyOrdinaryUser, function(req,res,next){
   volunteer.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true},function(err,Volunteer){
     if(err){
