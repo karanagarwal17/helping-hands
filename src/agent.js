@@ -49,15 +49,15 @@ const Admin = {
 }
 
 const Volunteer = {
-  get: () =>
-    requests.get('/volunteer'),
+  get: (id) =>
+    requests.get(`/volunteer/${id}`),
   post: (body) =>
     requests.post('/volunteer', body)
 }
 
 const Ngo = {
-  get: () =>
-    requests.get('/ngo'),
+  get: (id) =>
+    requests.get(`/ngo/${id}`),
   post: (body) =>
     requests.post('/ngo', body)
 }
