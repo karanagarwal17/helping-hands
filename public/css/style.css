@@ -728,10 +728,11 @@ input[type=checkbox], input[type=radio] {
 
 .hero {
   margin-top: 110px;
-  padding: 10px;
+  padding: 10px 10px 0px 0px;
 }
 
 .hero .imageContainer {
+  margin: 0 auto;
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -768,7 +769,7 @@ input[type=checkbox], input[type=radio] {
 
 .hero .detailsContainer .details button {
   background-color: coral;
-  margin-left: 20px;
+  margin-right: 20px;
   border: none;
   color: white;
   padding: 10px 10px;
@@ -810,7 +811,10 @@ input[type=checkbox], input[type=radio] {
 .tabsContainer .o1 {
   width: 400px;
   margin-bottom: 0px;
-  padding: 3px 3px 10px 3px;
+  margin-left: 0;
+  padding: 3px 3px 10px 20px;
+  border-bottom: 2px solid transparent;
+  transition: all ease-in 0.2s;
 }
 
 .tabsContainer .o1 .option1 {
@@ -818,12 +822,8 @@ input[type=checkbox], input[type=radio] {
   font-size: 90%;
 }
 
-.tabsContainer .o1:hover {
-  font-weight: 600;
-  border-bottom: 2px solid coral;
-}
-
-.tabsContainer .o1:active {
+.tabsContainer .o1:hover,
+.tabsContainer .ol.active {
   border-bottom: 2px solid coral;
 }
 
