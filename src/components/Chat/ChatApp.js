@@ -1,29 +1,44 @@
 import React from 'react'
 import openSocket from 'socket.io-client'
+import agent from '../../agent'
 import { connect } from 'react-redux'
 
+import {
+  LOAD_CHAT_HISTORY
+} from '../../constants/actionTypes'
+
 const mapStateToProps = state => ({
-  ...state.common,
-  currentUser: state.common.currentUser
+  ...state.chat,
+  currentUser: state.common.currentUser,
+  messages: state.chat.messages
+})
+
+const mapDispatchToProps = dispatch => ({
+  onLoad: (id) =>
+    dispatch({ type: LOAD_CHAT_HISTORY, payload: agent.Chat.getMessages(id) })
 })
 
 import Message from './Message'
-import User from './User'
 
 class ChatApp extends React.Component {
+  componentWillMount(){
+    if(this.props.params.id){
+      this.props.onLoad(this.props.params.id)
+    }
+  }
+
+  compoentWillRecieveProps(nextProps){
+    if(nextProps.params.id){
+      this.props.onLoad(nextProps.params.id)
+    }
+    this.setState({messages: nextProps.messages})
+  }
+
   constructor(props) {
     super()
     this.state = {
       input: '',
-      messages: [
-        {
-          reply: true,
-          text: "first message!"
-        }, {
-          reply: false,
-          text: "second!"
-        }
-      ]
+      messages: []
     }
 
     this.handleOnChange = this.handleOnChange.bind(this)
@@ -38,7 +53,6 @@ class ChatApp extends React.Component {
 
   _handleMessageEvent() {
     this.socket.on('connect', () => {
-      console.log("jhbjhb");
       this.socket.emit('join', this.props.currentUser._id);
     })
 
@@ -56,7 +70,7 @@ class ChatApp extends React.Component {
 
   handleOnSubmit(ev) {
     ev.preventDefault()
-    this.socket.emit('send message', {message: this.state.input, user1Id: '59f8a9eda39c0220b7284e3d', user2Id: '59f8a6794ee3f60d1778ae59'})
+    this.socket.emit('send message', {message: this.state.input, user1Id: this.props.currentUser._id, user2Id: this.props.params.id})
     var messages = this.state.messages
     messages.push({text: this.state.input, reply: false})
     this.setState({messages: messages})
@@ -65,7 +79,7 @@ class ChatApp extends React.Component {
 
   render() {
     return (
-      <div className="chat-container box">
+      <div className="chat-container box">5a108a3436972c6567e3f1d0
         <div className="user-details">
           <div className="user-image">
             <img src="img/girl1.jpg" alt="avatar"/>
@@ -75,10 +89,13 @@ class ChatApp extends React.Component {
           </div>
         </div>
         <div className="chat-messages">
-          {this.state.messages.map((message, i) => {
-            return (<Message key={i} reply={message.reply} text={message.text}/>)
-          })
-}
+          {
+            this.state.messages.map((message, i) => {
+              return (
+                <Message key={i} reply={message.reply} text={message.text} />
+              )
+            })
+          }
         </div>
         <div className="sendmessage">
           <input type="text" placeholder="Send message..." onChange={this.handleOnChange} value={this.state.input}/>
@@ -89,4 +106,4 @@ class ChatApp extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(ChatApp)
+export default connect(mapStateToProps, mapDispatchToProps)(ChatApp)
