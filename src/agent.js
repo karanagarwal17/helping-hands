@@ -69,7 +69,9 @@ const Event = {
 
 const Chat = {
   get: () =>
-    requests.get('/chat')
+    requests.get('/chat'),
+  getMessages: (id) =>
+    requests.get(`/chat/${id}`)
 }
 
 const Search = {
