@@ -27,6 +27,7 @@ const mapDispatchToProps = dispatch => ({
 class VolunteerProfile extends React.Component {
   componentWillMount(){
     this.props.onLoad(this.props.params.id)
+    console.log(this.props.profile)
   }
 
   componentWillUnmount(){
@@ -60,7 +61,7 @@ class VolunteerProfile extends React.Component {
                       <li>{this.props.profile.phone_number}</li>
                     </ul>
                     <button className="button">Following</button>
-                    <Link to={`chat/${this.props.profile._id}`}>
+                    <Link to={`chat/${this.props.profile.created_by}`}>
                       <button className="button">Chat</button>
                     </Link>
                   </div>

@@ -29,6 +29,7 @@ const mapDispatchToProps = dispatch => ({
 class NgoProfile extends React.Component {
   componentWillMount() {
     this.props.onLoad(this.props.params.id)
+    console.log(this.props.profile)
   }
 
   componentWillUnmount(){
@@ -60,11 +61,11 @@ class NgoProfile extends React.Component {
                       <li className="type-ngo">{this.props.profile.category}</li><br/>
                       <li>Head: {this.props.profile.head_name}</li>
                       <li className="email">{this.props.profile.email}</li><br/>
-                      <li>{this.props.profile.address.street_address}, {this.props.profile.address.city},{this.props.profile.address.district},{this.props.profile.address.state}</li>
-                      <li>{this.props.profile.address.landline}</li>
+                      {/* <li>{this.props.profile.address.street_address}, {this.props.profile.address.city},{this.props.profile.address.district},{this.props.profile.address.state}</li>
+                      <li>{this.props.profile.address.landline}</li> */}
                     </ul>
                     <button className="button">Follow</button>
-                    <Link to={`chat/${this.props.profile._id}`}>
+                    <Link to={`chat/${this.props.profile.created_by}`}>
                     <button className="button">Chat</button>
                   </Link>
                 </div>

@@ -54,7 +54,7 @@ class Dashboard extends React.Component {
     return (
       <div className="dashboard box">
         <div className="title">
-          Hey Volunteer!
+          Hey {this.props.currentUser.username}
         </div>
         <div className="tabs">
           <ul>

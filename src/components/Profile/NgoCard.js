@@ -16,7 +16,6 @@ class NgoCard extends React.Component {
                 <div className="col span-1-of-2 ngotype">{this.props.data.category}</div>
               </li><br/>
               <li className="email">{this.props.data.email}</li><br/>
-              <li>{this.props.data.address.street_address},{this.props.data.address.city},{this.props.data.address.district}</li>
             </ul>
           </div>
           <div className="col span-1-of-7 ButtonContainer">
