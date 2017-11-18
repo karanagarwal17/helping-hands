@@ -63,11 +63,13 @@ router.post("/register", function(req, res, next) {
       if (req.body.usertype === 'volunteer') {
         user.volunteer = true;
         var v=new Volunteer()
+        v.created_by = user._id;
         v.save();
         user.volunteerId=v._id;
       } else if (req.body.usertype === 'ngo') {
         user.ngo = true;
         var n=new ngo();
+        n.created_by = user._id;
         n.save();
         user.ngoId=n._id;
       } else {
