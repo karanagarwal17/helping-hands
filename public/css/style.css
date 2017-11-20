@@ -827,11 +827,6 @@ input[type=checkbox], input[type=radio] {
   border-bottom: 2px solid coral;
 }
 
-.followingContainer{
-  padding: 4px 3px;
-  border-top: 1px solid rgba(33, 83, 80, 0.19);
-}
-
 .ngoCard {
   padding: 20px;
   border-bottom: 1px solid rgba(33, 83, 80, 0.19);
@@ -1025,6 +1020,72 @@ input[type=checkbox], input[type=radio] {
 }
 
 .eventCard  .DetailsContainer ul .EventType{
+  text-transform: uppercase;
+  text-shadow: 60%;
+  color: rgb(128,128,128);
+}
+
+.donationCard {
+  padding: 20px;
+  border-bottom: 1px solid rgba(33, 83, 80, 0.19);
+}
+
+.donationCard .ImageContainer {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.donationCard .ImageContainer .hImage {
+  height: 100px;
+  width: 100px;
+}
+
+.donationCard .DetailsContainer {
+  padding-top: 5px;
+}
+
+.donationCard .DetailsContainer .detailTitle {
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: 60%;
+}
+
+.donationCard .DetailsContainer ul {
+  list-style: none;
+  text-transform: none;
+  font-size: 80%;
+  font-weight: 550;
+  font-family: sans-serif;
+}
+
+.donationCard .DetailsContainer ul .email {
+  color: rgb(60, 141, 167);
+}
+
+.donationCard .ButtonContainer {
+  margin-left: 100px;
+}
+
+.donationCard .ButtonContainer button{
+  background-color: coral; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.donationCard .ButtonContainer button:hover,button:active{
+  background-color: rgb(190, 167, 154);
+}
+
+.donationCard .DetailsContainer ul .ngotype{
   text-transform: uppercase;
   text-shadow: 60%;
   color: rgb(128,128,128);
@@ -1281,4 +1342,8 @@ input[type=checkbox], input[type=radio] {
 
 .searchResults{
   margin-top: 60px;
+}
+
+.donations{
+  margin-top:100px;
 }
