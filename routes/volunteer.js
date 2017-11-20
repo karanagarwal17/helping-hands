@@ -42,15 +42,15 @@ router.route("/:id")
   });
 });
 
-router.route("/apply")
-.put(Verify.verifyOrdinaryUser, function(req,res,next){
-  volunteer.findOne({"_id": req.params.id}, function(err, v){
+router.route("/apply/:id")
+.post(Verify.verifyOrdinaryUser, function(req,res,next){
+  console.log(req.decoded);
+  volunteer.findOne({_id: req.decoded._doc.volunteerId}, function(err, v){
     if(err){
       console.log(err);
       res.status(401).json(err);
     } else {
-
-      v.events.push(req.body.event_id);
+      v.events.push(req.params.id);
       v.save(function(err,doc){
         if(err){
           console.log(err);
@@ -59,7 +59,7 @@ router.route("/apply")
         }
       });
     }
-  })
+  });
 });
 
 router.route("/events")
