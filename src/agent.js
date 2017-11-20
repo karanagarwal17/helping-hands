@@ -52,14 +52,24 @@ const Volunteer = {
   get: (id) =>
     requests.get(`/volunteer/${id}`),
   post: (body) =>
-    requests.post('/volunteer', body)
+    requests.post('/volunteer', body),
+  apply: (id) =>
+    requests.post(`/volunteer/apply/${id}`),
+  events: (id) =>
+    requests.get('/volunteer/events')
 }
 
 const Ngo = {
   get: (id) =>
     requests.get(`/ngo/${id}`),
   post: (body) =>
-    requests.post('/ngo', body)
+    requests.post('/ngo', body),
+  donation: (id, body) =>
+    requests.post(`/ngo/donation/${id}`,body),
+  events: (id) =>
+    requests.get(`/ngo/events/${id}`),
+  donations: () =>
+    requests.get('/ngo/donation')
 }
 
 const Event = {
