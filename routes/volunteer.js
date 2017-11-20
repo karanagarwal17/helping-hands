@@ -41,4 +41,34 @@ router.route("/:id")
     res.json(Volunteer);
   });
 });
+
+router.route("/apply")
+.put(Verify.verifyOrdinaryUser, function(req,res,next){
+  volunteer.findOne({"_id": req.params.id}, function(err, v){
+    if(err){
+      console.log(err);
+      res.status(401).json(err);
+    } else {
+
+      v.events.push(req.body.event_id);
+      v.save(function(err,doc){
+        if(err){
+          console.log(err);
+        }else{
+          res.json(doc);
+        }
+      });
+    }
+  })
+});
+
+router.route("/events")
+.get(Verify.verifyOrdinaryUser,function(req,res,next){
+  volunteer.findOne({_id:req.decoded._doc.volunteerId}).populate("events").exec(function(err,events){
+    res.status(200).json(events);
+  });
+});
+
+
+
 module.exports=router;
