@@ -1,14 +1,17 @@
 import {
   CHAT_LOADED,
-  LOAD_USER_LIST,
-  LOAD_CHAT_HISTORY
+  LOAD_CHAT_HISTORY,
+  LOAD_CHAT_USER,
+  LOAD_USER_LIST
 } from '../constants/actionTypes'
 
 export default (state={}, action) => {
   switch(action.type) {
     case CHAT_LOADED:
       return {
-        ...state
+        ...state,
+        messages: null,
+        chatUser: null
       }
     case LOAD_USER_LIST:
       return {
@@ -18,7 +21,12 @@ export default (state={}, action) => {
     case LOAD_CHAT_HISTORY:
       return {
         ...state,
-        messages: action.payload
+        message: action.payload
+      }
+    case LOAD_CHAT_USER:
+      return {
+        ...state,
+        chatUser: action.payload.user
       }
     default: return state
   }
