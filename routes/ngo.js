@@ -24,16 +24,29 @@ router.route("/")
 
 router.route("/donation")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
-  donation.findOne({"ngo_id": req.decoded._doc.ngoId},function(err,docs){
-    if(err){
-      console.log(err);
-    }else{
-      console.log(docs);
-      donation.findOne({"id":docs._id}).populate("created_by").populate("ngo_id").exec(function(err,events){
-        res.status(200).json(events);
-      });
-    }
-  });
+  if(req.decoded._doc.ngo){
+    donation.findOne({"ngo_id": req.decoded._doc.ngoId},function(err,docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+        donation.findOne({"id":docs._id}).populate("created_by").populate("ngo_id").exec(function(err,events){
+          res.status(200).json(events);
+        });
+      }
+    });
+  }else{
+    donation.findOne({"created_by": req.decoded._doc._id},function(err,docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+        donation.findOne({"id":docs._id}).populate("created_by").populate("ngo_id").exec(function(err,events){
+          res.status(200).json(events);
+        });
+      }
+    });
+  }
 });
 
 router.route("/:id")
