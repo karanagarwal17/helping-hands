@@ -57,12 +57,13 @@ router.route("/donation/:ngoid")
 });
 
 
-router.route("/donation/:id")
+router.route("/donation")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
-  donation.find({"ngo_id": req.params.id},function(err,docs){
+  donation.findOne({"ngo_id": req.decoded._doc.ngoId},function(err,docs){
     if(err){
       console.log(err);
     }else{
+
       res.json(docs);
     }
   });
@@ -71,7 +72,6 @@ router.route("/donation/:id")
 router.route("/events/:id")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
   ngo.findOne({_id:req.params.id}).populate("events").exec(function(err,events){
-    console.log(req.params.id);
     res.status(200).json(events);
   });
 });
