@@ -4,7 +4,7 @@ var Schema=mongoose.Schema;
 var donation=new Schema({
 
       type:String,
-
+      amount: String,
       phone_number:String,
 
       address:{
