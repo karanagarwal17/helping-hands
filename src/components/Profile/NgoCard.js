@@ -19,7 +19,9 @@ class NgoCard extends React.Component {
             </ul>
           </div>
           <div className="col span-1-of-7 ButtonContainer">
-            <button className="button">Unfollow</button>
+            <Link to={`chat/${this.props.data.created_by}`}>
+              <button className="button">Chat</button>
+            </Link>
           </div>
         </div>
       </Link>

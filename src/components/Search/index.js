@@ -86,15 +86,15 @@ class Search extends React.Component {
                 this.props.searchResults.map((result,key) => {
                   if(result.org_name){
                     return (
-                      <NgoCard key={key} data={result}/>
+                      <NgoCard key={key} data={result} currentUser={this.props.currentUser}/>
                     )
                   } else if(result.firstname) {
                     return(
-                      <VolunteerCard key={key} data={result}/>
+                      <VolunteerCard key={key} data={result} currentUser={this.props.currentUser}/>
                     )
                   } else {
                     return(
-                      <EventCard key={key} data={result}/>
+                      <EventCard key={key} data={result} currentUser={this.props.currentUser}/>
                     )
                   }
                 })

@@ -75,6 +75,11 @@ class Dashboard extends React.Component {
               </li>
             </Link>
             <AddEvent props={this.props}/>
+            <Link to='donations'>
+              <li className={(this.props.active === 'donations' ? 'active' : '')}>
+                Donations
+              </li>
+            </Link>
             <li className={(this.props.active === 'logout' ? 'active' : '')} onClick={this.props.onLogout}>
               Logout
             </li>

@@ -1,4 +1,29 @@
 import React from 'react'
+import Link from 'react-router'
+import { connect } from 'react-redux'
+import agent from '../../agent'
+
+import {
+  APPLY_EVENT
+} from '../../constants/actionTypes'
+
+const Apply = props => {
+  if(props.props.currentUser.volunteer){
+    return(
+      <button className="button" onClick={() => { props.props.onApply(props.props.data._id) }}>Apply</button>
+    )
+  }
+  return null
+}
+
+const mapStateToProps = state => ({
+  ...state
+})
+
+const mapDispatchToProps = dispatch => ({
+  onApply: (id) =>
+    dispatch({ type: APPLY_EVENT, payload: agent.Volunteer.apply(id) })
+})
 
 class EventCard extends React.Component {
   render() {
@@ -18,11 +43,11 @@ class EventCard extends React.Component {
           </ul>
         </div>
         <div className="col span-1-of-7 ButtonContainer">
-          <button className="button">Apply</button>
+          <Apply props={this.props}/>
         </div>
       </div>
     )
   }
 }
 
-export default EventCard
+export default connect(mapStateToProps, mapDispatchToProps)(EventCard)
