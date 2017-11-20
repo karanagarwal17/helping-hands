@@ -19,19 +19,20 @@ router.route("/")
 
 router.route("/:id")
 .get(verify.verifyOrdinaryUser, function(req, res, next){
-  Messages.find({$and: [{user1Id: req.decoded._doc._id},{user2Id: req.params.id}]}, function(err, message){
+  Messages.find({$and: [{user1: req.decoded._doc._id},{user2: req.params.id}]}, function(err, message){
     if(err){
       console.log(err);
     } else {
       if(message.length !== 0){
-        res.status(200).json(message[0].messages);
+        res.status(200).json(message[0]);
       } else {
-        Messages.find({$and: [{user1Id: req.params.id},{user2Id: req.decoded._doc._id}]}, function(err, message1){
+        Messages.find({$and: [{user1: req.params.id},{user2: req.decoded._doc._id}]}, function(err, message1){
           if(err){
             console.log(err);
           } else {
+            console.log(message1);
             if(message1.length !== 0){
-              res.status(200).json(message1[0].messages);
+              res.status(200).json(message1[0]);
             } else {
               res.status(200).json([]);
             }
