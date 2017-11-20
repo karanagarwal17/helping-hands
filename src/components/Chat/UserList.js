@@ -24,7 +24,6 @@ class UserList extends React.Component {
   }
 
   render() {
-    console.log(this.props.userList)
     if(this.props.userList){
       return (
         <div className="chat-users box">

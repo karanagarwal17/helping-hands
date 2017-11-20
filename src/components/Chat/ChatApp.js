@@ -4,7 +4,9 @@ import agent from '../../agent'
 import { connect } from 'react-redux'
 
 import {
-  LOAD_CHAT_HISTORY
+  CHAT_LOADED,
+  LOAD_CHAT_HISTORY,
+  LOAD_CHAT_USER
 } from '../../constants/actionTypes'
 
 const mapStateToProps = state => ({
@@ -15,30 +17,81 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: (id) =>
+    dispatch({ type: CHAT_LOADED }),
+  onChat: (id) => {
     dispatch({ type: LOAD_CHAT_HISTORY, payload: agent.Chat.getMessages(id) })
+    dispatch({ type: LOAD_CHAT_USER, payload: agent.User.get(id) })
+  }
 })
+
+const User = props => {
+  if(props.props.chatUser){
+    return(
+      <div className="user-details">
+        <div className="user-image">
+          <img src="img/girl1.jpg" alt="avatar"/>
+        </div>
+        <div className="about">
+          <div className="name">{props.props.chatUser.username}</div>
+        </div>
+      </div>
+    )
+  } else {
+    return(
+      <div className="user-details">
+        <div className="user-image">
+          <img src="" alt=""/>
+        </div>
+        <div className="about">
+          <div className="name"></div>
+        </div>
+      </div>
+    )
+  }
+}
 
 import Message from './Message'
 
 class ChatApp extends React.Component {
-  componentWillMount(){
-    if(this.props.params.id){
-      this.props.onLoad(this.props.params.id)
+  componentWillReceiveProps(nextProps){
+    if(nextProps.params.id && (this.state.url === null || nextProps.params.id !== this.state.url)){
+      this.props.onLoad()
+      this.setState({messages: null})
+      this.setState({url: nextProps.params.id})
+      this.props.onChat(nextProps.params.id)
     }
-  }
-
-  compoentWillRecieveProps(nextProps){
-    if(nextProps.params.id){
-      this.props.onLoad(nextProps.params.id)
+    if(this.state.url && nextProps.params.id === undefined){
+      this.props.onLoad()
+      this.setState({url: null, messages: null})
     }
-    this.setState({messages: nextProps.messages})
+    if(nextProps.message){
+      console.log(nextProps.message)
+      var oldm = nextProps.message.messages
+      var newm = []
+      var i
+      var correct
+      if(nextProps.user1 === this.props.currentUser._id){
+        correct = true
+      } else {
+        correct = false
+      }
+      for(i=0; i < oldm.length; i++){
+        if(correct){
+          newm.push({text: oldm[i].content, reply: oldm[i].reply})
+        } else {
+          newm.push({text: oldm[i].content, reply: !oldm[i].reply})
+        }
+      }
+      this.setState({messages: newm})
+    }
   }
 
   constructor(props) {
     super()
     this.state = {
       input: '',
-      messages: []
+      messages: null,
+      url: null
     }
 
     this.handleOnChange = this.handleOnChange.bind(this)
@@ -57,7 +110,6 @@ class ChatApp extends React.Component {
     })
 
     this.socket.on('receive message', (inboundMessage) => {
-      console.log("inboundMessage");
       var messages = this.state.messages
       messages.push({text: inboundMessage.message, reply: true})
       this.setState(messages : messages)
@@ -78,31 +130,38 @@ class ChatApp extends React.Component {
   }
 
   render() {
-    return (
-      <div className="chat-container box">5a108a3436972c6567e3f1d0
-        <div className="user-details">
-          <div className="user-image">
-            <img src="img/girl1.jpg" alt="avatar"/>
+    if(this.state.messages){
+      return (
+        <div className="chat-container box">
+          <User props={this.props}/>
+          <div className="chat-messages">
+            {
+              this.state.messages.map((message, i) => {
+                return (
+                  <Message key={i} reply={message.reply} text={message.text} />
+                )
+              })
+            }
           </div>
-          <div className="about">
-            <div className="name">Aiden Chavez</div>
+          <div className="sendmessage">
+            <input type="text" placeholder="Send message..." onChange={this.handleOnChange} value={this.state.input}/>
+            <button type="submit" id="send" onClick={this.handleOnSubmit}></button>
           </div>
         </div>
-        <div className="chat-messages">
-          {
-            this.state.messages.map((message, i) => {
-              return (
-                <Message key={i} reply={message.reply} text={message.text} />
-              )
-            })
-          }
+      )
+    } else {
+      return (
+        <div className="chat-container box">
+          <User props={this.props}/>
+          <div className="chat-messages">
+          </div>
+          <div className="sendmessage">
+            <input type="text" placeholder="Send message..." onChange={this.handleOnChange} value={this.state.input}/>
+            <button type="submit" id="send" onClick={this.handleOnSubmit}></button>
+          </div>
         </div>
-        <div className="sendmessage">
-          <input type="text" placeholder="Send message..." onChange={this.handleOnChange} value={this.state.input}/>
-          <button type="submit" id="send" onClick={this.handleOnSubmit}></button>
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
