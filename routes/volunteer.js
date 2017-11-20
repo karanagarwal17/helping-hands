@@ -22,6 +22,13 @@ router.route("/")
   });
 });
 
+router.route("/events")
+.get(Verify.verifyOrdinaryUser,function(req,res,next){
+  volunteer.findOne({_id:req.decoded._doc.volunteerId}).populate("events").exec(function(err,events){
+    res.status(200).json(events);
+  });
+});
+
 router.route("/:id")
 .get(Verify.verifyOrdinaryUser, function(req,res,next){
   volunteer.findOne({"_id": req.params.id}, function(err, volunteers){
@@ -59,13 +66,6 @@ router.route("/apply/:id")
         }
       });
     }
-  });
-});
-
-router.route("/events")
-.get(Verify.verifyOrdinaryUser,function(req,res,next){
-  volunteer.findOne({_id:req.decoded._doc.volunteerId}).populate("events").exec(function(err,events){
-    res.status(200).json(events);
   });
 });
 

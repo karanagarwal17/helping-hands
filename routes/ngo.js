@@ -3,7 +3,8 @@ var bodyParser=require("body-parser");
 var router = express.Router();
 var Verify=require("./verify");
 var ngo=require("../models/ngo");
-var donation=require("../models/donation")
+var donation=require("../models/donation");
+var volunteer=require("../models/volunteer");
 router.use(bodyParser.json());
 router.route("/")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
@@ -25,26 +26,12 @@ router.route("/")
 router.route("/donation")
 .get(Verify.verifyOrdinaryUser,function(req,res,next){
   if(req.decoded._doc.ngo){
-    donation.findOne({"ngo_id": req.decoded._doc.ngoId},function(err,docs){
-      if(err){
-        console.log(err);
-      }else{
-        console.log(docs);
-        donation.findOne({"id":docs._id}).populate("created_by").populate("ngo_id").exec(function(err,events){
-          res.status(200).json(events);
-        });
-      }
+    ngo.findOne({_id:req.decoded._doc.ngoId}).populate("donations").exec(function(err,events){
+      res.status(200).json(events);
     });
   }else{
-    donation.findOne({"created_by": req.decoded._doc._id},function(err,docs){
-      if(err){
-        console.log(err);
-      }else{
-        console.log(docs);
-        donation.findOne({"id":docs._id}).populate("created_by").populate("ngo_id").exec(function(err,events){
-          res.status(200).json(events);
-        });
-      }
+    volunteer.findOne({_id:req.decoded._doc.volunteerId}).populate("donations").exec(function(err,events){
+      res.status(200).json(events);
     });
   }
 });
@@ -78,6 +65,15 @@ router.route("/donation/:ngoid")
     if(err){
       console.log(err);
     }else{
+      ngo.findOne({_id:req.params.ngoid},function(err,n){
+        console.log(d);
+        n.donations.push(d._id);
+        n.save();
+      });
+      volunteer.findOne({_id:req.decoded._doc.volunteerId},function(err,v){
+        v.donations.push(d._id);
+        v.save();
+      });
       res.json({success:true});
     }
   });
