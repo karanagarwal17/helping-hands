@@ -56,6 +56,11 @@ var ngo = new Schema({
     ref:'User'
   },
 
+  donations:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"donation"
+  }],
+
   followers:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"User"

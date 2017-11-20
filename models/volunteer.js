@@ -37,6 +37,11 @@ var volunteer=new Schema({
         ref:'User'
       }],
 
+      donations:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"donation"
+      }],
+      
       events:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'event'
