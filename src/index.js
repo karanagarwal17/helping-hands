@@ -19,7 +19,7 @@ import Chat from './components/Chat'
 import Search from './components/Search'
 
 //store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("Karan","pass") });
-store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("Aman","pass") });
+//store.dispatch({ type: 'LOGIN', payload: agent.Auth.login("Aman","pass") });
 
 ReactDOM.render((
   <Provider store={store}>

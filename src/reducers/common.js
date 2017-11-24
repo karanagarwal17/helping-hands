@@ -67,7 +67,7 @@ export default(state = {}, action) => {
       if(action.payload.step === 'complete') {
         return {
           ...state,
-          redirectTo: 'profile'
+          redirectTo: 'search'
         }
       } else {
         return state

@@ -9,12 +9,12 @@ export default (state = {}, action) => {
     case EVENTS_LOAD:
       return {
         ...state,
-        events: action.payload.events
+        events: action.payload.events || []
       }
     case PROFILE_LOAD:
       return {
         ...state,
-        profile: action.payload
+        profile: action.payload || {}
       }
     case PROFILE_UNLOAD:
       return {

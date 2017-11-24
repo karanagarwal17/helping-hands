@@ -56,9 +56,9 @@ class AddEvent extends React.Component {
           <div className="col span-1-of-4">
             <Dashboard active={'addevent'}/>
           </div>
-          <div className="col span-3-of-4">
+          <div className="col span-3-of-4 box form-box">
             <form className="register-form">
-              <h1>Add events</h1>
+              <h1>Add an event</h1>
               <div className="field">
                 <input className="input" type="text" value={this.state.name} onChange={this.updateState('name')}/>
                 <span className="underline"></span>
@@ -102,7 +102,7 @@ class AddEvent extends React.Component {
     } else {
       return(
         <div>
-          Error
+          Loading...
         </div>
       )
     }

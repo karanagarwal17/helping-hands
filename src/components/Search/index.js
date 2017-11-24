@@ -106,7 +106,7 @@ class Search extends React.Component {
     } else {
       return (
         <div>
-          Error
+          Loading...
         </div>
       )
     }
