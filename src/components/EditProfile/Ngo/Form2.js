@@ -55,13 +55,13 @@ class Form2 extends React.Component {
   componentWillMount() {
     if (this.props.currentUser) {
       this.setState(Object.assign({}, this.state, {
-        street_address: this.props.currentUser.ngoId.address.street_address,
-        landmark: this.props.currentUser.ngoId.address.landmark,
-        city: this.props.currentUser.ngoId.address.city,
-        district: this.props.currentUser.ngoId.address.district,
-        state: this.props.currentUser.ngoId.address.state,
-        pincode: this.props.currentUser.ngoId.address.pincode,
-        landline: this.props.currentUser.ngoId.address.landline
+        street_address: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.street_address : '',
+        landmark: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.landmark : '',
+        city: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.city : '',
+        district: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.district : '',
+        state: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.state : '',
+        pincode: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.pincode : '',
+        landline: (this.props.currentUser.ngoId.address) ? this.props.currentUser.ngoId.address.landline : ''
       }))
     }
   }
@@ -69,20 +69,20 @@ class Form2 extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser) {
       this.setState(Object.assign({}, this.state, {
-        street_address: nextProps.currentUser.ngoId.address.street_address,
-        landmark: nextProps.currentUser.ngoId.address.landmark,
-        city: nextProps.currentUser.ngoId.address.city,
-        district: nextProps.currentUser.ngoId.address.district,
-        state: nextProps.currentUser.ngoId.address.state,
-        pincode: nextProps.currentUser.ngoId.address.pincode,
-        landline: nextProps.currentUser.ngoId.address.landline
+        street_address: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.street_address : '',
+        landmark: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.landmark : '',
+        city: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.city : '',
+        district: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.district : '',
+        state: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.state : '',
+        pincode: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.pincode : '',
+        landline: (nextProps.currentUser.ngoId.address) ? nextProps.currentUser.ngoId.address.landline : ''
       }))
     }
   }
 
   render() {
     return (
-      <div className="row">
+      <div className="row box">
         <form className="register-form">
           <div className="field">
             <input className="input" type="text" value={this.state.street_address} onChange={this.updateState('street_address')}/>

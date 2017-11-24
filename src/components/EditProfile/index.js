@@ -55,7 +55,7 @@ class EditProfile extends React.Component {
     }
     return (
       <div>
-        Error
+        Loading...
       </div>
     )
   }

@@ -3,7 +3,7 @@ import React from 'react'
 class Progress extends React.Component {
   render() {
     return (
-      <div className="row">
+      <div className="row box register-progress">
         <ul className="register-progress-bar">
           <li className="completed">
             <span className="bubble"></span>

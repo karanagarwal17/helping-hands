@@ -46,7 +46,7 @@ class Ngo extends React.Component {
       default:
         return (
           <div>
-            Error
+            Loading...
           </div>
         )
     }

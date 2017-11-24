@@ -51,12 +51,12 @@ class Form3 extends React.Component {
   componentWillMount() {
   if (this.props.currentUser) {
     this.setState(Object.assign({}, this.state, {
-      account_holder: this.props.currentUser.ngoId.bank_details.account_holder,
-      account_no: this.props.currentUser.ngoId.bank_details.account_no,
-      bank_name: this.props.currentUser.ngoId.bank_details.bank_name,
-      branch_name: this.props.currentUser.ngoId.bank_details.branch_name,
-      branch_city: this.props.currentUser.ngoId.bank_details.branch_city,
-      ifsc_code: this.props.currentUser.ngoId.bank_details.ifsc_code
+      account_holder: (this.props.currentUser.ngoId.bank_details) ? this.props.currentUser.ngoId.bank_details.account_holder : '',
+      account_no: (this.props.currentUser.ngoId.bank_details) ? this.props.currentUser.ngoId.bank_details.account_no : '',
+      bank_name: (this.props.currentUser.ngoId.bank_details) ? this.props.currentUser.ngoId.bank_details.bank_name : '',
+      branch_name: (this.props.currentUser.ngoId.bank_details) ? this.props.currentUser.ngoId.bank_details.branch_name : '',
+      branch_city: (this.props.currentUser.ngoId.bank_details) ? this.props.currentUser.ngoId.bank_details.branch_city : '',
+      ifsc_code: (this.props.currentUser.ngoId.bank_details) ? this.props.currentUser.ngoId.bank_details.ifsc_code : ''
     }))
   }
 }
@@ -64,19 +64,19 @@ class Form3 extends React.Component {
 componentWillReceiveProps(nextProps) {
   if (nextProps.currentUser) {
     this.setState(Object.assign({}, this.state, {
-      account_holder: nextProps.currentUser.ngoId.bank_details.account_holder,
-      account_no: nextProps.currentUser.ngoId.bank_details.account_no,
-      bank_name: nextProps.currentUser.ngoId.bank_details.bank_name,
-      branch_name: nextProps.currentUser.ngoId.bank_details.branch_name,
-      branch_city: nextProps.currentUser.ngoId.bank_details.branch_city,
-      ifsc_code: nextProps.currentUser.ngoId.bank_details.ifsc_code
+      account_holder: (nextProps.currentUser.ngoId.bank_details) ? nextProps.currentUser.ngoId.bank_details.account_holder : '',
+      account_no: (nextProps.currentUser.ngoId.bank_details) ? nextProps.currentUser.ngoId.bank_details.account_no : '',
+      bank_name: (nextProps.currentUser.ngoId.bank_details) ? nextProps.currentUser.ngoId.bank_details.bank_name : '',
+      branch_name: (nextProps.currentUser.ngoId.bank_details) ? nextProps.currentUser.ngoId.bank_details.branch_name : '',
+      branch_city: (nextProps.currentUser.ngoId.bank_details) ? nextProps.currentUser.ngoId.bank_details.branch_city : '',
+      ifsc_code: (nextProps.currentUser.ngoId.bank_details) ? nextProps.currentUser.ngoId.bank_details.ifsc_code : ''
     }))
   }
 }
 
   render(){
     return(
-      <div className="row">
+      <div className="row box">
           <form className="register-form">
             <div className="field">
               <input className="input" type="text" value={this.state.account_holder} onChange={this.updateState('account_holder')}/>

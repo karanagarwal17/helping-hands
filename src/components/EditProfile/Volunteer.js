@@ -75,7 +75,7 @@ class Volunteer extends React.Component {
 
   render() {
     return (
-      <div className="row volunteer-form">
+      <div className="row volunteer-form box">
         <div className="form-title">
           <h2>We'd like to know more about you!</h2>
         </div>

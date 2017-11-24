@@ -50,10 +50,10 @@ class Form4 extends React.Component {
   componentWillMount() {
     if (this.props.currentUser) {
       this.setState(Object.assign({}, this.state, {
-        registration_number: this.props.currentUser.ngoId.registration_details.registration_number,
-        identity_proof: this.props.currentUser.ngoId.registration_details.identity_proof,
-        valid_from: this.props.currentUser.ngoId.registration_details.valid_from,
-        valid_to: this.props.currentUser.ngoId.registration_details.valid_to
+        registration_number: (this.props.currentUser.ngoId.registration_details) ? this.props.currentUser.ngoId.registration_details.registration_number : '',
+        identity_proof: (this.props.currentUser.ngoId.registration_details) ? this.props.currentUser.ngoId.registration_details.identity_proof : '',
+        valid_from: (this.props.currentUser.ngoId.registration_details) ? this.props.currentUser.ngoId.registration_details.valid_from : '',
+        valid_to: (this.props.currentUser.ngoId.registration_details) ? this.props.currentUser.ngoId.registration_details.valid_to : ''
       }))
     }
   }
@@ -61,17 +61,17 @@ class Form4 extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser) {
       this.setState(Object.assign({}, this.state, {
-        registration_number: nextProps.currentUser.ngoId.registration_details.registration_number,
-        identity_proof: nextProps.currentUser.ngoId.registration_details.identity_proof,
-        valid_from: nextProps.currentUser.ngoId.registration_details.valid_from,
-        valid_to: nextProps.currentUser.ngoId.registration_details.valid_to
+        registration_number: (nextProps.currentUser.ngoId.registration_details) ? nextProps.currentUser.ngoId.registration_details.registration_number : '',
+        identity_proof: (nextProps.currentUser.ngoId.registration_details) ? nextProps.currentUser.ngoId.registration_details.identity_proof : '',
+        valid_from: (nextProps.currentUser.ngoId.registration_details) ? nextProps.currentUser.ngoId.registration_details.valid_from : '',
+        valid_to: (nextProps.currentUser.ngoId.registration_details) ? nextProps.currentUser.ngoId.registration_details.valid_to : ''
       }))
     }
   }
 
   render() {
     return (
-      <div className="row">
+      <div className="row box">
         <form className="register-form">
           <div className="field">
             <input className="input" type="text" value={this.state.registration_number} onChange={this.updateState('registration_number')}/>

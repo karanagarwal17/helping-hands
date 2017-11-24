@@ -75,7 +75,7 @@ class Form1 extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="row box">
         <form className="register-form">
           <div className="field">
             <input className="input" type="text" value={this.state.org_name} onChange={this.updateState('org_name')}/>
