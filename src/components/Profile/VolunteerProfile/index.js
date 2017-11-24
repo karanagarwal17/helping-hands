@@ -32,7 +32,6 @@ const mapDispatchToProps = dispatch => ({
 class VolunteerProfile extends React.Component {
   componentWillMount(){
     this.props.onLoad(this.props.params.id)
-    console.log(this.props.profile)
   }
 
   componentWillUnmount(){
@@ -52,7 +51,7 @@ class VolunteerProfile extends React.Component {
               <div className="row">
                 <div className="col span-1-of-3">
                   <div className="imageContainer">
-                    <img src="img/girl1.jpg" alt="Profile icon" className="profileImage"/>
+                    <img src="img/user.png" alt="Profile icon" className="profileImage"/>
                   </div>
                 </div>
                 <div className="col span-2-of-3">

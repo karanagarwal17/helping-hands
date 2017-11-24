@@ -53,7 +53,7 @@ class NgoProfile extends React.Component {
               <div className="row">
                 <div className="col span-1-of-3">
                   <div className="imageContainer">
-                    <img src="img/background.jpg" alt="Profile icon" className="profileImage"/>
+                    <img src="img/ngo.png" alt="Profile icon" className="profileImage"/>
                   </div>
                 </div>
                 <div className="col span-2-of-3">
@@ -66,8 +66,8 @@ class NgoProfile extends React.Component {
                         <li className="type-ngo">{this.props.profile.category}</li><br/>
                         <li>Head: {this.props.profile.head_name}</li>
                         <li className="email">{this.props.profile.email}</li><br/>
-                        {/* <li>{this.props.profile.address.street_address}, {this.props.profile.address.city},{this.props.profile.address.district},{this.props.profile.address.state}</li>
-                        <li>{this.props.profile.address.landline}</li> */}
+                        <li>{(this.props.profile.address) ? this.props.profile.address.street_address : ''},{(this.props.profile.address) ? this.props.profile.address.city : ''},{(this.props.profile.address) ? this.props.profile.address.district : ''},{(this.props.profile.address) ? this.props.profile.address.state : ''}</li>
+                        <li>{(this.props.profile.address) ? this.props.profile.address.landline : ''}</li>
                       </ul>
                       <Link to={`chat/${this.props.profile.created_by}`}>
                         <button className="button">Chat</button>

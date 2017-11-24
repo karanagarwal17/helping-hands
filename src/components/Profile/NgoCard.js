@@ -7,7 +7,7 @@ class NgoCard extends React.Component {
       <Link to={`profile/ngo/${this.props.data._id}`}>
         <div className="row ngoCard">
           <div className="col span-2-of-7 ImageContainer">
-            <img src="img/ngo2.jpeg" alt="Profile icon" className="hImage"/>
+            <img src="img/ngo.png" alt="Profile icon" className="hImage"/>
           </div>
           <div className="col span-4-of-7 DetailsContainer">
             <ul>

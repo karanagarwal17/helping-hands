@@ -7,7 +7,7 @@ class VolunteerCard extends React.Component {
       <Link to={`profile/volunteer/${this.props.data._id}`}>
         <div className="row volunteerCard">
           <div className="col span-2-of-7 ImageContainer">
-            <img src="img/ngo2.jpeg" alt="Profile icon" className="hImage"/>
+            <img src="img/user.png" alt="Profile icon" className="hImage"/>
           </div>
           <div className="col span-4-of-7 DetailsContainer">
             <ul>
@@ -17,9 +17,6 @@ class VolunteerCard extends React.Component {
               </li><br/>
               <li className="email">{this.props.data.email}</li><br/>
             </ul>
-          </div>
-          <div className="col span-1-of-7 ButtonContainer">
-            <button className="button">Unfollow</button>
           </div>
         </div>
       </Link>

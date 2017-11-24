@@ -5,7 +5,7 @@ class DonationCard extends React.Component {
     return (
       <div className="row donationCard">
         <div className="col span-2-of-7 ImageContainer">
-          <img src="img/ngo2.jpeg" alt="Profile icon" className="hImage"/>
+          <img src="img/donate.png" alt="Profile icon" className="hImage"/>
         </div>
         <div className="col span-4-of-7 DetailsContainer">
           <ul>
