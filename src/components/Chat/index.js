@@ -34,7 +34,7 @@ class Chat extends React.Component {
               <Dashboard active={'chat'}/>
             </div>
             <div className="col span-1-of-4">
-              <UserList />
+              <UserList params={this.props.params}/>
             </div>
             <div className="col span-2-of-4">
               <ChatApp currentUser={this.props.currentUser} params={this.props.params}/>
@@ -45,7 +45,7 @@ class Chat extends React.Component {
     } else {
       return(
         <div>
-          Error
+          Loading...
         </div>
       )
     }

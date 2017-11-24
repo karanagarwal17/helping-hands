@@ -5,10 +5,10 @@ class User extends React.Component {
   render() {
     return (
       <Link to={`chat/${this.props.data._id}`}>
-        <li className="user">
+        <li className={(this.props.active) ? "user active" : "user"}>
           <div>
             <div className="user-image">
-              <img src="img/girl1.jpg" alt="avatar"/>
+              <img src="img/user.png" alt="avatar"/>
             </div>
             <div className="about">
               <div className="name">{this.props.data.username}</div>

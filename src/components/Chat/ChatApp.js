@@ -29,7 +29,7 @@ const User = props => {
     return(
       <div className="user-details">
         <div className="user-image">
-          <img src="img/girl1.jpg" alt="avatar"/>
+          <img src="img/user.png" alt="avatar"/>
         </div>
         <div className="about">
           <div className="name">{props.props.chatUser.username}</div>
@@ -65,12 +65,11 @@ class ChatApp extends React.Component {
       this.setState({url: null, messages: null})
     }
     if(nextProps.message){
-      console.log(nextProps.message)
       var oldm = nextProps.message.messages
       var newm = []
       var i
       var correct
-      if(nextProps.user1 === this.props.currentUser._id){
+      if(nextProps.message.user1 === this.props.currentUser._id){
         correct = true
       } else {
         correct = false
@@ -101,6 +100,7 @@ class ChatApp extends React.Component {
 
   componentDidMount() {
     this.socket = openSocket('http://localhost:3000')
+    //this.socket = openSocket('https://helping-hands.au-syd.mybluemix.net')
     this._handleMessageEvent()
   }
 

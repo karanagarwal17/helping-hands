@@ -35,7 +35,7 @@ class UserList extends React.Component {
               {
                 this.props.userList.map((user, key) => {
                   return(
-                    <User data={user} key={key} />
+                    <User data={user} key={key} active={(this.props.params.id === user._id) ? true : false }/>
                   )
                 })
               }
