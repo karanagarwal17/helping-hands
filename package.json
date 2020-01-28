@@ -60,7 +60,7 @@
     "socket.io": "^2.0.4",
     "socket.io-client": "^2.0.3",
     "static-favicon": "~1.0.0",
-    "superagent": "^2.3.0",
+    "superagent": "^5.2.1",
     "superagent-promise": "^1.1.0",
     "verify": "^0.1.2"
   }
