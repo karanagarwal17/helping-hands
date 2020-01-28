@@ -1,11 +1,5 @@
 # Helping Hands
 
-
-## Live Hosts
-
-The project is hosted on https://helping-hands.au-syd.mybluemix.net/.
-
-
 ## Description
 
 Helping Hands provides a platform to all the social organisations who want to reach out to the public to present their work and to people who want to volunteer for a social cause.
